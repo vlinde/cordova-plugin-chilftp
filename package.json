@@ -1,0 +1,27 @@
+{
+  "name": "cordova-plugin-chilftp",
+  "version": "0.0.1",
+  "description": "Cordova Chilcat Ftp Plugin",
+  "cordova": {
+    "id": "cordova-plugin-chilftp",
+    "platforms": [
+      "android",
+      "ios"
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://git.vlinde.com/vlinde/cordova-plugin-chilftp"
+  },
+  "keywords": [
+    "cordova",
+    "ftp",
+    "chilcat",
+    "chilftp",
+    "ecosystem:cordova",
+    "cordova-android",
+    "cordova-ios"
+  ],
+  "author": "Vlinde",
+  "license": "Apache 2.0"
+}
