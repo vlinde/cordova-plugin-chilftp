@@ -5,31 +5,39 @@ CkoFtp2 *ftp = nil;
 @implementation ChilFtp
 
 - (void)keySetting:(CDVInvokedUrlCommand *)command {
-    ftp = [[CkoFtp2 alloc] init];
+
     CDVPluginResult *result = nil;
+    @try {
+        ftp = [[CkoFtp2 alloc] init];
 
-    NSString *key = [[command arguments] objectAtIndex:0];
 
-    if (key == nil || [key isEqual:@"null"] || [key isEqual:@""]) {
-        key = @"Anything for 30-day trial";
+        NSString *key = [[command arguments] objectAtIndex:0];
+
+        if (key == nil || [key isEqual:@"null"] || [key isEqual:@""]) {
+            key = @"Anything for 30-day trial";
+        }
+
+        BOOL success;
+
+        //  Any string unlocks the component for the 1st 30-days.
+        success = [ftp UnlockComponent:key];
+        // success
+        if (success == YES) {
+            result = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK
+                                       messageAsString:@"true"];
+        }
+            // failure
+        else {
+            result = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR
+                                       messageAsString:@"false"];
+        }
+        [self.commandDelegate sendPluginResult:result callbackId:command.callbackId];
     }
-
-    BOOL success;
-
-    //  Any string unlocks the component for the 1st 30-days.
-    success = [ftp UnlockComponent:key];
-    // success
-    if (success == YES) {
-        result = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK
-                                   messageAsString:@"true"];
-    }
-        // failure
-    else {
+    @catch (NSException *e) {
+        NSLog(@"Exception: %@", e);
         result = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR
                                    messageAsString:@"false"];
     }
-    [self.commandDelegate sendPluginResult:result callbackId:command.callbackId];
-
 }
 
 - (void)connect:(CDVInvokedUrlCommand *)command {
@@ -83,65 +91,71 @@ CkoFtp2 *ftp = nil;
 - (void)asyncPutFile:(CDVInvokedUrlCommand *)command {
     [self.commandDelegate runInBackground:^{
         CDVPluginResult *result = nil;
+        @try {
+            NSString *localFile = [[command arguments] objectAtIndex:0];
+            NSString *remoteFile = [[command arguments] objectAtIndex:1];
 
-        NSString *localFile = [[command arguments] objectAtIndex:0];
-        NSString *remoteFile = [[command arguments] objectAtIndex:1];
+            BOOL success;
 
-        BOOL success;
+            success = [ftp AsyncPutFileStart:localFile
+                              remoteFilename:remoteFile];
 
-        success = [ftp AsyncPutFileStart:localFile
-                          remoteFilename:remoteFile];
-
-        if (success != YES) {
-            result = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR
-                                       messageAsString:@"false"];
-            [self.commandDelegate sendPluginResult:result callbackId:command.callbackId];
-        }
-
-
-        int fileSize = 0;
-        NSString *sendData = nil;
-
-        while (ftp.AsyncFinished != YES) {
-            NSLog(@"%d%@", [ftp.AsyncBytesSent intValue], @"bytes send");
-            NSLog(@"%d%@", [ftp.UploadTransferRate intValue], @"bytes send");
-            NSLog(@"%d%@", fileSize, @" - fileSize");
-            sendData = [NSString stringWithFormat:@"{\"sendByte\":\"%d\", \"transferRate\":\"%d\"}", [ftp.AsyncBytesSent intValue], [ftp.UploadTransferRate intValue]];
-
-            if ([ftp.AsyncBytesSent intValue] > 0 && fileSize == [ftp.AsyncBytesSent intValue]) {
-                sendData = [NSString stringWithFormat:@"{\"value\":\"%@\"}", ftp.AsyncSuccess ? @"true" : @"false"];
-
-                result = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR messageAsString:[NSString stringWithFormat:@"%@", sendData]];
+            if (success != YES) {
+                result = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR
+                                           messageAsString:@"false"];
                 [self.commandDelegate sendPluginResult:result callbackId:command.callbackId];
+            }
 
-                [ftp Disconnect];
-                return;
-            } else {
-                NSLog(@"%@%@", sendData, @" - sendData");
+
+            int fileSize = 0;
+            NSString *sendData = nil;
+
+            while (ftp.AsyncFinished != YES) {
+                NSLog(@"%d%@", [ftp.AsyncBytesSent intValue], @"bytes send");
+                NSLog(@"%d%@", [ftp.UploadTransferRate intValue], @"bytes send");
+                NSLog(@"%d%@", fileSize, @" - fileSize");
+                sendData = [NSString stringWithFormat:@"{\"sendByte\":\"%d\", \"transferRate\":\"%d\"}", [ftp.AsyncBytesSent intValue], [ftp.UploadTransferRate intValue]];
+
+                if ([ftp.AsyncBytesSent intValue] > 0 && fileSize == [ftp.AsyncBytesSent intValue]) {
+                    sendData = [NSString stringWithFormat:@"{\"value\":\"%@\"}", ftp.AsyncSuccess ? @"true" : @"false"];
+
+                    result = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR messageAsString:[NSString stringWithFormat:@"%@", sendData]];
+                    [self.commandDelegate sendPluginResult:result callbackId:command.callbackId];
+
+                    [ftp Disconnect];
+                    return;
+                } else {
+                    NSLog(@"%@%@", sendData, @" - sendData");
+                    result = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:[NSString stringWithFormat:@"%@", sendData]];
+                    [result setKeepCallback:[NSNumber numberWithBool:YES]];
+                    [self.commandDelegate sendPluginResult:result callbackId:command.callbackId];
+
+                    fileSize = [ftp.AsyncBytesSent intValue];
+
+                    [ftp SleepMs:[NSNumber numberWithInt:1000]];
+                }
+            }
+            if (ftp.AsyncSuccess == YES) {
+                sendData = [NSString stringWithFormat:@"{\"value\":\"%@\"}", ftp.AsyncSuccess ? @"true" : @"false"];
                 result = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:[NSString stringWithFormat:@"%@", sendData]];
                 [result setKeepCallback:[NSNumber numberWithBool:YES]];
                 [self.commandDelegate sendPluginResult:result callbackId:command.callbackId];
 
-                fileSize = [ftp.AsyncBytesSent intValue];
+                NSLog(@"%@", @"File Uploaded");
+            } else {
+                sendData = [NSString stringWithFormat:@"{\"value\":\"%@\"}", ftp.AsyncSuccess ? @"true" : @"false"];
 
-                [ftp SleepMs:[NSNumber numberWithInt:1000]];
+                result = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR messageAsString:[NSString stringWithFormat:@"%@", sendData]];
+                [result setKeepCallbackAsBool:YES];
+                [self.commandDelegate sendPluginResult:result callbackId:command.callbackId];
+
+                NSLog(@"%@", ftp.AsyncLog);
             }
         }
-        if (ftp.AsyncSuccess == YES) {
-            sendData = [NSString stringWithFormat:@"{\"value\":\"%@\"}", ftp.AsyncSuccess ? @"true" : @"false"];
-            result = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:[NSString stringWithFormat:@"%@", sendData]];
-            [result setKeepCallback:[NSNumber numberWithBool:YES]];
-            [self.commandDelegate sendPluginResult:result callbackId:command.callbackId];
-
-            NSLog(@"%@", @"File Uploaded");
-        } else {
-            sendData = [NSString stringWithFormat:@"{\"value\":\"%@\"}", ftp.AsyncSuccess ? @"true" : @"false"];
-
-            result = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR messageAsString:[NSString stringWithFormat:@"%@", sendData]];
-            [result setKeepCallbackAsBool:YES];
-            [self.commandDelegate sendPluginResult:result callbackId:command.callbackId];
-
-            NSLog(@"%@", ftp.AsyncLog);
+        @catch (NSException *e) {
+            NSLog(@"Exception: %@", e);
+            result = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR
+                                       messageAsString:@"false"];
         }
     }];
 }
@@ -149,65 +163,71 @@ CkoFtp2 *ftp = nil;
 - (void)asyncGetFile:(CDVInvokedUrlCommand *)command {
     [self.commandDelegate runInBackground:^{
         CDVPluginResult *result = nil;
+        @try {
+            NSString *remoteFile = [[command arguments] objectAtIndex:0];
+            NSString *localFile = [[command arguments] objectAtIndex:1];
 
-        NSString *remoteFile = [[command arguments] objectAtIndex:0];
-        NSString *localFile = [[command arguments] objectAtIndex:1];
+            BOOL success;
 
-        BOOL success;
+            success = [ftp AsyncGetFileStart:remoteFile
+                               localFilename:localFile];
 
-        success = [ftp AsyncGetFileStart:remoteFile
-                           localFilename:localFile];
-
-        if (success != YES) {
-            result = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR
-                                       messageAsString:@"false"];
-            [self.commandDelegate sendPluginResult:result callbackId:command.callbackId];
-        }
-
-
-        int fileSize = 0;
-        NSString *receivedData = nil;
-
-        while (ftp.AsyncFinished != YES) {
-            NSLog(@"%d%@", [ftp.AsyncBytesReceived intValue], @"bytes received");
-            NSLog(@"%d%@", [ftp.DownloadTransferRate intValue], @"bytes received");
-            NSLog(@"%d%@", fileSize, @" - fileSize");
-            receivedData = [NSString stringWithFormat:@"{\"receivedByte\":\"%d\", \"transferRate\":\"%d\"}", [ftp.AsyncBytesReceived intValue], [ftp.DownloadTransferRate intValue]];
-
-            if ([ftp.AsyncBytesReceived intValue] > 0 && fileSize == [ftp.AsyncBytesReceived intValue]) {
-                receivedData = [NSString stringWithFormat:@"{\"value\":\"%@\"}", ftp.AsyncSuccess ? @"true" : @"false"];
-
-                result = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR messageAsString:[NSString stringWithFormat:@"%@", receivedData]];
+            if (success != YES) {
+                result = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR
+                                           messageAsString:@"false"];
                 [self.commandDelegate sendPluginResult:result callbackId:command.callbackId];
+            }
 
-                [ftp Disconnect];
-                return;
-            } else {
-                NSLog(@"%@%@", receivedData, @" - receivedData");
+
+            int fileSize = 0;
+            NSString *receivedData = nil;
+
+            while (ftp.AsyncFinished != YES) {
+                NSLog(@"%d%@", [ftp.AsyncBytesReceived intValue], @"bytes received");
+                NSLog(@"%d%@", [ftp.DownloadTransferRate intValue], @"bytes received");
+                NSLog(@"%d%@", fileSize, @" - fileSize");
+                receivedData = [NSString stringWithFormat:@"{\"receivedByte\":\"%d\", \"transferRate\":\"%d\"}", [ftp.AsyncBytesReceived intValue], [ftp.DownloadTransferRate intValue]];
+
+                if ([ftp.AsyncBytesReceived intValue] > 0 && fileSize == [ftp.AsyncBytesReceived intValue]) {
+                    receivedData = [NSString stringWithFormat:@"{\"value\":\"%@\"}", ftp.AsyncSuccess ? @"true" : @"false"];
+
+                    result = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR messageAsString:[NSString stringWithFormat:@"%@", receivedData]];
+                    [self.commandDelegate sendPluginResult:result callbackId:command.callbackId];
+
+                    [ftp Disconnect];
+                    return;
+                } else {
+                    NSLog(@"%@%@", receivedData, @" - receivedData");
+                    result = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:[NSString stringWithFormat:@"%@", receivedData]];
+                    [result setKeepCallback:[NSNumber numberWithBool:YES]];
+                    [self.commandDelegate sendPluginResult:result callbackId:command.callbackId];
+
+                    fileSize = [ftp.AsyncBytesReceived intValue];
+
+                    [ftp SleepMs:[NSNumber numberWithInt:1000]];
+                }
+            }
+            if (ftp.AsyncSuccess == YES) {
+                receivedData = [NSString stringWithFormat:@"{\"value\":\"%@\"}", ftp.AsyncSuccess ? @"true" : @"false"];
                 result = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:[NSString stringWithFormat:@"%@", receivedData]];
                 [result setKeepCallback:[NSNumber numberWithBool:YES]];
                 [self.commandDelegate sendPluginResult:result callbackId:command.callbackId];
 
-                fileSize = [ftp.AsyncBytesReceived intValue];
+                NSLog(@"%@", @"File Downloaded");
+            } else {
+                receivedData = [NSString stringWithFormat:@"{\"value\":\"%@\"}", ftp.AsyncSuccess ? @"true" : @"false"];
 
-                [ftp SleepMs:[NSNumber numberWithInt:1000]];
+                result = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR messageAsString:[NSString stringWithFormat:@"%@", receivedData]];
+                [result setKeepCallbackAsBool:YES];
+                [self.commandDelegate sendPluginResult:result callbackId:command.callbackId];
+
+                NSLog(@"%@", ftp.AsyncLog);
             }
         }
-        if (ftp.AsyncSuccess == YES) {
-            receivedData = [NSString stringWithFormat:@"{\"value\":\"%@\"}", ftp.AsyncSuccess ? @"true" : @"false"];
-            result = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:[NSString stringWithFormat:@"%@", receivedData]];
-            [result setKeepCallback:[NSNumber numberWithBool:YES]];
-            [self.commandDelegate sendPluginResult:result callbackId:command.callbackId];
-
-            NSLog(@"%@", @"File Downloaded");
-        } else {
-            receivedData = [NSString stringWithFormat:@"{\"value\":\"%@\"}", ftp.AsyncSuccess ? @"true" : @"false"];
-
-            result = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR messageAsString:[NSString stringWithFormat:@"%@", receivedData]];
-            [result setKeepCallbackAsBool:YES];
-            [self.commandDelegate sendPluginResult:result callbackId:command.callbackId];
-
-            NSLog(@"%@", ftp.AsyncLog);
+        @catch (NSException *e) {
+            NSLog(@"Exception: %@", e);
+            result = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR
+                                       messageAsString:@"false"];
         }
     }];
 }
@@ -422,15 +442,22 @@ CkoFtp2 *ftp = nil;
 - (void)getRemoteFileSize:(CDVInvokedUrlCommand *)command {
     [self.commandDelegate runInBackground:^{
         CDVPluginResult *result = nil;
-        NSString *file = [[command arguments] objectAtIndex:0];
+        @try {
+            NSString *file = [[command arguments] objectAtIndex:0];
 
-        NSNumber *fileSize = [ftp GetSizeByName:file];
-        if ([fileSize intValue] > 0) {
-            result = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:[NSString stringWithFormat:@"%d", [fileSize intValue]]];
-            [self.commandDelegate sendPluginResult:result callbackId:command.callbackId];
-        } else {
-            result = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR messageAsString:[NSString stringWithFormat:@"%@", ftp.LastErrorText]];
-            [self.commandDelegate sendPluginResult:result callbackId:command.callbackId];
+            NSNumber *fileSize = [ftp GetSizeByName:file];
+            if ([fileSize intValue] > 0) {
+                result = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:[NSString stringWithFormat:@"%d", [fileSize intValue]]];
+                [self.commandDelegate sendPluginResult:result callbackId:command.callbackId];
+            } else {
+                result = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR messageAsString:[NSString stringWithFormat:@"%@", ftp.LastErrorText]];
+                [self.commandDelegate sendPluginResult:result callbackId:command.callbackId];
+            }
+        }
+        @catch (NSException *e) {
+            NSLog(@"Exception: %@", e);
+            result = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR
+                                       messageAsString:@"Error when trying to get remote file size"];
         }
     }];
 }
@@ -438,16 +465,23 @@ CkoFtp2 *ftp = nil;
 - (void)createRemoteDir:(CDVInvokedUrlCommand *)command {
     [self.commandDelegate runInBackground:^{
         CDVPluginResult *result = nil;
-        NSString *folder = [[command arguments] objectAtIndex:0];
+        @try {
+            NSString *folder = [[command arguments] objectAtIndex:0];
 
-        BOOL created = [ftp CreateRemoteDir:folder];
+            BOOL created = [ftp CreateRemoteDir:folder];
 
-        if (created) {
-            result = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:@"true"];
-            [self.commandDelegate sendPluginResult:result callbackId:command.callbackId];
-        } else {
-            result = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR messageAsString:@"false"];
-            [self.commandDelegate sendPluginResult:result callbackId:command.callbackId];
+            if (created) {
+                result = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:@"true"];
+                [self.commandDelegate sendPluginResult:result callbackId:command.callbackId];
+            } else {
+                result = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR messageAsString:@"false"];
+                [self.commandDelegate sendPluginResult:result callbackId:command.callbackId];
+            }
+        }
+        @catch (NSException *e) {
+            NSLog(@"Exception: %@", e);
+            result = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR
+                                       messageAsString:@"Error when trying to create remote directory"];
         }
     }];
 }
@@ -455,16 +489,23 @@ CkoFtp2 *ftp = nil;
 - (void)changeRemoteDir:(CDVInvokedUrlCommand *)command {
     [self.commandDelegate runInBackground:^{
         CDVPluginResult *result = nil;
-        NSString *folder = [[command arguments] objectAtIndex:0];
+        @try {
+            NSString *folder = [[command arguments] objectAtIndex:0];
 
-        BOOL changed = [ftp ChangeRemoteDir:folder];
+            BOOL changed = [ftp ChangeRemoteDir:folder];
 
-        if (changed) {
-            result = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:@"true"];
-            [self.commandDelegate sendPluginResult:result callbackId:command.callbackId];
-        } else {
-            result = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR messageAsString:@"false"];
-            [self.commandDelegate sendPluginResult:result callbackId:command.callbackId];
+            if (changed) {
+                result = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:@"true"];
+                [self.commandDelegate sendPluginResult:result callbackId:command.callbackId];
+            } else {
+                result = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR messageAsString:@"false"];
+                [self.commandDelegate sendPluginResult:result callbackId:command.callbackId];
+            }
+        }
+        @catch (NSException *e) {
+            NSLog(@"Exception: %@", e);
+            result = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR
+                                       messageAsString:@"Error when trying to change remote directory"];
         }
     }];
 }
@@ -472,16 +513,23 @@ CkoFtp2 *ftp = nil;
 - (void)deleteRemoteFile:(CDVInvokedUrlCommand *)command {
     [self.commandDelegate runInBackground:^{
         CDVPluginResult *result = nil;
-        NSString *file = [[command arguments] objectAtIndex:0];
+        @try {
+            NSString *file = [[command arguments] objectAtIndex:0];
 
-        BOOL changed = [ftp DeleteRemoteFile:file];
+            BOOL changed = [ftp DeleteRemoteFile:file];
 
-        if (changed) {
-            result = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:@"true"];
-            [self.commandDelegate sendPluginResult:result callbackId:command.callbackId];
-        } else {
-            result = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR messageAsString:@"false"];
-            [self.commandDelegate sendPluginResult:result callbackId:command.callbackId];
+            if (changed) {
+                result = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:@"true"];
+                [self.commandDelegate sendPluginResult:result callbackId:command.callbackId];
+            } else {
+                result = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR messageAsString:@"false"];
+                [self.commandDelegate sendPluginResult:result callbackId:command.callbackId];
+            }
+        }
+        @catch (NSException *e) {
+            NSLog(@"Exception: %@", e);
+            result = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR
+                                       messageAsString:@"Error when trying to delete remote directory"];
         }
     }];
 }
@@ -501,14 +549,22 @@ CkoFtp2 *ftp = nil;
 - (void)disconnect:(CDVInvokedUrlCommand *)command {
     [self.commandDelegate runInBackground:^{
         CDVPluginResult *result = nil;
-        BOOL disconnected = [ftp Disconnect];
+        @try {
 
-        if (disconnected) {
-            result = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:@"true"];
-            [self.commandDelegate sendPluginResult:result callbackId:command.callbackId];
-        } else {
-            result = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR messageAsString:@"false"];
-            [self.commandDelegate sendPluginResult:result callbackId:command.callbackId];
+            BOOL disconnected = [ftp Disconnect];
+
+            if (disconnected) {
+                result = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:@"true"];
+                [self.commandDelegate sendPluginResult:result callbackId:command.callbackId];
+            } else {
+                result = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR messageAsString:@"false"];
+                [self.commandDelegate sendPluginResult:result callbackId:command.callbackId];
+            }
+        }
+        @catch (NSException *e) {
+            NSLog(@"Exception: %@", e);
+            result = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR
+                                       messageAsString:@"Error when trying to disconnect"];
         }
     }];
 }
