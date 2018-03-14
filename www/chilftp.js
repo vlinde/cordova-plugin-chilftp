@@ -56,11 +56,11 @@ ChilFtp.prototype.download = function (remote, local, successCallback, errorCall
         "download", [removePathProtocolPrefix(remote), removePathProtocolPrefix(local)]);
 };
 
-ChilFtp.prototype.rename = function (path, existingName, newName, successCallback, errorCallback) {
+ChilFtp.prototype.rename = function (path, existingName, newName, replace, successCallback, errorCallback) {
     exec(successCallback,
         errorCallback,
         "ChilFtp",
-        "rename", [removePathProtocolPrefix(path), existingName, newName]);
+        "rename", [removePathProtocolPrefix(path), existingName, newName, replace]);
 };
 
 ChilFtp.prototype.getRemoteFileSize = function (remoteFileName, successCallback, errorCallback) {

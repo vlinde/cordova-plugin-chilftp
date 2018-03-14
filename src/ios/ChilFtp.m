@@ -332,8 +332,9 @@ CkoFtp2 *ftp = nil;
             NSString *remotePath = [[command arguments] objectAtIndex:0];
             NSString *existingFileName = [[command arguments] objectAtIndex:1];
             NSString *newFileName = [[command arguments] objectAtIndex:2];
+            NSString *replaceString = [[command arguments] objectAtIndex:3];
 
-
+            BOOL replace = [replaceString isEqual:@"true"] ? YES : NO;
             if ([remotePath length] == 0 || [existingFileName length] == 0 || [newFileName length] == 0) {
                 result = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR messageAsString:@"All fields are required."];
                 [self.commandDelegate sendPluginResult:result callbackId:command.callbackId];
@@ -346,9 +347,22 @@ CkoFtp2 *ftp = nil;
                 }
 
                 BOOL success;
+                BOOL success_remove;
                 success = [ftp RenameRemoteFile:existingFileName newFilename:newFileName];
 
-                if (success != YES) {
+                if (success != YES && replace == YES) {
+                    success_remove = [ftp DeleteRemoteFile:newFileName];
+                    if(success_remove != YES){
+                        result = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR messageAsString:@"false"];
+                        [self.commandDelegate sendPluginResult:result callbackId:command.callbackId];
+                    } else {
+                        success = [ftp RenameRemoteFile:existingFileName newFilename:newFileName];
+                        if (success != YES) {
+                            result = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR messageAsString:@"false"];
+                            [self.commandDelegate sendPluginResult:result callbackId:command.callbackId];
+                        }
+                    }
+                } else if(success != YES){
                     result = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR messageAsString:@"false"];
                     [self.commandDelegate sendPluginResult:result callbackId:command.callbackId];
                 } else {

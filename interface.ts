@@ -12,7 +12,7 @@ import { Plugin, Cordova, IonicNativePlugin } from '@ionic-native/core';
 export class ChilFtp extends IonicNativePlugin {
 
     @Cordova()
-    connect(hostname: string, port: string, username: string, password: string, restartNext:boolean): Promise<any> { return; }
+    connect(hostname: string, port: number, username: string, password: string, restartNext:boolean): Promise<any> { return; }
 
     @Cordova()
     asyncPutFile(local: string, remote: string): Promise<any> { return; }
@@ -27,7 +27,7 @@ export class ChilFtp extends IonicNativePlugin {
     download(remote: string, local: string): Promise<any> { return; }
 
     @Cordova()
-    rename(path: string, existing_name: string, new_name: string): Promise<any> { return; }
+    rename(path: string, existing_name: string, new_name: string, replace?: boolean): Promise<any> { return; }
 
     @Cordova()
     ls(remote: string): Promise<any> { return; }

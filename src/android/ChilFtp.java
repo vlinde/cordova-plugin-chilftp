@@ -39,7 +39,7 @@ public class ChilFtp extends CordovaPlugin {
             } else if (action.equals("download")) {
                 download(data.getString(0), data.getString(1), callbackContext);
             } else if (action.equals("rename")) {
-                rename(data.getString(0), data.getString(1), data.getString(2), callbackContext);
+                rename(data.getString(0), data.getString(1), data.getString(2), data.getBoolean(3), callbackContext);
             } else if (action.equals("ls")) {
                 ls(data.getString(0), callbackContext);
             } else if (action.equals("getRemoteFileSize")) {
@@ -223,7 +223,6 @@ public class ChilFtp extends CordovaPlugin {
     public void upload(String localFile, String remoteFile, final CallbackContext callbackContext) {
         boolean success;
 
-
         if (localFile == null || remoteFile == null) {
             callbackContext.error("Expected localFile and remoteFile.");
         } else {
@@ -337,7 +336,6 @@ public class ChilFtp extends CordovaPlugin {
             String localFilePath = localFile.substring(0, localFile.lastIndexOf('/') + 1);
             String localFileName = localFile.substring(localFile.lastIndexOf('/') + 1);
 
-
             ftp.ChangeRemoteDir(remoteFilePath);
 
             success = ftp.GetFile(remoteFileName, localFile);
@@ -356,8 +354,9 @@ public class ChilFtp extends CordovaPlugin {
         }
     }
 
-    public void rename(String remotePath, String existingFileName, String newFileName, final CallbackContext callbackContext) {
+    public void rename(String remotePath, String existingFileName, String newFileName, boolean replace, final CallbackContext callbackContext) {
         boolean success;
+        boolean success_remove;
 
         if (remotePath == null || existingFileName == null || newFileName == null) {
             callbackContext.error("All fields are required.");
@@ -366,11 +365,26 @@ public class ChilFtp extends CordovaPlugin {
             ftp.ChangeRemoteDir(remotePath);
 
             success = ftp.RenameRemoteFile(existingFileName, newFileName);
-            if (success != true) {
+            if (success != true && replace) {
+                success_remove = ftp.DeleteRemoteFile(newFileName);
+                if (success_remove != true) {
+                    callbackContext.error(ftp.lastErrorText());
+                    Log.i(TAG, ftp.lastErrorText());
+                    return;
+                } else {
+                    success = ftp.RenameRemoteFile(existingFileName, newFileName);
+                    if (success != true) {
+                        callbackContext.error(ftp.lastErrorText());
+                        Log.i(TAG, ftp.lastErrorText());
+                        return;
+                    }
+                }
+            } else if(success != true) {
                 callbackContext.error(ftp.lastErrorText());
                 Log.i(TAG, ftp.lastErrorText());
                 return;
             }
+
             try {
                 JSONObject result = new JSONObject();
                 result.put("success", success);
