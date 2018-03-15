@@ -50,7 +50,6 @@ CkoFtp2 *ftp = nil;
             NSString *user = [[command arguments] objectAtIndex:2];
             NSString *pw = [[command arguments] objectAtIndex:3];
             NSString *restartNext = [[command arguments] objectAtIndex:4];
-            NSLog(@"%@ %@ %@ %@ %@", host, port, user, pw, @" Login data for ftp!");
 
             NSNumber *timeout = [NSNumber numberWithInt:3];
 
@@ -68,8 +67,7 @@ CkoFtp2 *ftp = nil;
             if (success == YES) {
                 NSLog(@"%@", @"Connected with success to ftp!!!");
 
-
-                ftp.RestartNext = [restartNext isEqual:@"true"] ? YES : NO;
+                ftp.RestartNext = ([restartNext isEqual:@"true"] ||  [restartNext intValue] == 1) ? YES : NO;
                 result = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK
                                            messageAsString:@"true"];
             } else {
@@ -334,7 +332,8 @@ CkoFtp2 *ftp = nil;
             NSString *newFileName = [[command arguments] objectAtIndex:2];
             NSString *replaceString = [[command arguments] objectAtIndex:3];
 
-            BOOL replace = [replaceString isEqual:@"true"] ? YES : NO;
+            BOOL replace = ([replaceString isEqual:@"true"] ||  [replaceString intValue] == 1) ? YES : NO;
+
             if ([remotePath length] == 0 || [existingFileName length] == 0 || [newFileName length] == 0) {
                 result = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR messageAsString:@"All fields are required."];
                 [self.commandDelegate sendPluginResult:result callbackId:command.callbackId];
@@ -351,6 +350,7 @@ CkoFtp2 *ftp = nil;
                 success = [ftp RenameRemoteFile:existingFileName newFilename:newFileName];
 
                 if (success != YES && replace == YES) {
+                     NSLog(@"is in replace if, so is ok!");
                     success_remove = [ftp DeleteRemoteFile:newFileName];
                     if(success_remove != YES){
                         result = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR messageAsString:@"false"];
