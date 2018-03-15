@@ -365,10 +365,11 @@ CkoFtp2 *ftp = nil;
                 } else if(success != YES){
                     result = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR messageAsString:@"false"];
                     [self.commandDelegate sendPluginResult:result callbackId:command.callbackId];
-                } else {
-                    result = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:@"true"];
-                    [self.commandDelegate sendPluginResult:result callbackId:command.callbackId];
                 }
+                
+                result = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:@"true"];
+                [self.commandDelegate sendPluginResult:result callbackId:command.callbackId];
+                
             }
         }
         @catch (NSException *exception) {
