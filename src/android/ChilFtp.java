@@ -68,7 +68,7 @@ public class ChilFtp extends CordovaPlugin {
     public void keySetting(String key, CallbackContext callbackContext) {
         boolean success;
 
-        if (key != null) {
+        if (key == null) {
             //  Any string unlocks the component for the 1st 30-days.
             key = "Anything for 30-day trial";
         }
