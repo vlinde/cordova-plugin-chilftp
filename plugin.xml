@@ -39,12 +39,14 @@
         <header-file src="src/ios/include"/>
         <header-file src="src/ios/ChilFtp.h"/>
         <source-file src="src/ios/ChilFtp.m"/>
-        <source-file src="src/ios/libs/arm64/libchilkatIos-arm64.a" target-dir="libs/arm64"/>
-        <source-file src="src/ios/libs/armv6/libchilkatIos-armv6.a" target-dir="libs/armv6"/>
-        <source-file src="src/ios/libs/armv7/libchilkatIos-armv7.a" target-dir="libs/armv7"/>
-        <source-file src="src/ios/libs/armv7s/libchilkatIos-armv7s.a" target-dir="libs/armv7s"/>
-        <source-file src="src/ios/libs/i386/libchilkatIos-i386.a" target-dir="libs/i386"/>
-        <source-file src="src/ios/libs/x86_64/libchilkatIos-x86_64.a" target-dir="libs/x86_64"/>
+
+        <source-file src="src/ios/libs/arm64/libchilkatIos-arm64.a" framework="true"/>
+        <source-file src="src/ios/libs/armv6/libchilkatIos-armv6.a" framework="true"/>
+        <source-file src="src/ios/libs/armv7/libchilkatIos-armv7.a" framework="true"/>
+        <source-file src="src/ios/libs/armv7s/libchilkatIos-armv7s.a" framework="true"/>
+        <source-file src="src/ios/libs/i386/libchilkatIos-i386.a" framework="true"/>
+        <source-file src="src/ios/libs/x86_64/libchilkatIos-x86_64.a" framework="true"/>
+
         <framework src="libc++.dylib" />
         <framework src="libresolv.9.dylib" />
     </platform>
