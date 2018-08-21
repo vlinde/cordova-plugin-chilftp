@@ -58,7 +58,7 @@ CkoFtp2 *ftp = nil;
             ftp.Username = user;
             ftp.Password = pw;
             ftp.ConnectTimeout = timeout;
-            ftp.UseEpsv = true;
+            //ftp.UseEpsv = true;
 
             BOOL success;
 
