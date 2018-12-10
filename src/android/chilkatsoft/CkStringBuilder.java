@@ -215,6 +215,10 @@ public class CkStringBuilder {
     return chilkatJNI.CkStringBuilder_Replace(swigCPtr, this, value, replacement);
   }
 
+  public boolean ReplaceAfterFinal(String marker, String replacement) {
+    return chilkatJNI.CkStringBuilder_ReplaceAfterFinal(swigCPtr, this, marker, replacement);
+  }
+
   public boolean ReplaceAllBetween(String beginMark, String endMark, String replacement, boolean replaceMarks) {
     return chilkatJNI.CkStringBuilder_ReplaceAllBetween(swigCPtr, this, beginMark, endMark, replacement, replaceMarks);
   }
@@ -273,6 +277,10 @@ public class CkStringBuilder {
 
   public boolean WriteFile(String path, String charset, boolean emitBom) {
     return chilkatJNI.CkStringBuilder_WriteFile(swigCPtr, this, path, charset, emitBom);
+  }
+
+  public boolean WriteFileIfModified(String path, String charset, boolean emitBom) {
+    return chilkatJNI.CkStringBuilder_WriteFileIfModified(swigCPtr, this, path, charset, emitBom);
   }
 
 }
