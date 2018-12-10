@@ -1,11 +1,12 @@
 // Chilkat Objective-C header.
-// This is a generated header file for Chilkat version 9.5.0.49
+// This is a generated header file for Chilkat version 9.5.0.75
 
 // Generic/internal class name =  CertChain
 // Wrapped Chilkat C++ class name =  CkCertChain
 
 @class CkoCert;
 @class CkoTrustedRoots;
+@class CkoJsonObject;
 
 
 @interface CkoCertChain : NSObject {
@@ -22,21 +23,24 @@
 - (void *)CppImplObj;
 - (void)setCppImplObj: (void *)pObj;
 
-@property (nonatomic, copy) NSString *DebugLogFilePath;
+- (void)clearCppImplObj;
 
+@property (nonatomic, copy) NSString *DebugLogFilePath;
 @property (nonatomic, readonly, copy) NSString *LastErrorHtml;
 @property (nonatomic, readonly, copy) NSString *LastErrorText;
 @property (nonatomic, readonly, copy) NSString *LastErrorXml;
+@property (nonatomic) BOOL LastMethodSuccess;
 @property (nonatomic, readonly, copy) NSNumber *NumCerts;
 @property (nonatomic, readonly, copy) NSNumber *NumExpiredCerts;
 @property (nonatomic, readonly) BOOL ReachesRoot;
 @property (nonatomic) BOOL VerboseLogging;
-
 @property (nonatomic, readonly, copy) NSString *Version;
 // method: GetCert
 - (CkoCert *)GetCert: (NSNumber *)index;
 // method: IsRootTrusted
 - (BOOL)IsRootTrusted: (CkoTrustedRoots *)trustedRoots;
+// method: LoadX5C
+- (BOOL)LoadX5C: (CkoJsonObject *)jwk;
 // method: SaveLastError
 - (BOOL)SaveLastError: (NSString *)path;
 // method: VerifyCertSignatures

@@ -1,11 +1,12 @@
 // Chilkat Objective-C header.
-// This is a generated header file for Chilkat version 9.5.0.49
+// This is a generated header file for Chilkat version 9.5.0.75
 
 // Generic/internal class name =  Rsa
 // Wrapped Chilkat C++ class name =  CkRsa
 
 @class CkoPrivateKey;
 @class CkoPublicKey;
+@class CkoCert;
 
 
 @interface CkoRsa : NSObject {
@@ -22,26 +23,22 @@
 - (void *)CppImplObj;
 - (void)setCppImplObj: (void *)pObj;
 
+- (void)clearCppImplObj;
+
 @property (nonatomic, copy) NSString *Charset;
-
 @property (nonatomic, copy) NSString *DebugLogFilePath;
-
 @property (nonatomic, copy) NSString *EncodingMode;
-
 @property (nonatomic, readonly, copy) NSString *LastErrorHtml;
 @property (nonatomic, readonly, copy) NSString *LastErrorText;
 @property (nonatomic, readonly, copy) NSString *LastErrorXml;
+@property (nonatomic) BOOL LastMethodSuccess;
 @property (nonatomic) BOOL LittleEndian;
-
 @property (nonatomic) BOOL NoUnpad;
-
 @property (nonatomic, readonly, copy) NSNumber *NumBits;
 @property (nonatomic, copy) NSString *OaepHash;
-
+@property (nonatomic, copy) NSString *OaepMgfHash;
 @property (nonatomic) BOOL OaepPadding;
-
 @property (nonatomic) BOOL VerboseLogging;
-
 @property (nonatomic, readonly, copy) NSString *Version;
 // method: DecryptBytes
 - (NSData *)DecryptBytes: (NSData *)bData 
@@ -103,6 +100,9 @@
 - (NSString *)OpenSslVerifyStringENC: (NSString *)str;
 // method: SaveLastError
 - (BOOL)SaveLastError: (NSString *)path;
+// method: SetX509Cert
+- (BOOL)SetX509Cert: (CkoCert *)cert 
+	usePrivateKey: (BOOL)usePrivateKey;
 // method: SignBytes
 - (NSData *)SignBytes: (NSData *)bData 
 	hashAlg: (NSString *)hashAlg;

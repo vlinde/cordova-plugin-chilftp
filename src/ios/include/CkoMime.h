@@ -1,5 +1,5 @@
 // Chilkat Objective-C header.
-// This is a generated header file for Chilkat version 9.5.0.49
+// This is a generated header file for Chilkat version 9.5.0.75
 
 // Generic/internal class name =  Mime
 // Wrapped Chilkat C++ class name =  CkMime
@@ -7,7 +7,10 @@
 @class CkoCert;
 @class CkoPrivateKey;
 @class CkoStringArray;
+@class CkoBinData;
+@class CkoStringBuilder;
 @class CkoCertChain;
+@class CkoJsonObject;
 @class CkoXmlCertVault;
 
 
@@ -25,48 +28,38 @@
 - (void *)CppImplObj;
 - (void)setCppImplObj: (void *)pObj;
 
+- (void)clearCppImplObj;
+
 @property (nonatomic, copy) NSString *Boundary;
-
 @property (nonatomic, copy) NSString *Charset;
-
 @property (nonatomic, copy) NSString *ContentType;
-
 @property (nonatomic, readonly, copy) NSString *CurrentDateTime;
 @property (nonatomic, copy) NSString *DebugLogFilePath;
-
 @property (nonatomic, copy) NSString *Disposition;
-
 @property (nonatomic, copy) NSString *Encoding;
-
 @property (nonatomic, copy) NSString *Filename;
-
 @property (nonatomic, readonly, copy) NSString *LastErrorHtml;
 @property (nonatomic, readonly, copy) NSString *LastErrorText;
 @property (nonatomic, readonly, copy) NSString *LastErrorXml;
+@property (nonatomic) BOOL LastMethodSuccess;
 @property (nonatomic, copy) NSString *Micalg;
-
 @property (nonatomic, copy) NSString *Name;
-
 @property (nonatomic, readonly, copy) NSNumber *NumEncryptCerts;
 @property (nonatomic, readonly, copy) NSNumber *NumHeaderFields;
 @property (nonatomic, readonly, copy) NSNumber *NumParts;
 @property (nonatomic, readonly, copy) NSNumber *NumSignerCerts;
+@property (nonatomic, copy) NSString *OaepHash;
+@property (nonatomic, copy) NSString *OaepMgfHash;
+@property (nonatomic) BOOL OaepPadding;
 @property (nonatomic, copy) NSString *Pkcs7CryptAlg;
-
 @property (nonatomic, copy) NSNumber *Pkcs7KeyLength;
-
 @property (nonatomic, copy) NSString *Protocol;
-
+@property (nonatomic, copy) NSString *SigningAlg;
 @property (nonatomic, copy) NSString *SigningHashAlg;
-
 @property (nonatomic) BOOL UnwrapExtras;
-
 @property (nonatomic) BOOL UseMmDescription;
-
 @property (nonatomic) BOOL UseXPkcs7;
-
 @property (nonatomic) BOOL VerboseLogging;
-
 @property (nonatomic, readonly, copy) NSString *Version;
 // method: AddContentLength
 - (void)AddContentLength;
@@ -139,6 +132,8 @@
 - (CkoStringArray *)ExtractPartsToFiles: (NSString *)dirPath;
 // method: FindIssuer
 - (CkoCert *)FindIssuer: (CkoCert *)cert;
+// method: GetBodyBd
+- (BOOL)GetBodyBd: (CkoBinData *)binDat;
 // method: GetBodyBinary
 - (NSData *)GetBodyBinary;
 // method: GetBodyDecoded
@@ -162,8 +157,12 @@
 - (NSString *)GetHeaderFieldValue: (NSNumber *)index;
 // method: GetMime
 - (NSString *)GetMime;
+// method: GetMimeBd
+- (BOOL)GetMimeBd: (CkoBinData *)bindat;
 // method: GetMimeBytes
 - (NSData *)GetMimeBytes;
+// method: GetMimeSb
+- (BOOL)GetMimeSb: (CkoStringBuilder *)sb;
 // method: GetPart
 - (CkoMime *)GetPart: (NSNumber *)index;
 // method: GetSignatureSigningTime
@@ -174,6 +173,8 @@
 - (CkoCert *)GetSignerCert: (NSNumber *)index;
 // method: GetSignerCertChain
 - (CkoCertChain *)GetSignerCertChain: (NSNumber *)index;
+// method: GetStructure
+- (NSString *)GetStructure: (NSString *)fmt;
 // method: GetXml
 - (NSString *)GetXml;
 // method: HasSignatureSigningTime
@@ -210,12 +211,18 @@
 - (BOOL)IsVideo;
 // method: IsXml
 - (BOOL)IsXml;
+// method: LastJsonData
+- (CkoJsonObject *)LastJsonData;
 // method: LoadMime
 - (BOOL)LoadMime: (NSString *)mimeText;
+// method: LoadMimeBd
+- (BOOL)LoadMimeBd: (CkoBinData *)bindat;
 // method: LoadMimeBytes
 - (BOOL)LoadMimeBytes: (NSData *)bData;
 // method: LoadMimeFile
 - (BOOL)LoadMimeFile: (NSString *)path;
+// method: LoadMimeSb
+- (BOOL)LoadMimeSb: (CkoStringBuilder *)sb;
 // method: LoadXml
 - (BOOL)LoadXml: (NSString *)xmlText;
 // method: LoadXmlFile
@@ -230,7 +237,7 @@
 - (BOOL)NewMultipartRelated;
 // method: RemoveHeaderField
 - (void)RemoveHeaderField: (NSString *)name 
-	bAllOccurances: (BOOL)bAllOccurances;
+	bAllOccurrences: (BOOL)bAllOccurrences;
 // method: RemovePart
 - (BOOL)RemovePart: (NSNumber *)index;
 // method: SaveBody

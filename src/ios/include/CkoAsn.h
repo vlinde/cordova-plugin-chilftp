@@ -1,5 +1,5 @@
 // Chilkat Objective-C header.
-// This is a generated header file for Chilkat version 9.5.0.49
+// This is a generated header file for Chilkat version 9.5.0.75
 
 // Generic/internal class name =  Asn
 // Wrapped Chilkat C++ class name =  CkAsn
@@ -20,23 +20,21 @@
 - (void *)CppImplObj;
 - (void)setCppImplObj: (void *)pObj;
 
-@property (nonatomic) BOOL BoolValue;
+- (void)clearCppImplObj;
 
+@property (nonatomic) BOOL BoolValue;
 @property (nonatomic, readonly) BOOL Constructed;
 @property (nonatomic, copy) NSString *ContentStr;
-
 @property (nonatomic, copy) NSString *DebugLogFilePath;
-
 @property (nonatomic, copy) NSNumber *IntValue;
-
 @property (nonatomic, readonly, copy) NSString *LastErrorHtml;
 @property (nonatomic, readonly, copy) NSString *LastErrorText;
 @property (nonatomic, readonly, copy) NSString *LastErrorXml;
+@property (nonatomic) BOOL LastMethodSuccess;
 @property (nonatomic, readonly, copy) NSNumber *NumSubItems;
 @property (nonatomic, readonly, copy) NSString *Tag;
 @property (nonatomic, readonly, copy) NSNumber *TagValue;
 @property (nonatomic) BOOL VerboseLogging;
-
 @property (nonatomic, readonly, copy) NSString *Version;
 // method: AppendBigInt
 - (BOOL)AppendBigInt: (NSString *)encodedBytes 

@@ -1,10 +1,11 @@
 // Chilkat Objective-C header.
-// This is a generated header file for Chilkat version 9.5.0.49
+// This is a generated header file for Chilkat version 9.5.0.75
 
 // Generic/internal class name =  Atom
 // Wrapped Chilkat C++ class name =  CkAtom
 
 @class CkoDateTime;
+@class CkoTask;
 
 
 @class CkoBaseProgress;
@@ -24,17 +25,19 @@
 - (void *)CppImplObj;
 - (void)setCppImplObj: (void *)pObj;
 
+- (void)clearCppImplObj;
+
 // property setter: EventCallbackObject
 - (void)setEventCallbackObject: (CkoBaseProgress *)eventObj;
 
+@property (nonatomic, readonly) BOOL AbortCurrent;
 @property (nonatomic, copy) NSString *DebugLogFilePath;
-
 @property (nonatomic, readonly, copy) NSString *LastErrorHtml;
 @property (nonatomic, readonly, copy) NSString *LastErrorText;
 @property (nonatomic, readonly, copy) NSString *LastErrorXml;
+@property (nonatomic) BOOL LastMethodSuccess;
 @property (nonatomic, readonly, copy) NSNumber *NumEntries;
 @property (nonatomic) BOOL VerboseLogging;
-
 @property (nonatomic, readonly, copy) NSString *Version;
 // method: AddElement
 - (NSNumber *)AddElement: (NSString *)tag 
@@ -81,6 +84,8 @@
 	index: (NSNumber *)index;
 // method: DownloadAtom
 - (BOOL)DownloadAtom: (NSString *)url;
+// method: DownloadAtomAsync
+- (CkoTask *)DownloadAtomAsync: (NSString *)url;
 // method: GetElement
 - (NSString *)GetElement: (NSString *)tag 
 	index: (NSNumber *)index;

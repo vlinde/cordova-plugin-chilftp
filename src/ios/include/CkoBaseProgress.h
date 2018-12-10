@@ -3,6 +3,8 @@
 
 #import "CkoProgress.h"
 
+@class CkoTask;
+
 @interface CkoBaseProgress : CkoProgress {
 
 }
@@ -16,6 +18,9 @@
 	abort: (BOOL *)abort;
 - (void)ProgressInfo: (NSString *)name
 	value: (NSString *)value;
+- (void)TaskCompleted: (CkoTask *)task;
+- (void)TextData: (NSString *)data;
+- (void)BinaryData: (NSData *)data;
 
 
 @end

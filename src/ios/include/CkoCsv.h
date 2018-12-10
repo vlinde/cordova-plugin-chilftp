@@ -1,5 +1,5 @@
 // Chilkat Objective-C header.
-// This is a generated header file for Chilkat version 9.5.0.49
+// This is a generated header file for Chilkat version 9.5.0.75
 
 // Generic/internal class name =  Csv
 // Wrapped Chilkat C++ class name =  CkCsv
@@ -20,25 +20,22 @@
 - (void *)CppImplObj;
 - (void)setCppImplObj: (void *)pObj;
 
+- (void)clearCppImplObj;
+
 @property (nonatomic) BOOL AutoTrim;
-
 @property (nonatomic) BOOL Crlf;
-
 @property (nonatomic, copy) NSString *DebugLogFilePath;
-
 @property (nonatomic, copy) NSString *Delimiter;
-
+@property (nonatomic) BOOL EnableQuotes;
 @property (nonatomic) BOOL EscapeBackslash;
-
 @property (nonatomic) BOOL HasColumnNames;
-
 @property (nonatomic, readonly, copy) NSString *LastErrorHtml;
 @property (nonatomic, readonly, copy) NSString *LastErrorText;
 @property (nonatomic, readonly, copy) NSString *LastErrorXml;
+@property (nonatomic) BOOL LastMethodSuccess;
 @property (nonatomic, readonly, copy) NSNumber *NumColumns;
 @property (nonatomic, readonly, copy) NSNumber *NumRows;
 @property (nonatomic) BOOL VerboseLogging;
-
 @property (nonatomic, readonly, copy) NSString *Version;
 // method: DeleteColumn
 - (BOOL)DeleteColumn: (NSNumber *)index;

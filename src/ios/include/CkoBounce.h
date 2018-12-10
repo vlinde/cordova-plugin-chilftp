@@ -1,5 +1,5 @@
 // Chilkat Objective-C header.
-// This is a generated header file for Chilkat version 9.5.0.49
+// This is a generated header file for Chilkat version 9.5.0.75
 
 // Generic/internal class name =  Bounce
 // Wrapped Chilkat C++ class name =  CkBounce
@@ -21,16 +21,17 @@
 - (void *)CppImplObj;
 - (void)setCppImplObj: (void *)pObj;
 
+- (void)clearCppImplObj;
+
 @property (nonatomic, readonly, copy) NSString *BounceAddress;
 @property (nonatomic, readonly, copy) NSString *BounceData;
 @property (nonatomic, readonly, copy) NSNumber *BounceType;
 @property (nonatomic, copy) NSString *DebugLogFilePath;
-
 @property (nonatomic, readonly, copy) NSString *LastErrorHtml;
 @property (nonatomic, readonly, copy) NSString *LastErrorText;
 @property (nonatomic, readonly, copy) NSString *LastErrorXml;
+@property (nonatomic) BOOL LastMethodSuccess;
 @property (nonatomic) BOOL VerboseLogging;
-
 @property (nonatomic, readonly, copy) NSString *Version;
 // method: ExamineEmail
 - (BOOL)ExamineEmail: (CkoEmail *)email;

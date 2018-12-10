@@ -1,9 +1,10 @@
 // Chilkat Objective-C header.
-// This is a generated header file for Chilkat version 9.5.0.49
+// This is a generated header file for Chilkat version 9.5.0.75
 
 // Generic/internal class name =  FileAccess
 // Wrapped Chilkat C++ class name =  CkFileAccess
 
+@class CkoBinData;
 @class CkoDateTime;
 
 
@@ -21,17 +22,18 @@
 - (void *)CppImplObj;
 - (void)setCppImplObj: (void *)pObj;
 
+- (void)clearCppImplObj;
+
 @property (nonatomic, readonly, copy) NSString *CurrentDir;
 @property (nonatomic, copy) NSString *DebugLogFilePath;
-
 @property (nonatomic, readonly) BOOL EndOfFile;
 @property (nonatomic, readonly, copy) NSNumber *FileOpenError;
 @property (nonatomic, readonly, copy) NSString *FileOpenErrorMsg;
 @property (nonatomic, readonly, copy) NSString *LastErrorHtml;
 @property (nonatomic, readonly, copy) NSString *LastErrorText;
 @property (nonatomic, readonly, copy) NSString *LastErrorXml;
+@property (nonatomic) BOOL LastMethodSuccess;
 @property (nonatomic) BOOL VerboseLogging;
-
 @property (nonatomic, readonly, copy) NSString *Version;
 // method: AppendAnsi
 - (BOOL)AppendAnsi: (NSString *)text;
@@ -43,13 +45,13 @@
 // method: AppendUtf8BOM
 - (BOOL)AppendUtf8BOM;
 // method: DirAutoCreate
-- (BOOL)DirAutoCreate: (NSString *)path;
+- (BOOL)DirAutoCreate: (NSString *)filePath;
 // method: DirCreate
 - (BOOL)DirCreate: (NSString *)path;
 // method: DirDelete
 - (BOOL)DirDelete: (NSString *)path;
 // method: DirEnsureExists
-- (BOOL)DirEnsureExists: (NSString *)filePath;
+- (BOOL)DirEnsureExists: (NSString *)dirPath;
 // method: FileClose
 - (void)FileClose;
 // method: FileContentsEqual
@@ -73,6 +75,9 @@
 	attr: (NSNumber *)attr;
 // method: FileRead
 - (NSData *)FileRead: (NSNumber *)numBytes;
+// method: FileReadBd
+- (BOOL)FileReadBd: (NSNumber *)maxNumBytes 
+	binData: (CkoBinData *)binData;
 // method: FileRename
 - (BOOL)FileRename: (NSString *)existingPath 
 	newPath: (NSString *)newPath;
@@ -83,6 +88,29 @@
 - (NSNumber *)FileSize: (NSString *)path;
 // method: FileWrite
 - (BOOL)FileWrite: (NSData *)data;
+// method: FileWriteBd
+- (BOOL)FileWriteBd: (CkoBinData *)binData 
+	offset: (NSNumber *)offset 
+	numBytes: (NSNumber *)numBytes;
+// method: GenBlockId
+- (NSString *)GenBlockId: (NSNumber *)index 
+	length: (NSNumber *)length 
+	encoding: (NSString *)encoding;
+// method: GetDirectoryName
+- (NSString *)GetDirectoryName: (NSString *)path;
+// method: GetExtension
+- (NSString *)GetExtension: (NSString *)path;
+// method: GetFileName
+- (NSString *)GetFileName: (NSString *)path;
+// method: GetFileNameWithoutExtension
+- (NSString *)GetFileNameWithoutExtension: (NSString *)path;
+// method: GetFileTime
+- (CkoDateTime *)GetFileTime: (NSString *)path 
+	which: (NSNumber *)which;
+// method: GetLastModified
+- (CkoDateTime *)GetLastModified: (NSString *)path;
+// method: GetNumBlocks
+- (NSNumber *)GetNumBlocks: (NSNumber *)blockSize;
 // method: GetTempFilename
 - (NSString *)GetTempFilename: (NSString *)dirName 
 	prefix: (NSString *)prefix;
@@ -97,6 +125,9 @@
 // method: ReadBinaryToEncoded
 - (NSString *)ReadBinaryToEncoded: (NSString *)path 
 	encoding: (NSString *)encoding;
+// method: ReadBlock
+- (NSData *)ReadBlock: (NSNumber *)blockIndex 
+	blockSize: (NSNumber *)blockSize;
 // method: ReadEntireFile
 - (NSData *)ReadEntireFile: (NSString *)path;
 // method: ReadEntireTextFile

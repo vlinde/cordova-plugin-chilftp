@@ -1,11 +1,12 @@
 // Chilkat Objective-C header.
-// This is a generated header file for Chilkat version 9.5.0.49
+// This is a generated header file for Chilkat version 9.5.0.75
 
 // Generic/internal class name =  EmailBundle
 // Wrapped Chilkat C++ class name =  CkEmailBundle
 
 @class CkoEmail;
 @class CkoStringArray;
+@class CkoTask;
 
 
 @interface CkoEmailBundle : NSObject {
@@ -22,14 +23,15 @@
 - (void *)CppImplObj;
 - (void)setCppImplObj: (void *)pObj;
 
-@property (nonatomic, copy) NSString *DebugLogFilePath;
+- (void)clearCppImplObj;
 
+@property (nonatomic, copy) NSString *DebugLogFilePath;
 @property (nonatomic, readonly, copy) NSString *LastErrorHtml;
 @property (nonatomic, readonly, copy) NSString *LastErrorText;
 @property (nonatomic, readonly, copy) NSString *LastErrorXml;
+@property (nonatomic) BOOL LastMethodSuccess;
 @property (nonatomic, readonly, copy) NSNumber *MessageCount;
 @property (nonatomic) BOOL VerboseLogging;
-
 @property (nonatomic, readonly, copy) NSString *Version;
 // method: AddEmail
 - (BOOL)AddEmail: (CkoEmail *)email;
@@ -42,6 +44,8 @@
 - (CkoStringArray *)GetUidls;
 // method: GetXml
 - (NSString *)GetXml;
+// method: LoadTaskResult
+- (BOOL)LoadTaskResult: (CkoTask *)task;
 // method: LoadXml
 - (BOOL)LoadXml: (NSString *)path;
 // method: LoadXmlString

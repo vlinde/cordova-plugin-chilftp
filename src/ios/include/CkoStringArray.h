@@ -1,9 +1,10 @@
 // Chilkat Objective-C header.
-// This is a generated header file for Chilkat version 9.5.0.49
+// This is a generated header file for Chilkat version 9.5.0.75
 
 // Generic/internal class name =  StringArray
 // Wrapped Chilkat C++ class name =  CkStringArray
 
+@class CkoTask;
 
 
 @interface CkoStringArray : NSObject {
@@ -20,21 +21,19 @@
 - (void *)CppImplObj;
 - (void)setCppImplObj: (void *)pObj;
 
+- (void)clearCppImplObj;
+
 @property (nonatomic, readonly, copy) NSNumber *Count;
 @property (nonatomic) BOOL Crlf;
-
 @property (nonatomic, copy) NSString *DebugLogFilePath;
-
 @property (nonatomic, readonly, copy) NSString *LastErrorHtml;
 @property (nonatomic, readonly, copy) NSString *LastErrorText;
 @property (nonatomic, readonly, copy) NSString *LastErrorXml;
+@property (nonatomic) BOOL LastMethodSuccess;
 @property (nonatomic, readonly, copy) NSNumber *Length;
 @property (nonatomic) BOOL Trim;
-
 @property (nonatomic) BOOL Unique;
-
 @property (nonatomic) BOOL VerboseLogging;
-
 @property (nonatomic, readonly, copy) NSString *Version;
 // method: Append
 - (BOOL)Append: (NSString *)str;
@@ -66,6 +65,8 @@
 	charset: (NSString *)charset;
 // method: LoadFromText
 - (void)LoadFromText: (NSString *)str;
+// method: LoadTaskResult
+- (BOOL)LoadTaskResult: (CkoTask *)task;
 // method: Pop
 - (NSString *)Pop;
 // method: Prepend
@@ -74,6 +75,9 @@
 - (void)Remove: (NSString *)str;
 // method: RemoveAt
 - (BOOL)RemoveAt: (NSNumber *)index;
+// method: ReplaceAt
+- (void)ReplaceAt: (NSNumber *)index 
+	str: (NSString *)str;
 // method: SaveLastError
 - (BOOL)SaveLastError: (NSString *)path;
 // method: SaveNthToFile

@@ -1,9 +1,11 @@
 // Chilkat Objective-C header.
-// This is a generated header file for Chilkat version 9.5.0.49
+// This is a generated header file for Chilkat version 9.5.0.75
 
 // Generic/internal class name =  HttpRequest
 // Wrapped Chilkat C++ class name =  CkHttpRequest
 
+@class CkoBinData;
+@class CkoStringBuilder;
 
 
 @interface CkoHttpRequest : NSObject {
@@ -20,31 +22,24 @@
 - (void *)CppImplObj;
 - (void)setCppImplObj: (void *)pObj;
 
+- (void)clearCppImplObj;
+
 @property (nonatomic, copy) NSString *Boundary;
-
 @property (nonatomic, copy) NSString *Charset;
-
 @property (nonatomic, copy) NSString *ContentType;
-
 @property (nonatomic, copy) NSString *DebugLogFilePath;
-
 @property (nonatomic, copy) NSString *EntireHeader;
-
 @property (nonatomic, copy) NSString *HttpVerb;
-
 @property (nonatomic, copy) NSString *HttpVersion;
-
 @property (nonatomic, readonly, copy) NSString *LastErrorHtml;
 @property (nonatomic, readonly, copy) NSString *LastErrorText;
 @property (nonatomic, readonly, copy) NSString *LastErrorXml;
+@property (nonatomic) BOOL LastMethodSuccess;
 @property (nonatomic, readonly, copy) NSNumber *NumHeaderFields;
 @property (nonatomic, readonly, copy) NSNumber *NumParams;
 @property (nonatomic, copy) NSString *Path;
-
 @property (nonatomic) BOOL SendCharset;
-
 @property (nonatomic) BOOL VerboseLogging;
-
 @property (nonatomic, readonly, copy) NSString *Version;
 // method: AddBytesForUpload
 - (BOOL)AddBytesForUpload: (NSString *)name 
@@ -65,6 +60,9 @@
 // method: AddHeader
 - (void)AddHeader: (NSString *)name 
 	value: (NSString *)value;
+// method: AddMwsSignature
+- (BOOL)AddMwsSignature: (NSString *)domain 
+	mwsSecretKey: (NSString *)mwsSecretKey;
 // method: AddParam
 - (void)AddParam: (NSString *)name 
 	value: (NSString *)value;
@@ -79,6 +77,12 @@
 	strData: (NSString *)strData 
 	charset: (NSString *)charset 
 	contentType: (NSString *)contentType;
+// method: AddSubHeader
+- (BOOL)AddSubHeader: (NSNumber *)index 
+	name: (NSString *)name 
+	value: (NSString *)value;
+// method: GenerateRequestFile
+- (BOOL)GenerateRequestFile: (NSString *)path;
 // method: GenerateRequestText
 - (NSString *)GenerateRequestText;
 // method: GetHeaderField
@@ -95,10 +99,15 @@
 - (NSString *)GetParamValue: (NSNumber *)index;
 // method: GetUrlEncodedParams
 - (NSString *)GetUrlEncodedParams;
+// method: LoadBodyFromBd
+- (BOOL)LoadBodyFromBd: (CkoBinData *)requestBody;
 // method: LoadBodyFromBytes
 - (BOOL)LoadBodyFromBytes: (NSData *)binaryData;
 // method: LoadBodyFromFile
 - (BOOL)LoadBodyFromFile: (NSString *)path;
+// method: LoadBodyFromSb
+- (BOOL)LoadBodyFromSb: (CkoStringBuilder *)requestBody 
+	charset: (NSString *)charset;
 // method: LoadBodyFromString
 - (BOOL)LoadBodyFromString: (NSString *)bodyStr 
 	charset: (NSString *)charset;
@@ -114,6 +123,10 @@
 - (void)SetFromUrl: (NSString *)url;
 // method: StreamBodyFromFile
 - (BOOL)StreamBodyFromFile: (NSString *)path;
+// method: StreamChunkFromFile
+- (BOOL)StreamChunkFromFile: (NSString *)path 
+	offset: (NSString *)offset 
+	numBytes: (NSString *)numBytes;
 // method: UseGet
 - (void)UseGet;
 // method: UseHead

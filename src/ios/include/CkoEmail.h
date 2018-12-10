@@ -1,13 +1,16 @@
 // Chilkat Objective-C header.
-// This is a generated header file for Chilkat version 9.5.0.49
+// This is a generated header file for Chilkat version 9.5.0.75
 
 // Generic/internal class name =  Email
 // Wrapped Chilkat C++ class name =  CkEmail
 
+@class CkoBinData;
 @class CkoCert;
 @class CkoStringArray;
 @class CkoDateTime;
+@class CkoStringBuilder;
 @class CkoCertChain;
+@class CkoTask;
 @class CkoPrivateKey;
 @class CkoXmlCertVault;
 
@@ -26,85 +29,70 @@
 - (void *)CppImplObj;
 - (void)setCppImplObj: (void *)pObj;
 
+- (void)clearCppImplObj;
+
 @property (nonatomic, copy) NSString *Body;
-
 @property (nonatomic, copy) NSString *BounceAddress;
-
 @property (nonatomic, copy) NSString *Charset;
-
 @property (nonatomic, copy) NSString *DebugLogFilePath;
-
 @property (nonatomic, readonly) BOOL Decrypted;
 @property (nonatomic, copy) NSDate *EmailDate;
-
 @property (nonatomic, copy) NSString *EmailDateStr;
-
 @property (nonatomic, readonly, copy) NSString *EncryptedBy;
 @property (nonatomic, copy) NSString *FileDistList;
-
 @property (nonatomic, copy) NSString *From;
-
 @property (nonatomic, copy) NSString *FromAddress;
-
 @property (nonatomic, copy) NSString *FromName;
-
 @property (nonatomic, readonly, copy) NSString *Header;
 @property (nonatomic, readonly, copy) NSString *Language;
 @property (nonatomic, readonly, copy) NSString *LastErrorHtml;
 @property (nonatomic, readonly, copy) NSString *LastErrorText;
 @property (nonatomic, readonly, copy) NSString *LastErrorXml;
+@property (nonatomic) BOOL LastMethodSuccess;
 @property (nonatomic, copy) NSDate *LocalDate;
-
 @property (nonatomic, copy) NSString *LocalDateStr;
-
 @property (nonatomic, copy) NSString *Mailer;
-
 @property (nonatomic, readonly, copy) NSNumber *NumAlternatives;
 @property (nonatomic, readonly, copy) NSNumber *NumAttachedMessages;
 @property (nonatomic, readonly, copy) NSNumber *NumAttachments;
 @property (nonatomic, readonly, copy) NSNumber *NumBcc;
 @property (nonatomic, readonly, copy) NSNumber *NumCC;
 @property (nonatomic, readonly, copy) NSNumber *NumDaysOld;
+@property (nonatomic, readonly, copy) NSNumber *NumDigests;
 @property (nonatomic, readonly, copy) NSNumber *NumHeaderFields;
 @property (nonatomic, readonly, copy) NSNumber *NumRelatedItems;
 @property (nonatomic, readonly, copy) NSNumber *NumReplacePatterns;
 @property (nonatomic, readonly, copy) NSNumber *NumReports;
 @property (nonatomic, readonly, copy) NSNumber *NumTo;
+@property (nonatomic, copy) NSString *OaepHash;
+@property (nonatomic, copy) NSString *OaepMgfHash;
+@property (nonatomic) BOOL OaepPadding;
 @property (nonatomic) BOOL OverwriteExisting;
-
 @property (nonatomic, copy) NSString *Pkcs7CryptAlg;
-
 @property (nonatomic, copy) NSNumber *Pkcs7KeyLength;
-
 @property (nonatomic, copy) NSString *PreferredCharset;
-
 @property (nonatomic) BOOL PrependHeaders;
-
 @property (nonatomic, readonly) BOOL ReceivedEncrypted;
 @property (nonatomic, readonly) BOOL ReceivedSigned;
 @property (nonatomic, copy) NSString *ReplyTo;
-
 @property (nonatomic) BOOL ReturnReceipt;
-
 @property (nonatomic) BOOL SendEncrypted;
-
-@property (nonatomic) BOOL SendSigned;
-
 @property (nonatomic, copy) NSString *Sender;
-
+@property (nonatomic) BOOL SendSigned;
 @property (nonatomic, readonly) BOOL SignaturesValid;
 @property (nonatomic, readonly, copy) NSString *SignedBy;
+@property (nonatomic, copy) NSString *SigningAlg;
 @property (nonatomic, copy) NSString *SigningHashAlg;
-
 @property (nonatomic, readonly, copy) NSNumber *Size;
 @property (nonatomic, copy) NSString *Subject;
-
 @property (nonatomic, readonly, copy) NSString *Uidl;
 @property (nonatomic) BOOL UnpackUseRelPaths;
-
 @property (nonatomic) BOOL VerboseLogging;
-
 @property (nonatomic, readonly, copy) NSString *Version;
+// method: AddAttachmentBd
+- (BOOL)AddAttachmentBd: (NSString *)filename 
+	binData: (CkoBinData *)binData 
+	contentType: (NSString *)contentType;
 // method: AddAttachmentHeader
 - (void)AddAttachmentHeader: (NSNumber *)index 
 	fieldName: (NSString *)fieldName 
@@ -137,6 +125,9 @@
 	fieldValue: (NSString *)fieldValue;
 // method: AddHtmlAlternativeBody
 - (BOOL)AddHtmlAlternativeBody: (NSString *)body;
+// method: AddiCalendarAlternativeBody
+- (BOOL)AddiCalendarAlternativeBody: (NSString *)body 
+	methodName: (NSString *)methodName;
 // method: AddMultipleBcc
 - (BOOL)AddMultipleBcc: (NSString *)commaSeparatedAddresses;
 // method: AddMultipleCC
@@ -151,6 +142,12 @@
 	password: (NSString *)password;
 // method: AddPlainTextAlternativeBody
 - (BOOL)AddPlainTextAlternativeBody: (NSString *)body;
+// method: AddRelatedBd
+- (NSString *)AddRelatedBd: (NSString *)filename 
+	binData: (CkoBinData *)binData;
+// method: AddRelatedBd2
+- (BOOL)AddRelatedBd2: (CkoBinData *)binData 
+	fileNameInHtml: (NSString *)fileNameInHtml;
 // method: AddRelatedData
 - (NSString *)AddRelatedData: (NSString *)fileName 
 	inData: (NSData *)inData;
@@ -179,9 +176,9 @@
 	str: (NSString *)str 
 	charset: (NSString *)charset;
 // method: AddRelatedString2
-- (void)AddRelatedString2: (NSString *)str 
-	charset: (NSString *)charset 
-	filenameInHtml: (NSString *)filenameInHtml;
+- (void)AddRelatedString2: (NSString *)filenameInHtml 
+	str: (NSString *)str 
+	charset: (NSString *)charset;
 // method: AddStringAttachment
 - (BOOL)AddStringAttachment: (NSString *)fileName 
 	str: (NSString *)str;
@@ -192,15 +189,14 @@
 // method: AddTo
 - (BOOL)AddTo: (NSString *)friendlyName 
 	emailAddress: (NSString *)emailAddress;
-// method: AddiCalendarAlternativeBody
-- (BOOL)AddiCalendarAlternativeBody: (NSString *)body 
-	methodName: (NSString *)methodName;
 // method: AesDecrypt
 - (BOOL)AesDecrypt: (NSString *)password;
 // method: AesEncrypt
 - (BOOL)AesEncrypt: (NSString *)password;
 // method: AppendToBody
 - (void)AppendToBody: (NSString *)str;
+// method: ApplyFixups
+- (BOOL)ApplyFixups: (NSString *)fixups;
 // method: AspUnpack
 - (BOOL)AspUnpack: (NSString *)prefix 
 	saveDir: (NSString *)saveDir 
@@ -232,6 +228,9 @@
 // method: ComputeGlobalKey
 - (NSString *)ComputeGlobalKey: (NSString *)encoding 
 	bFold: (BOOL)bFold;
+// method: ComputeGlobalKey2
+- (NSString *)ComputeGlobalKey2: (NSString *)encoding 
+	bFold: (BOOL)bFold;
 // method: CreateDsn
 - (CkoEmail *)CreateDsn: (NSString *)explanation 
 	xmlDeliveryStatus: (NSString *)xmlDeliveryStatus 
@@ -258,15 +257,18 @@
 - (CkoCert *)FindIssuer: (CkoCert *)cert;
 // method: GenerateFilename
 - (NSString *)GenerateFilename;
-// method: GetAltHeaderField
-- (NSString *)GetAltHeaderField: (NSNumber *)index 
-	fieldName: (NSString *)fieldName;
 // method: GetAlternativeBody
 - (NSString *)GetAlternativeBody: (NSNumber *)index;
+// method: GetAlternativeBodyBd
+- (BOOL)GetAlternativeBodyBd: (NSNumber *)index 
+	binData: (CkoBinData *)binData;
 // method: GetAlternativeBodyByContentType
 - (NSString *)GetAlternativeBodyByContentType: (NSString *)contentType;
 // method: GetAlternativeContentType
 - (NSString *)GetAlternativeContentType: (NSNumber *)index;
+// method: GetAltHeaderField
+- (NSString *)GetAltHeaderField: (NSNumber *)index 
+	fieldName: (NSString *)fieldName;
 // method: GetAttachedMessage
 - (CkoEmail *)GetAttachedMessage: (NSNumber *)index;
 // method: GetAttachedMessageAttr
@@ -279,6 +281,9 @@
 - (NSString *)GetAttachmentAttr: (NSNumber *)index 
 	fieldName: (NSString *)fieldName 
 	attrName: (NSString *)attrName;
+// method: GetAttachmentBd
+- (BOOL)GetAttachmentBd: (NSNumber *)index 
+	binData: (CkoBinData *)binData;
 // method: GetAttachmentContentID
 - (NSString *)GetAttachmentContentID: (NSNumber *)index;
 // method: GetAttachmentContentType
@@ -312,6 +317,8 @@
 - (NSString *)GetCcName: (NSNumber *)index;
 // method: GetDeliveryStatusInfo
 - (NSString *)GetDeliveryStatusInfo: (NSString *)fieldName;
+// method: GetDigest
+- (CkoEmail *)GetDigest: (NSNumber *)index;
 // method: GetDsnFinalRecipients
 - (CkoStringArray *)GetDsnFinalRecipients;
 // method: GetDt
@@ -343,8 +350,12 @@
 - (NSData *)GetMbPlainTextBody: (NSString *)charset;
 // method: GetMime
 - (NSString *)GetMime;
+// method: GetMimeBd
+- (BOOL)GetMimeBd: (CkoBinData *)bindat;
 // method: GetMimeBinary
 - (NSData *)GetMimeBinary;
+// method: GetMimeSb
+- (BOOL)GetMimeSb: (CkoStringBuilder *)sb;
 // method: GetNthBinaryPartOfType
 - (NSData *)GetNthBinaryPartOfType: (NSNumber *)index 
 	contentType: (NSString *)contentType 
@@ -415,6 +426,8 @@
 - (BOOL)IsMultipartReport;
 // method: LoadEml
 - (BOOL)LoadEml: (NSString *)mimePath;
+// method: LoadTaskResult
+- (BOOL)LoadTaskResult: (CkoTask *)task;
 // method: LoadXml
 - (BOOL)LoadXml: (NSString *)xmlPath;
 // method: LoadXmlString
@@ -479,11 +492,15 @@
 	charset: (NSString *)charset;
 // method: SetEncryptCert
 - (BOOL)SetEncryptCert: (CkoCert *)cert;
+// method: SetFromMimeBd
+- (BOOL)SetFromMimeBd: (CkoBinData *)bindat;
 // method: SetFromMimeBytes
 - (BOOL)SetFromMimeBytes: (NSData *)mimeBytes;
 // method: SetFromMimeBytes2
 - (BOOL)SetFromMimeBytes2: (NSData *)mimeBytes 
 	charset: (NSString *)charset;
+// method: SetFromMimeSb
+- (BOOL)SetFromMimeSb: (CkoStringBuilder *)sb;
 // method: SetFromMimeText
 - (BOOL)SetFromMimeText: (NSString *)mimeText;
 // method: SetFromXmlText
@@ -512,12 +529,12 @@
 	contentType: (NSString *)contentType;
 // method: UidlEquals
 - (BOOL)UidlEquals: (CkoEmail *)e;
-// method: UnSpamify
-- (void)UnSpamify;
 // method: UnpackHtml
 - (BOOL)UnpackHtml: (NSString *)unpackDir 
 	htmlFilename: (NSString *)htmlFilename 
 	partsSubdir: (NSString *)partsSubdir;
+// method: UnSpamify
+- (void)UnSpamify;
 // method: UnzipAttachments
 - (BOOL)UnzipAttachments;
 // method: UseCertVault

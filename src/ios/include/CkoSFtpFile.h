@@ -1,5 +1,5 @@
 // Chilkat Objective-C header.
-// This is a generated header file for Chilkat version 9.5.0.49
+// This is a generated header file for Chilkat version 9.5.0.75
 
 // Generic/internal class name =  SFtpFile
 // Wrapped Chilkat C++ class name =  CkSFtpFile
@@ -21,10 +21,12 @@
 - (void *)CppImplObj;
 - (void)setCppImplObj: (void *)pObj;
 
+- (void)clearCppImplObj;
+
 @property (nonatomic, readonly, copy) NSDate *CreateTime;
 @property (nonatomic, readonly, copy) NSString *CreateTimeStr;
-@property (nonatomic, readonly, copy) NSString *FileType;
 @property (nonatomic, readonly, copy) NSString *Filename;
+@property (nonatomic, readonly, copy) NSString *FileType;
 @property (nonatomic, readonly, copy) NSNumber *Gid;
 @property (nonatomic, readonly, copy) NSString *Group;
 @property (nonatomic, readonly) BOOL IsAppendOnly;
@@ -43,14 +45,13 @@
 @property (nonatomic, readonly) BOOL IsSystem;
 @property (nonatomic, readonly, copy) NSDate *LastAccessTime;
 @property (nonatomic, readonly, copy) NSString *LastAccessTimeStr;
+@property (nonatomic) BOOL LastMethodSuccess;
 @property (nonatomic, readonly, copy) NSDate *LastModifiedTime;
 @property (nonatomic, readonly, copy) NSString *LastModifiedTimeStr;
 @property (nonatomic, readonly, copy) NSString *Owner;
 @property (nonatomic, readonly, copy) NSNumber *Permissions;
 @property (nonatomic, readonly, copy) NSNumber *Size64;
 @property (nonatomic, readonly, copy) NSNumber *Uid;
-@property (nonatomic) BOOL VerboseLogging;
-
 // method: GetCreateDt
 - (CkoDateTime *)GetCreateDt;
 // method: GetLastAccessDt

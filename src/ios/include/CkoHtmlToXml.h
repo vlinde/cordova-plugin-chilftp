@@ -1,5 +1,5 @@
 // Chilkat Objective-C header.
-// This is a generated header file for Chilkat version 9.5.0.49
+// This is a generated header file for Chilkat version 9.5.0.75
 
 // Generic/internal class name =  HtmlToXml
 // Wrapped Chilkat C++ class name =  CkHtmlToXml
@@ -20,22 +20,19 @@
 - (void *)CppImplObj;
 - (void)setCppImplObj: (void *)pObj;
 
+- (void)clearCppImplObj;
+
 @property (nonatomic, copy) NSString *DebugLogFilePath;
-
 @property (nonatomic) BOOL DropCustomTags;
-
 @property (nonatomic, copy) NSString *Html;
-
 @property (nonatomic, readonly, copy) NSString *LastErrorHtml;
 @property (nonatomic, readonly, copy) NSString *LastErrorText;
 @property (nonatomic, readonly, copy) NSString *LastErrorXml;
+@property (nonatomic) BOOL LastMethodSuccess;
 @property (nonatomic, copy) NSNumber *Nbsp;
-
 @property (nonatomic) BOOL VerboseLogging;
-
 @property (nonatomic, readonly, copy) NSString *Version;
 @property (nonatomic, copy) NSString *XmlCharset;
-
 // method: ConvertFile
 - (BOOL)ConvertFile: (NSString *)inHtmlPath 
 	destXmlPath: (NSString *)destXmlPath;

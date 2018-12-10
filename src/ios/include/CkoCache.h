@@ -1,5 +1,5 @@
 // Chilkat Objective-C header.
-// This is a generated header file for Chilkat version 9.5.0.49
+// This is a generated header file for Chilkat version 9.5.0.75
 
 // Generic/internal class name =  Cache
 // Wrapped Chilkat C++ class name =  CkCache
@@ -21,8 +21,9 @@
 - (void *)CppImplObj;
 - (void)setCppImplObj: (void *)pObj;
 
-@property (nonatomic, copy) NSString *DebugLogFilePath;
+- (void)clearCppImplObj;
 
+@property (nonatomic, copy) NSString *DebugLogFilePath;
 @property (nonatomic, readonly, copy) NSString *LastErrorHtml;
 @property (nonatomic, readonly, copy) NSString *LastErrorText;
 @property (nonatomic, readonly, copy) NSString *LastErrorXml;
@@ -31,11 +32,10 @@
 @property (nonatomic, readonly, copy) NSString *LastExpirationFetchedStr;
 @property (nonatomic, readonly) BOOL LastHitExpired;
 @property (nonatomic, readonly, copy) NSString *LastKeyFetched;
+@property (nonatomic) BOOL LastMethodSuccess;
 @property (nonatomic, copy) NSNumber *Level;
-
 @property (nonatomic, readonly, copy) NSNumber *NumRoots;
 @property (nonatomic) BOOL VerboseLogging;
-
 @property (nonatomic, readonly, copy) NSString *Version;
 // method: AddRoot
 - (void)AddRoot: (NSString *)path;

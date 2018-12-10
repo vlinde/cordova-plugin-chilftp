@@ -1,9 +1,10 @@
 // Chilkat Objective-C header.
-// This is a generated header file for Chilkat version 9.5.0.49
+// This is a generated header file for Chilkat version 9.5.0.75
 
 // Generic/internal class name =  Mailboxes
 // Wrapped Chilkat C++ class name =  CkMailboxes
 
+@class CkoTask;
 
 
 @interface CkoMailboxes : NSObject {
@@ -20,9 +21,10 @@
 - (void *)CppImplObj;
 - (void)setCppImplObj: (void *)pObj;
 
-@property (nonatomic, readonly, copy) NSNumber *Count;
-@property (nonatomic) BOOL VerboseLogging;
+- (void)clearCppImplObj;
 
+@property (nonatomic, readonly, copy) NSNumber *Count;
+@property (nonatomic) BOOL LastMethodSuccess;
 // method: GetFlags
 - (NSString *)GetFlags: (NSNumber *)index;
 // method: GetMailboxIndex
@@ -43,5 +45,7 @@
 - (BOOL)IsMarked: (NSNumber *)index;
 // method: IsSelectable
 - (BOOL)IsSelectable: (NSNumber *)index;
+// method: LoadTaskResult
+- (BOOL)LoadTaskResult: (CkoTask *)task;
 
 @end

@@ -1,5 +1,5 @@
 // Chilkat Objective-C header.
-// This is a generated header file for Chilkat version 9.5.0.49
+// This is a generated header file for Chilkat version 9.5.0.75
 
 // Generic/internal class name =  Pem
 // Wrapped Chilkat C++ class name =  CkPem
@@ -8,6 +8,7 @@
 @class CkoPrivateKey;
 @class CkoCertChain;
 @class CkoPublicKey;
+@class CkoTask;
 @class CkoJavaKeyStore;
 @class CkoPfx;
 
@@ -29,32 +30,33 @@
 - (void *)CppImplObj;
 - (void)setCppImplObj: (void *)pObj;
 
+- (void)clearCppImplObj;
+
 // property setter: EventCallbackObject
 - (void)setEventCallbackObject: (CkoBaseProgress *)eventObj;
 
 @property (nonatomic) BOOL AppendMode;
-
 @property (nonatomic, copy) NSString *DebugLogFilePath;
-
 @property (nonatomic, copy) NSNumber *HeartbeatMs;
-
 @property (nonatomic, readonly, copy) NSString *LastErrorHtml;
 @property (nonatomic, readonly, copy) NSString *LastErrorText;
 @property (nonatomic, readonly, copy) NSString *LastErrorXml;
+@property (nonatomic) BOOL LastMethodSuccess;
 @property (nonatomic, readonly, copy) NSNumber *NumCerts;
 @property (nonatomic, readonly, copy) NSNumber *NumCsrs;
 @property (nonatomic, readonly, copy) NSNumber *NumPrivateKeys;
 @property (nonatomic, readonly, copy) NSNumber *NumPublicKeys;
 @property (nonatomic, copy) NSString *PrivateKeyFormat;
-
 @property (nonatomic, copy) NSString *PublicKeyFormat;
-
 @property (nonatomic) BOOL VerboseLogging;
-
 @property (nonatomic, readonly, copy) NSString *Version;
 // method: AddCert
 - (BOOL)AddCert: (CkoCert *)cert 
 	includeChain: (BOOL)includeChain;
+// method: AddItem
+- (BOOL)AddItem: (NSString *)itemType 
+	encoding: (NSString *)encoding 
+	itemData: (NSString *)itemData;
 // method: AddPrivateKey
 - (BOOL)AddPrivateKey: (CkoPrivateKey *)privateKey;
 // method: AddPrivateKey2
@@ -77,13 +79,23 @@
 - (CkoPublicKey *)GetPublicKey: (NSNumber *)index;
 // method: LoadP7b
 - (BOOL)LoadP7b: (NSData *)p7bData;
+// method: LoadP7bAsync
+- (CkoTask *)LoadP7bAsync: (NSData *)p7bData;
 // method: LoadP7bFile
 - (BOOL)LoadP7bFile: (NSString *)path;
+// method: LoadP7bFileAsync
+- (CkoTask *)LoadP7bFileAsync: (NSString *)path;
 // method: LoadPem
 - (BOOL)LoadPem: (NSString *)pemContent 
 	password: (NSString *)password;
+// method: LoadPemAsync
+- (CkoTask *)LoadPemAsync: (NSString *)pemContent 
+	password: (NSString *)password;
 // method: LoadPemFile
 - (BOOL)LoadPemFile: (NSString *)path 
+	password: (NSString *)password;
+// method: LoadPemFileAsync
+- (CkoTask *)LoadPemFileAsync: (NSString *)path 
 	password: (NSString *)password;
 // method: RemoveCert
 - (BOOL)RemoveCert: (NSNumber *)index;

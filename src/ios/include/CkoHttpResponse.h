@@ -1,9 +1,12 @@
 // Chilkat Objective-C header.
-// This is a generated header file for Chilkat version 9.5.0.49
+// This is a generated header file for Chilkat version 9.5.0.75
 
 // Generic/internal class name =  HttpResponse
 // Wrapped Chilkat C++ class name =  CkHttpResponse
 
+@class CkoBinData;
+@class CkoStringBuilder;
+@class CkoTask;
 
 
 @interface CkoHttpResponse : NSObject {
@@ -20,6 +23,8 @@
 - (void *)CppImplObj;
 - (void)setCppImplObj: (void *)pObj;
 
+- (void)clearCppImplObj;
+
 @property (nonatomic, readonly, copy) NSData *Body;
 @property (nonatomic, readonly, copy) NSString *BodyQP;
 @property (nonatomic, readonly, copy) NSString *BodyStr;
@@ -28,7 +33,6 @@
 @property (nonatomic, readonly, copy) NSDate *Date;
 @property (nonatomic, readonly, copy) NSString *DateStr;
 @property (nonatomic, copy) NSString *DebugLogFilePath;
-
 @property (nonatomic, readonly, copy) NSString *Domain;
 @property (nonatomic, readonly, copy) NSString *FinalRedirectUrl;
 @property (nonatomic, readonly, copy) NSString *FullMime;
@@ -36,14 +40,18 @@
 @property (nonatomic, readonly, copy) NSString *LastErrorHtml;
 @property (nonatomic, readonly, copy) NSString *LastErrorText;
 @property (nonatomic, readonly, copy) NSString *LastErrorXml;
+@property (nonatomic) BOOL LastMethodSuccess;
 @property (nonatomic, readonly, copy) NSNumber *NumCookies;
 @property (nonatomic, readonly, copy) NSNumber *NumHeaderFields;
 @property (nonatomic, readonly, copy) NSNumber *StatusCode;
 @property (nonatomic, readonly, copy) NSString *StatusLine;
 @property (nonatomic, readonly, copy) NSString *StatusText;
 @property (nonatomic) BOOL VerboseLogging;
-
 @property (nonatomic, readonly, copy) NSString *Version;
+// method: GetBodyBd
+- (BOOL)GetBodyBd: (CkoBinData *)binData;
+// method: GetBodySb
+- (BOOL)GetBodySb: (CkoStringBuilder *)sb;
 // method: GetCookieDomain
 - (NSString *)GetCookieDomain: (NSNumber *)index;
 // method: GetCookieExpires
@@ -65,6 +73,8 @@
 - (NSString *)GetHeaderName: (NSNumber *)index;
 // method: GetHeaderValue
 - (NSString *)GetHeaderValue: (NSNumber *)index;
+// method: LoadTaskResult
+- (BOOL)LoadTaskResult: (CkoTask *)task;
 // method: SaveBodyBinary
 - (BOOL)SaveBodyBinary: (NSString *)path;
 // method: SaveBodyText

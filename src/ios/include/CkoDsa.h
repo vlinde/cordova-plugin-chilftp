@@ -1,5 +1,5 @@
 // Chilkat Objective-C header.
-// This is a generated header file for Chilkat version 9.5.0.49
+// This is a generated header file for Chilkat version 9.5.0.75
 
 // Generic/internal class name =  Dsa
 // Wrapped Chilkat C++ class name =  CkDsa
@@ -20,12 +20,11 @@
 - (void *)CppImplObj;
 - (void)setCppImplObj: (void *)pObj;
 
+- (void)clearCppImplObj;
+
 @property (nonatomic, copy) NSString *DebugLogFilePath;
-
 @property (nonatomic, copy) NSNumber *GroupSize;
-
 @property (nonatomic, copy) NSData *Hash;
-
 @property (nonatomic, readonly, copy) NSString *HexG;
 @property (nonatomic, readonly, copy) NSString *HexP;
 @property (nonatomic, readonly, copy) NSString *HexQ;
@@ -34,10 +33,9 @@
 @property (nonatomic, readonly, copy) NSString *LastErrorHtml;
 @property (nonatomic, readonly, copy) NSString *LastErrorText;
 @property (nonatomic, readonly, copy) NSString *LastErrorXml;
+@property (nonatomic) BOOL LastMethodSuccess;
 @property (nonatomic, copy) NSData *Signature;
-
 @property (nonatomic) BOOL VerboseLogging;
-
 @property (nonatomic, readonly, copy) NSString *Version;
 // method: FromDer
 - (BOOL)FromDer: (NSData *)derData;

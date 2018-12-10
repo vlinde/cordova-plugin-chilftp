@@ -1,5 +1,5 @@
 // Chilkat Objective-C header.
-// This is a generated header file for Chilkat version 9.5.0.49
+// This is a generated header file for Chilkat version 9.5.0.75
 
 // Generic/internal class name =  Ntlm
 // Wrapped Chilkat C++ class name =  CkNtlm
@@ -20,44 +20,30 @@
 - (void *)CppImplObj;
 - (void)setCppImplObj: (void *)pObj;
 
+- (void)clearCppImplObj;
+
 @property (nonatomic, copy) NSString *ClientChallenge;
-
 @property (nonatomic, copy) NSString *DebugLogFilePath;
-
 @property (nonatomic, copy) NSString *DnsComputerName;
-
 @property (nonatomic, copy) NSString *DnsDomainName;
-
 @property (nonatomic, copy) NSString *Domain;
-
 @property (nonatomic, copy) NSString *EncodingMode;
-
 @property (nonatomic, copy) NSString *Flags;
-
 @property (nonatomic, readonly, copy) NSString *LastErrorHtml;
 @property (nonatomic, readonly, copy) NSString *LastErrorText;
 @property (nonatomic, readonly, copy) NSString *LastErrorXml;
+@property (nonatomic) BOOL LastMethodSuccess;
 @property (nonatomic, copy) NSString *NetBiosComputerName;
-
 @property (nonatomic, copy) NSString *NetBiosDomainName;
-
 @property (nonatomic, copy) NSNumber *NtlmVersion;
-
 @property (nonatomic, copy) NSNumber *OemCodePage;
-
 @property (nonatomic, copy) NSString *Password;
-
 @property (nonatomic, copy) NSString *ServerChallenge;
-
 @property (nonatomic, copy) NSString *TargetName;
-
 @property (nonatomic, copy) NSString *UserName;
-
 @property (nonatomic) BOOL VerboseLogging;
-
 @property (nonatomic, readonly, copy) NSString *Version;
 @property (nonatomic, copy) NSString *Workstation;
-
 // method: CompareType3
 - (BOOL)CompareType3: (NSString *)msg1 
 	msg2: (NSString *)msg2;

@@ -1,13 +1,15 @@
 // Chilkat Objective-C header.
-// This is a generated header file for Chilkat version 9.5.0.49
+// This is a generated header file for Chilkat version 9.5.0.75
 
 // Generic/internal class name =  Cert
 // Wrapped Chilkat C++ class name =  CkCert
 
+@class CkoBinData;
 @class CkoPrivateKey;
 @class CkoPublicKey;
 @class CkoCertChain;
 @class CkoDateTime;
+@class CkoTask;
 @class CkoXmlCertVault;
 
 
@@ -25,10 +27,11 @@
 - (void *)CppImplObj;
 - (void)setCppImplObj: (void *)pObj;
 
+- (void)clearCppImplObj;
+
 @property (nonatomic, readonly, copy) NSString *AuthorityKeyId;
 @property (nonatomic, readonly, copy) NSNumber *CertVersion;
 @property (nonatomic, copy) NSString *DebugLogFilePath;
-
 @property (nonatomic, readonly) BOOL Expired;
 @property (nonatomic, readonly) BOOL ForClientAuthentication;
 @property (nonatomic, readonly) BOOL ForCodeSigning;
@@ -48,10 +51,12 @@
 @property (nonatomic, readonly, copy) NSString *LastErrorHtml;
 @property (nonatomic, readonly, copy) NSString *LastErrorText;
 @property (nonatomic, readonly, copy) NSString *LastErrorXml;
+@property (nonatomic) BOOL LastMethodSuccess;
 @property (nonatomic, readonly, copy) NSString *OcspUrl;
 @property (nonatomic, readonly) BOOL Revoked;
 @property (nonatomic, readonly, copy) NSString *Rfc822Name;
 @property (nonatomic, readonly) BOOL SelfSigned;
+@property (nonatomic, readonly, copy) NSString *SerialDecimal;
 @property (nonatomic, readonly, copy) NSString *SerialNumber;
 @property (nonatomic, readonly, copy) NSString *Sha1Thumbprint;
 @property (nonatomic, readonly) BOOL SignatureVerified;
@@ -70,12 +75,13 @@
 @property (nonatomic, readonly, copy) NSDate *ValidTo;
 @property (nonatomic, readonly, copy) NSString *ValidToStr;
 @property (nonatomic) BOOL VerboseLogging;
-
 @property (nonatomic, readonly, copy) NSString *Version;
 // method: CheckRevoked
 - (NSNumber *)CheckRevoked;
 // method: ExportCertDer
 - (NSData *)ExportCertDer;
+// method: ExportCertDerBd
+- (BOOL)ExportCertDerBd: (CkoBinData *)cerData;
 // method: ExportCertDerFile
 - (BOOL)ExportCertDerFile: (NSString *)path;
 // method: ExportCertPem
@@ -88,6 +94,10 @@
 - (CkoPrivateKey *)ExportPrivateKey;
 // method: ExportPublicKey
 - (CkoPublicKey *)ExportPublicKey;
+// method: ExportToPfxBd
+- (BOOL)ExportToPfxBd: (NSString *)password 
+	includeCertChain: (BOOL)includeCertChain 
+	pfxData: (CkoBinData *)pfxData;
 // method: ExportToPfxData
 - (NSData *)ExportToPfxData: (NSString *)password 
 	includeCertChain: (BOOL)includeCertChain;
@@ -101,14 +111,23 @@
 - (NSString *)GetExtensionAsXml: (NSString *)oid;
 // method: GetPrivateKeyPem
 - (NSString *)GetPrivateKeyPem;
+// method: GetSpkiFingerprint
+- (NSString *)GetSpkiFingerprint: (NSString *)hashAlg 
+	encoding: (NSString *)encoding;
 // method: GetValidFromDt
 - (CkoDateTime *)GetValidFromDt;
 // method: GetValidToDt
 - (CkoDateTime *)GetValidToDt;
+// method: HashOf
+- (NSString *)HashOf: (NSString *)part 
+	hashAlg: (NSString *)hashAlg 
+	encoding: (NSString *)encoding;
 // method: HasPrivateKey
 - (BOOL)HasPrivateKey;
 // method: LoadFromBase64
 - (BOOL)LoadFromBase64: (NSString *)encodedCert;
+// method: LoadFromBd
+- (BOOL)LoadFromBd: (CkoBinData *)certBytes;
 // method: LoadFromBinary
 - (BOOL)LoadFromBinary: (NSData *)data;
 // method: LoadFromBinary2
@@ -118,6 +137,9 @@
 - (BOOL)LoadFromFile: (NSString *)path;
 // method: LoadPem
 - (BOOL)LoadPem: (NSString *)strPem;
+// method: LoadPfxBd
+- (BOOL)LoadPfxBd: (CkoBinData *)pfxData 
+	password: (NSString *)password;
 // method: LoadPfxData
 - (BOOL)LoadPfxData: (NSData *)pfxData 
 	password: (NSString *)password;
@@ -128,6 +150,8 @@
 // method: LoadPfxFile
 - (BOOL)LoadPfxFile: (NSString *)path 
 	password: (NSString *)password;
+// method: LoadTaskResult
+- (BOOL)LoadTaskResult: (CkoTask *)task;
 // method: PemFileToDerFile
 - (BOOL)PemFileToDerFile: (NSString *)fromPath 
 	toPath: (NSString *)toPath;

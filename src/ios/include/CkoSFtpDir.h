@@ -1,10 +1,11 @@
 // Chilkat Objective-C header.
-// This is a generated header file for Chilkat version 9.5.0.49
+// This is a generated header file for Chilkat version 9.5.0.75
 
 // Generic/internal class name =  SFtpDir
 // Wrapped Chilkat C++ class name =  CkSFtpDir
 
 @class CkoSFtpFile;
+@class CkoTask;
 
 
 @interface CkoSFtpDir : NSObject {
@@ -21,13 +22,16 @@
 - (void *)CppImplObj;
 - (void)setCppImplObj: (void *)pObj;
 
+- (void)clearCppImplObj;
+
+@property (nonatomic) BOOL LastMethodSuccess;
 @property (nonatomic, readonly, copy) NSNumber *NumFilesAndDirs;
 @property (nonatomic, readonly, copy) NSString *OriginalPath;
-@property (nonatomic) BOOL VerboseLogging;
-
-// method: GetFileObject
-- (CkoSFtpFile *)GetFileObject: (NSNumber *)index;
 // method: GetFilename
 - (NSString *)GetFilename: (NSNumber *)index;
+// method: GetFileObject
+- (CkoSFtpFile *)GetFileObject: (NSNumber *)index;
+// method: LoadTaskResult
+- (BOOL)LoadTaskResult: (CkoTask *)task;
 
 @end

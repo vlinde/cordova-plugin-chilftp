@@ -1,5 +1,5 @@
 // Chilkat Objective-C header.
-// This is a generated header file for Chilkat version 9.5.0.49
+// This is a generated header file for Chilkat version 9.5.0.75
 
 // Generic/internal class name =  Charset
 // Wrapped Chilkat C++ class name =  CkCharset
@@ -20,27 +20,23 @@
 - (void *)CppImplObj;
 - (void)setCppImplObj: (void *)pObj;
 
+- (void)clearCppImplObj;
+
 @property (nonatomic, copy) NSString *AltToCharset;
-
 @property (nonatomic, copy) NSString *DebugLogFilePath;
-
 @property (nonatomic, copy) NSNumber *ErrorAction;
-
 @property (nonatomic, copy) NSString *FromCharset;
-
 @property (nonatomic, readonly, copy) NSString *LastErrorHtml;
 @property (nonatomic, readonly, copy) NSString *LastErrorText;
 @property (nonatomic, readonly, copy) NSString *LastErrorXml;
 @property (nonatomic, readonly, copy) NSString *LastInputAsHex;
 @property (nonatomic, readonly, copy) NSString *LastInputAsQP;
+@property (nonatomic) BOOL LastMethodSuccess;
 @property (nonatomic, readonly, copy) NSString *LastOutputAsHex;
 @property (nonatomic, readonly, copy) NSString *LastOutputAsQP;
 @property (nonatomic) BOOL SaveLast;
-
 @property (nonatomic, copy) NSString *ToCharset;
-
 @property (nonatomic) BOOL VerboseLogging;
-
 @property (nonatomic, readonly, copy) NSString *Version;
 // method: CharsetToCodePage
 - (NSNumber *)CharsetToCodePage: (NSString *)charsetName;

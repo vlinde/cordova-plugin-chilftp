@@ -1,9 +1,10 @@
 // Chilkat Objective-C header.
-// This is a generated header file for Chilkat version 9.5.0.49
+// This is a generated header file for Chilkat version 9.5.0.75
 
 // Generic/internal class name =  Rss
 // Wrapped Chilkat C++ class name =  CkRss
 
+@class CkoTask;
 
 
 @class CkoBaseProgress;
@@ -23,18 +24,19 @@
 - (void *)CppImplObj;
 - (void)setCppImplObj: (void *)pObj;
 
+- (void)clearCppImplObj;
+
 // property setter: EventCallbackObject
 - (void)setEventCallbackObject: (CkoBaseProgress *)eventObj;
 
 @property (nonatomic, copy) NSString *DebugLogFilePath;
-
 @property (nonatomic, readonly, copy) NSString *LastErrorHtml;
 @property (nonatomic, readonly, copy) NSString *LastErrorText;
 @property (nonatomic, readonly, copy) NSString *LastErrorXml;
+@property (nonatomic) BOOL LastMethodSuccess;
 @property (nonatomic, readonly, copy) NSNumber *NumChannels;
 @property (nonatomic, readonly, copy) NSNumber *NumItems;
 @property (nonatomic) BOOL VerboseLogging;
-
 @property (nonatomic, readonly, copy) NSString *Version;
 // method: AddNewChannel
 - (CkoRss *)AddNewChannel;
@@ -44,6 +46,8 @@
 - (CkoRss *)AddNewItem;
 // method: DownloadRss
 - (BOOL)DownloadRss: (NSString *)url;
+// method: DownloadRssAsync
+- (CkoTask *)DownloadRssAsync: (NSString *)url;
 // method: GetAttr
 - (NSString *)GetAttr: (NSString *)tag 
 	attrName: (NSString *)attrName;

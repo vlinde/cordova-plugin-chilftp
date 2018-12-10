@@ -1,5 +1,5 @@
 // Chilkat Objective-C header.
-// This is a generated header file for Chilkat version 9.5.0.49
+// This is a generated header file for Chilkat version 9.5.0.75
 
 // Generic/internal class name =  Xmp
 // Wrapped Chilkat C++ class name =  CkXmp
@@ -22,16 +22,16 @@
 - (void *)CppImplObj;
 - (void)setCppImplObj: (void *)pObj;
 
-@property (nonatomic, copy) NSString *DebugLogFilePath;
+- (void)clearCppImplObj;
 
+@property (nonatomic, copy) NSString *DebugLogFilePath;
 @property (nonatomic, readonly, copy) NSString *LastErrorHtml;
 @property (nonatomic, readonly, copy) NSString *LastErrorText;
 @property (nonatomic, readonly, copy) NSString *LastErrorXml;
+@property (nonatomic) BOOL LastMethodSuccess;
 @property (nonatomic, readonly, copy) NSNumber *NumEmbedded;
 @property (nonatomic) BOOL StructInnerDescrip;
-
 @property (nonatomic) BOOL VerboseLogging;
-
 @property (nonatomic, readonly, copy) NSString *Version;
 // method: AddArray
 - (BOOL)AddArray: (CkoXml *)xml 

@@ -1,5 +1,5 @@
 // Chilkat Objective-C header.
-// This is a generated header file for Chilkat version 9.5.0.49
+// This is a generated header file for Chilkat version 9.5.0.75
 
 // Generic/internal class name =  SshKey
 // Wrapped Chilkat C++ class name =  CkSshKey
@@ -20,20 +20,19 @@
 - (void *)CppImplObj;
 - (void)setCppImplObj: (void *)pObj;
 
+- (void)clearCppImplObj;
+
 @property (nonatomic, copy) NSString *Comment;
-
 @property (nonatomic, copy) NSString *DebugLogFilePath;
-
 @property (nonatomic, readonly) BOOL IsDsaKey;
 @property (nonatomic, readonly) BOOL IsPrivateKey;
 @property (nonatomic, readonly) BOOL IsRsaKey;
 @property (nonatomic, readonly, copy) NSString *LastErrorHtml;
 @property (nonatomic, readonly, copy) NSString *LastErrorText;
 @property (nonatomic, readonly, copy) NSString *LastErrorXml;
+@property (nonatomic) BOOL LastMethodSuccess;
 @property (nonatomic, copy) NSString *Password;
-
 @property (nonatomic) BOOL VerboseLogging;
-
 @property (nonatomic, readonly, copy) NSString *Version;
 // method: FromOpenSshPrivateKey
 - (BOOL)FromOpenSshPrivateKey: (NSString *)keyStr;
@@ -45,13 +44,13 @@
 - (BOOL)FromRfc4716PublicKey: (NSString *)keyStr;
 // method: FromXml
 - (BOOL)FromXml: (NSString *)xmlKey;
-// method: GenFingerprint
-- (NSString *)GenFingerprint;
 // method: GenerateDsaKey
 - (BOOL)GenerateDsaKey: (NSNumber *)numBits;
 // method: GenerateRsaKey
 - (BOOL)GenerateRsaKey: (NSNumber *)numBits 
 	exponent: (NSNumber *)exponent;
+// method: GenFingerprint
+- (NSString *)GenFingerprint;
 // method: LoadText
 - (NSString *)LoadText: (NSString *)path;
 // method: SaveLastError

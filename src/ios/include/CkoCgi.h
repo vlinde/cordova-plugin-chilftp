@@ -1,5 +1,5 @@
 // Chilkat Objective-C header.
-// This is a generated header file for Chilkat version 9.5.0.49
+// This is a generated header file for Chilkat version 9.5.0.75
 
 // Generic/internal class name =  Cgi
 // Wrapped Chilkat C++ class name =  CkCgi
@@ -20,31 +20,26 @@
 - (void *)CppImplObj;
 - (void)setCppImplObj: (void *)pObj;
 
+- (void)clearCppImplObj;
+
 @property (nonatomic, readonly, copy) NSNumber *AsyncBytesRead;
 @property (nonatomic, readonly) BOOL AsyncInProgress;
 @property (nonatomic, readonly, copy) NSNumber *AsyncPostSize;
 @property (nonatomic, readonly) BOOL AsyncSuccess;
 @property (nonatomic, copy) NSString *DebugLogFilePath;
-
 @property (nonatomic, copy) NSNumber *HeartbeatMs;
-
 @property (nonatomic, copy) NSNumber *IdleTimeoutMs;
-
 @property (nonatomic, readonly, copy) NSString *LastErrorHtml;
 @property (nonatomic, readonly, copy) NSString *LastErrorText;
 @property (nonatomic, readonly, copy) NSString *LastErrorXml;
+@property (nonatomic) BOOL LastMethodSuccess;
 @property (nonatomic, readonly, copy) NSNumber *NumParams;
 @property (nonatomic, readonly, copy) NSNumber *NumUploadFiles;
 @property (nonatomic, copy) NSNumber *ReadChunkSize;
-
 @property (nonatomic, copy) NSNumber *SizeLimitKB;
-
 @property (nonatomic) BOOL StreamToUploadDir;
-
 @property (nonatomic, copy) NSString *UploadDir;
-
 @property (nonatomic) BOOL VerboseLogging;
-
 @property (nonatomic, readonly, copy) NSString *Version;
 // method: AbortAsync
 - (void)AbortAsync;

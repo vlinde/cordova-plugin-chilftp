@@ -1,9 +1,10 @@
 // Chilkat Objective-C header.
-// This is a generated header file for Chilkat version 9.5.0.49
+// This is a generated header file for Chilkat version 9.5.0.75
 
 // Generic/internal class name =  MessageSet
 // Wrapped Chilkat C++ class name =  CkMessageSet
 
+@class CkoTask;
 
 
 @interface CkoMessageSet : NSObject {
@@ -20,11 +21,11 @@
 - (void *)CppImplObj;
 - (void)setCppImplObj: (void *)pObj;
 
+- (void)clearCppImplObj;
+
 @property (nonatomic, readonly, copy) NSNumber *Count;
 @property (nonatomic) BOOL HasUids;
-
-@property (nonatomic) BOOL VerboseLogging;
-
+@property (nonatomic) BOOL LastMethodSuccess;
 // method: ContainsId
 - (BOOL)ContainsId: (NSNumber *)id;
 // method: FromCompactString
@@ -33,6 +34,8 @@
 - (NSNumber *)GetId: (NSNumber *)index;
 // method: InsertId
 - (void)InsertId: (NSNumber *)id;
+// method: LoadTaskResult
+- (BOOL)LoadTaskResult: (CkoTask *)task;
 // method: RemoveId
 - (void)RemoveId: (NSNumber *)id;
 // method: ToCommaSeparatedStr
