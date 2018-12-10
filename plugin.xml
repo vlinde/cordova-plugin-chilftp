@@ -41,7 +41,6 @@
         <source-file src="src/ios/ChilFtp.m"/>
 
         <source-file src="src/ios/libs/arm64/libchilkatIos-arm64.a" framework="true"/>
-        <source-file src="src/ios/libs/armv6/libchilkatIos-armv6.a" framework="true"/>
         <source-file src="src/ios/libs/armv7/libchilkatIos-armv7.a" framework="true"/>
         <source-file src="src/ios/libs/armv7s/libchilkatIos-armv7s.a" framework="true"/>
         <source-file src="src/ios/libs/i386/libchilkatIos-i386.a" framework="true"/>
