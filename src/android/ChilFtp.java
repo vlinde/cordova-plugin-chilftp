@@ -56,6 +56,8 @@ public class ChilFtp extends CordovaPlugin {
                 asyncAbort();
             } else if (action.equals("getPathFromMediaUri")) {
                 getPathFromMediaUri(data.getString(0), callbackContext);
+            } else if (action.equals("checkConnection")) {
+                checkConnection(callbackContext);
             }
 
         } catch (JSONException e) {
@@ -380,7 +382,7 @@ public class ChilFtp extends CordovaPlugin {
                         return;
                     }
                 }
-            } else if(success != true) {
+            } else if (success != true) {
                 callbackContext.error(ftp.lastErrorText());
                 Log.i(TAG, ftp.lastErrorText());
                 return;
@@ -520,6 +522,14 @@ public class ChilFtp extends CordovaPlugin {
         }
     }
 
+    public void checkConnection(final CallbackContext callbackContext) {
+        boolean hasConnection = ftp.CheckConnection();
+        if (!hasConnection) {
+            callbackContext.error(String.valueOf(hasConnection));
+        } else {
+            callbackContext.success(String.valueOf(hasConnection));
+        }
+    }
 
     static {
         // Important: Make sure the name passed to loadLibrary matches the shared library
