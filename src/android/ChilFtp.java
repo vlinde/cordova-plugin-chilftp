@@ -88,6 +88,7 @@ public class ChilFtp extends CordovaPlugin {
         ftp.put_Password(password);
         ftp.put_Port(Integer.parseInt(port));
         ftp.put_ConnectTimeout(6);
+        ftp.put_LargeFileMeasures(true);
 
         ftp.put_Passive(true);
 
