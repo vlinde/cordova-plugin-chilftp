@@ -20,5 +20,6 @@ extern CkoFtp2 *ftp;
 - (void) getPathFromMediaUri:(CDVInvokedUrlCommand*)command;
 - (void) abort:(CDVInvokedUrlCommand*)command;
 - (void) disconnect:(CDVInvokedUrlCommand*)command;
+- (void) checkConnection:(CDVInvokedUrlCommand*)command;
 
 @end

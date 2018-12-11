@@ -586,4 +586,28 @@ CkoFtp2 *ftp = nil;
     }];
 }
 
+
+- (void)checkConnection:(CDVInvokedUrlCommand *)command {
+    [self.commandDelegate runInBackground:^{
+        CDVPluginResult *result = nil;
+        @try {
+
+            BOOL checkConnection = [ftp CheckConnection];
+
+            if (checkConnection) {
+                result = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:@"true"];
+                [self.commandDelegate sendPluginResult:result callbackId:command.callbackId];
+            } else {
+                result = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR messageAsString:[NSString stringWithFormat:@"%@", "false"]];
+                [self.commandDelegate sendPluginResult:result callbackId:command.callbackId];
+            }
+        }
+        @catch (NSException *e) {
+            NSLog(@"Exception: %@", e);
+            result = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR messageAsString:[NSString stringWithFormat:@"%@", "false"]];
+            [self.commandDelegate sendPluginResult:result callbackId:command.callbackId];
+        }
+    }];
+}
+
 @end
