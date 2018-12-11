@@ -119,4 +119,11 @@ ChilFtp.prototype.getPathFromMediaUri = function (data, successCallback, errorCa
         "getPathFromMediaUri", [data]);
 };
 
+ChilFtp.prototype.checkConnection = function (successCallback, errorCallback) {
+    exec(successCallback,
+        errorCallback,
+        "ChilFtp",
+        "checkConnection", []);
+};
+
 module.exports = new ChilFtp();

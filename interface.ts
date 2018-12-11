@@ -56,4 +56,7 @@ export class ChilFtp extends IonicNativePlugin {
     @Cordova()
     getPathFromMediaUri(data: string): Promise<any> { return; }
 
+    @Cordova()
+    checkConnection(): Promise<any> { return; }
+
 }
