@@ -32,7 +32,7 @@ CkoFtp2 *ftp = nil;
     }
     @catch (NSException *e) {
         NSLog(@"Exception: %@", e);
-        result = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR messageAsString:[NSString stringWithFormat:@"%@", ftp.LastErrorXml]];
+        result = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR messageAsString:[NSString stringWithFormat:@"%@", ftp.LastErrorText]];
         [self.commandDelegate sendPluginResult:result callbackId:command.callbackId];
     }
 }
@@ -69,13 +69,13 @@ CkoFtp2 *ftp = nil;
                 result = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:@"true"];
             } else {
                 NSLog(@"%@", @"Problem with ftp connection!!!");
-                result = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR messageAsString:[NSString stringWithFormat:@"%@", ftp.LastErrorXml]];
+                result = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR messageAsString:[NSString stringWithFormat:@"%@", ftp.LastErrorText]];
             }
 
             [self.commandDelegate sendPluginResult:result callbackId:command.callbackId];
         }
         @catch (NSException *exception) {
-            result = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR messageAsString:[NSString stringWithFormat:@"%@", ftp.LastErrorXml]];
+            result = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR messageAsString:[NSString stringWithFormat:@"%@", ftp.LastErrorText]];
             [self.commandDelegate sendPluginResult:result callbackId:command.callbackId];
         }
 
@@ -146,7 +146,7 @@ CkoFtp2 *ftp = nil;
         }
         @catch (NSException *e) {
             NSLog(@"Exception: %@", e);
-            result = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR messageAsString:[NSString stringWithFormat:@"%@", ftp.LastErrorXml]];
+            result = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR messageAsString:[NSString stringWithFormat:@"%@", ftp.LastErrorText]];
             [self.commandDelegate sendPluginResult:result callbackId:command.callbackId];
         }
     }];
@@ -216,7 +216,7 @@ CkoFtp2 *ftp = nil;
         }
         @catch (NSException *e) {
             NSLog(@"Exception: %@", e);
-            result = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR messageAsString:[NSString stringWithFormat:@"%@", ftp.LastErrorXml]];
+            result = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR messageAsString:[NSString stringWithFormat:@"%@", ftp.LastErrorText]];
             [self.commandDelegate sendPluginResult:result callbackId:command.callbackId];
         }
     }];
@@ -244,7 +244,7 @@ CkoFtp2 *ftp = nil;
 
                 BOOL changed = [ftp ChangeRemoteDir:remoteFilePath];
                 if (!changed) {
-                    result = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR messageAsString:[NSString stringWithFormat:@"%@", ftp.LastErrorXml]];
+                    result = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR messageAsString:[NSString stringWithFormat:@"%@", ftp.LastErrorText]];
                     [self.commandDelegate sendPluginResult:result callbackId:command.callbackId];
                 }
 
@@ -252,7 +252,7 @@ CkoFtp2 *ftp = nil;
                 success = [ftp GetFile:remoteFileName localPath:localFile];
 
                 if (success != YES) {
-                    result = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR messageAsString:[NSString stringWithFormat:@"%@", ftp.LastErrorXml]];
+                    result = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR messageAsString:[NSString stringWithFormat:@"%@", ftp.LastErrorText]];
                 } else {
                     result = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:@"true"];
                 }
@@ -261,7 +261,7 @@ CkoFtp2 *ftp = nil;
             }
         }
         @catch (NSException *exception) {
-            result = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR messageAsString:[NSString stringWithFormat:@"%@", ftp.LastErrorXml]];
+            result = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR messageAsString:[NSString stringWithFormat:@"%@", ftp.LastErrorText]];
             [self.commandDelegate sendPluginResult:result callbackId:command.callbackId];
         }
 
@@ -291,7 +291,7 @@ CkoFtp2 *ftp = nil;
 
                 BOOL changed = [ftp ChangeRemoteDir:remoteFilePath];
                 if (!changed) {
-                    result = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR messageAsString:[NSString stringWithFormat:@"%@", ftp.LastErrorXml]];
+                    result = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR messageAsString:[NSString stringWithFormat:@"%@", ftp.LastErrorText]];
                     [self.commandDelegate sendPluginResult:result callbackId:command.callbackId];
                 }
 
@@ -299,7 +299,7 @@ CkoFtp2 *ftp = nil;
                 success = [ftp PutFile:localFile remoteFilename:remoteFileName];
 
                 if (success != YES) {
-                    result = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR messageAsString:[NSString stringWithFormat:@"%@", ftp.LastErrorXml]];
+                    result = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR messageAsString:[NSString stringWithFormat:@"%@", ftp.LastErrorText]];
                 } else {
                     result = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:@"true"];
                 }
@@ -308,7 +308,7 @@ CkoFtp2 *ftp = nil;
             }
         }
         @catch (NSException *exception) {
-            result = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR messageAsString:[NSString stringWithFormat:@"%@", ftp.LastErrorXml]];
+            result = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR messageAsString:[NSString stringWithFormat:@"%@", ftp.LastErrorText]];
             [self.commandDelegate sendPluginResult:result callbackId:command.callbackId];
         }
     }];
@@ -333,7 +333,7 @@ CkoFtp2 *ftp = nil;
 
                 BOOL changed = [ftp ChangeRemoteDir:remotePath];
                 if (!changed) {
-                    result = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR messageAsString:[NSString stringWithFormat:@"%@", ftp.LastErrorXml]];
+                    result = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR messageAsString:[NSString stringWithFormat:@"%@", ftp.LastErrorText]];
                     [self.commandDelegate sendPluginResult:result callbackId:command.callbackId];
                 }
 
@@ -344,17 +344,17 @@ CkoFtp2 *ftp = nil;
                 if (success != YES && replace == YES) {
                     success_remove = [ftp DeleteRemoteFile:newFileName];
                     if (success_remove != YES) {
-                        result = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR messageAsString:[NSString stringWithFormat:@"%@", ftp.LastErrorXml]];
+                        result = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR messageAsString:[NSString stringWithFormat:@"%@", ftp.LastErrorText]];
                         [self.commandDelegate sendPluginResult:result callbackId:command.callbackId];
                     } else {
                         success = [ftp RenameRemoteFile:existingFileName newFilename:newFileName];
                         if (success != YES) {
-                            result = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR messageAsString:[NSString stringWithFormat:@"%@", ftp.LastErrorXml]];
+                            result = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR messageAsString:[NSString stringWithFormat:@"%@", ftp.LastErrorText]];
                             [self.commandDelegate sendPluginResult:result callbackId:command.callbackId];
                         }
                     }
                 } else if (success != YES) {
-                    result = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR messageAsString:[NSString stringWithFormat:@"%@", ftp.LastErrorXml]];
+                    result = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR messageAsString:[NSString stringWithFormat:@"%@", ftp.LastErrorText]];
                     [self.commandDelegate sendPluginResult:result callbackId:command.callbackId];
                 }
 
@@ -364,7 +364,7 @@ CkoFtp2 *ftp = nil;
             }
         }
         @catch (NSException *exception) {
-            result = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR messageAsString:[NSString stringWithFormat:@"%@", ftp.LastErrorXml]];
+            result = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR messageAsString:[NSString stringWithFormat:@"%@", ftp.LastErrorText]];
             [self.commandDelegate sendPluginResult:result callbackId:command.callbackId];
         }
     }];
@@ -391,13 +391,13 @@ CkoFtp2 *ftp = nil;
                 BOOL changed = [ftp ChangeRemoteDir:remoteDir];
 
                 if (!changed) {
-                    result = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR messageAsString:[NSString stringWithFormat:@"%@", ftp.LastErrorXml]];
+                    result = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR messageAsString:[NSString stringWithFormat:@"%@", ftp.LastErrorText]];
                     [self.commandDelegate sendPluginResult:result callbackId:command.callbackId];
                 }
 
                 n = [[ftp GetDirCount] intValue];
                 if (n < 0) {
-                    NSLog(@"%@", ftp.LastErrorXml);
+                    NSLog(@"%@", ftp.LastErrorText);
                     return;
                 }
 
@@ -439,7 +439,7 @@ CkoFtp2 *ftp = nil;
             }
         }
         @catch (NSException *exception) {
-            result = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR messageAsString:[NSString stringWithFormat:@"%@", ftp.LastErrorXml]];
+            result = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR messageAsString:[NSString stringWithFormat:@"%@", ftp.LastErrorText]];
             [self.commandDelegate sendPluginResult:result callbackId:command.callbackId];
         }
     }];
@@ -455,14 +455,14 @@ CkoFtp2 *ftp = nil;
             if ([fileSize intValue] > 0) {
                 result = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:[NSString stringWithFormat:@"%d", [fileSize intValue]]];
             } else {
-                result = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR messageAsString:[NSString stringWithFormat:@"%@", ftp.LastErrorXml]];
+                result = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR messageAsString:[NSString stringWithFormat:@"%@", ftp.LastErrorText]];
             }
 
             [self.commandDelegate sendPluginResult:result callbackId:command.callbackId];
         }
         @catch (NSException *e) {
             NSLog(@"Exception: %@", e);
-            result = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR messageAsString:[NSString stringWithFormat:@"%@", ftp.LastErrorXml]];
+            result = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR messageAsString:[NSString stringWithFormat:@"%@", ftp.LastErrorText]];
             [self.commandDelegate sendPluginResult:result callbackId:command.callbackId];
         }
     }];
@@ -479,14 +479,14 @@ CkoFtp2 *ftp = nil;
             if (created) {
                 result = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:@"true"];
             } else {
-                result = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR messageAsString:[NSString stringWithFormat:@"%@", ftp.LastErrorXml]];
+                result = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR messageAsString:[NSString stringWithFormat:@"%@", ftp.LastErrorText]];
             }
 
             [self.commandDelegate sendPluginResult:result callbackId:command.callbackId];
         }
         @catch (NSException *e) {
             NSLog(@"Exception: %@", e);
-            result = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR messageAsString:[NSString stringWithFormat:@"%@", ftp.LastErrorXml]];
+            result = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR messageAsString:[NSString stringWithFormat:@"%@", ftp.LastErrorText]];
             [self.commandDelegate sendPluginResult:result callbackId:command.callbackId];
         }
     }];
@@ -503,14 +503,14 @@ CkoFtp2 *ftp = nil;
             if (changed) {
                 result = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:@"true"];
             } else {
-                result = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR messageAsString:[NSString stringWithFormat:@"%@", ftp.LastErrorXml]];
+                result = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR messageAsString:[NSString stringWithFormat:@"%@", ftp.LastErrorText]];
             }
 
             [self.commandDelegate sendPluginResult:result callbackId:command.callbackId];
         }
         @catch (NSException *e) {
             NSLog(@"Exception: %@", e);
-            result = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR messageAsString:[NSString stringWithFormat:@"%@", ftp.LastErrorXml]];
+            result = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR messageAsString:[NSString stringWithFormat:@"%@", ftp.LastErrorText]];
             [self.commandDelegate sendPluginResult:result callbackId:command.callbackId];
         }
     }];
@@ -527,14 +527,14 @@ CkoFtp2 *ftp = nil;
             if (changed) {
                 result = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:@"true"];
             } else {
-                result = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR messageAsString:[NSString stringWithFormat:@"%@", ftp.LastErrorXml]];
+                result = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR messageAsString:[NSString stringWithFormat:@"%@", ftp.LastErrorText]];
             }
 
             [self.commandDelegate sendPluginResult:result callbackId:command.callbackId];
         }
         @catch (NSException *e) {
             NSLog(@"Exception: %@", e);
-            result = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR messageAsString:[NSString stringWithFormat:@"%@", ftp.LastErrorXml]];
+            result = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR messageAsString:[NSString stringWithFormat:@"%@", ftp.LastErrorText]];
             [self.commandDelegate sendPluginResult:result callbackId:command.callbackId];
         }
     }];
@@ -562,14 +562,14 @@ CkoFtp2 *ftp = nil;
             if (disconnected) {
                 result = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:@"true"];
             } else {
-                result = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR messageAsString:[NSString stringWithFormat:@"%@", ftp.LastErrorXml]];
+                result = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR messageAsString:[NSString stringWithFormat:@"%@", ftp.LastErrorText]];
             }
 
             [self.commandDelegate sendPluginResult:result callbackId:command.callbackId];
         }
         @catch (NSException *e) {
             NSLog(@"Exception: %@", e);
-            result = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR messageAsString:[NSString stringWithFormat:@"%@", ftp.LastErrorXml]];
+            result = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR messageAsString:[NSString stringWithFormat:@"%@", ftp.LastErrorText]];
             [self.commandDelegate sendPluginResult:result callbackId:command.callbackId];
         }
     }];
