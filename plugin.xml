@@ -11,7 +11,7 @@
     </js-module>
 
     <platform name="android">
-        <config-file target="res/xml/config.xml" parent="/*">
+        <config-file target="config.xml" parent="/*">
             <feature name="ChilFtp">
                 <param name="android-package" value="com.vlinde.cordova.plugin.chilftp.ChilFtp" />
                 <param name="onload" value="true" />
