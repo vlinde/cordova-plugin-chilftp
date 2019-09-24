@@ -26,7 +26,7 @@
         <source-file src="src/android/libs/x86/libchilkatftp.so" target-dir="libs/x86"/>
         <source-file src="src/android/libs/x86_64/libchilkatftp.so" target-dir="libs/x86_64"/>
 
-        <source-file src="src/android/chilkatsoft" target-dir="src/com"/>
+        <source-file src="src/android/chilkatsoft" target-dir="java/com"/>
         <source-file src="src/android/ChilFtp.java" target-dir="src/com/vlinde/cordova/plugin/chilftp" />
     </platform>
 
