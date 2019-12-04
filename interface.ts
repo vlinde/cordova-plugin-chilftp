@@ -1,5 +1,5 @@
-import { Injectable } from '@angular/core';
-import { Plugin, Cordova, IonicNativePlugin } from '@ionic-native/core';
+import {Injectable} from '@angular/core';
+import {Plugin, Cordova, IonicNativePlugin} from '@ionic-native/core';
 
 @Plugin({
     pluginName: 'ChilFtp',
@@ -12,51 +12,83 @@ import { Plugin, Cordova, IonicNativePlugin } from '@ionic-native/core';
 export class ChilFtp extends IonicNativePlugin {
 
     @Cordova()
-    connect(hostname: string, port: number, username: string, password: string, restartNext:boolean): Promise<any> { return; }
+    connect(hostname: string, port: number, username: string, password: string, restartNext: boolean, ssl: boolean): Promise<any> {
+        return;
+    }
 
     @Cordova()
-    asyncPutFile(local: string, remote: string): Promise<any> { return; }
+    asyncPutFile(local: string, remote: string): Promise<any> {
+        return;
+    }
 
     @Cordova()
-    upload(local: string, remote: string): Promise<any> { return; }
+    upload(local: string, remote: string): Promise<any> {
+        return;
+    }
 
     @Cordova()
-    asyncGetFile(remote: string, local: string): Promise<any> { return; }
+    asyncGetFile(remote: string, local: string): Promise<any> {
+        return;
+    }
 
     @Cordova()
-    download(remote: string, local: string): Promise<any> { return; }
+    download(remote: string, local: string): Promise<any> {
+        return;
+    }
 
     @Cordova()
-    rename(path: string, existing_name: string, new_name: string, replace?: boolean): Promise<any> { return; }
+    rename(path: string, existing_name: string, new_name: string, replace?: boolean): Promise<any> {
+        return;
+    }
 
     @Cordova()
-    ls(remote: string): Promise<any> { return; }
+    ls(remote: string): Promise<any> {
+        return;
+    }
 
     @Cordova()
-    getRemoteFileSize(remoteFileName: string): Promise<any> { return; }
+    getRemoteFileSize(remoteFileName: string): Promise<any> {
+        return;
+    }
 
     @Cordova()
-    changeRemoteDir(remoteDir: string): Promise<any> { return; }
+    changeRemoteDir(remoteDir: string): Promise<any> {
+        return;
+    }
 
     @Cordova()
-    createRemoteDir(remoteNewDir: string) : Promise<any> { return; }
+    createRemoteDir(remoteNewDir: string): Promise<any> {
+        return;
+    }
 
     @Cordova()
-    deleteRemoteFile(remoteFileName: string): Promise<any> { return; }
+    deleteRemoteFile(remoteFileName: string): Promise<any> {
+        return;
+    }
 
     @Cordova()
-    keySetting(key: string): Promise<any> { return; }
+    keySetting(key: string): Promise<any> {
+        return;
+    }
 
     @Cordova()
-    disconnect() : Promise<any> { return; }
+    disconnect(): Promise<any> {
+        return;
+    }
 
     @Cordova()
-    abort(): Promise<any> { return; }
+    abort(): Promise<any> {
+        return;
+    }
 
     @Cordova()
-    getPathFromMediaUri(data: string): Promise<any> { return; }
+    getPathFromMediaUri(data: string): Promise<any> {
+        return;
+    }
 
     @Cordova()
-    checkConnection(): Promise<any> { return; }
+    checkConnection(): Promise<any> {
+        return;
+    }
 
 }

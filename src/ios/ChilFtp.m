@@ -47,7 +47,7 @@ CkoFtp2 *ftp = nil;
             NSString *user = [[command arguments] objectAtIndex:2];
             NSString *pw = [[command arguments] objectAtIndex:3];
             NSString *restartNext = [[command arguments] objectAtIndex:4];
-
+            NSString *ssl = [[command arguments] objectAtIndex:5];
             NSNumber *timeout = [NSNumber numberWithInt:6];
 
             ftp.Hostname = host;
@@ -56,7 +56,8 @@ CkoFtp2 *ftp = nil;
             ftp.Password = pw;
             ftp.ConnectTimeout = timeout;
             ftp.LargeFileMeasures = true;
-            //ftp.UseEpsv = true;
+            ftp.Ssl = ([ssl isEqual:@"true"] || [ssl intValue] == 1);
+            ftp.Passive = true;
 
             BOOL success;
 

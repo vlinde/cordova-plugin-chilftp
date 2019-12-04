@@ -1,6 +1,6 @@
 {
   "name": "cordova-plugin-chilftp",
-  "version": "0.1.2",
+  "version": "0.2.0",
   "description": "Cordova Chilcat Ftp Plugin",
   "cordova": {
     "id": "cordova-plugin-chilftp",
