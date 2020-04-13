@@ -47,6 +47,10 @@ public class CkStringBuilder {
     chilkatJNI.CkStringBuilder_put_IntValue(swigCPtr, this, newVal);
   }
 
+  public boolean get_IsBase64() {
+    return chilkatJNI.CkStringBuilder_get_IsBase64(swigCPtr, this);
+  }
+
   public boolean get_LastMethodSuccess() {
     return chilkatJNI.CkStringBuilder_get_LastMethodSuccess(swigCPtr, this);
   }
@@ -135,6 +139,18 @@ public class CkStringBuilder {
     return chilkatJNI.CkStringBuilder_afterBetween(swigCPtr, this, searchAfter, beginMark, endMark);
   }
 
+  public boolean GetAfterFinal(String marker, boolean removeFlag, CkString outStr) {
+    return chilkatJNI.CkStringBuilder_GetAfterFinal(swigCPtr, this, marker, removeFlag, CkString.getCPtr(outStr), outStr);
+  }
+
+  public String getAfterFinal(String marker, boolean removeFlag) {
+    return chilkatJNI.CkStringBuilder_getAfterFinal(swigCPtr, this, marker, removeFlag);
+  }
+
+  public String afterFinal(String marker, boolean removeFlag) {
+    return chilkatJNI.CkStringBuilder_afterFinal(swigCPtr, this, marker, removeFlag);
+  }
+
   public boolean GetAsString(CkString outStr) {
     return chilkatJNI.CkStringBuilder_GetAsString(swigCPtr, this, CkString.getCPtr(outStr), outStr);
   }
@@ -145,6 +161,18 @@ public class CkStringBuilder {
 
   public String asString() {
     return chilkatJNI.CkStringBuilder_asString(swigCPtr, this);
+  }
+
+  public boolean GetBefore(String marker, boolean removeFlag, CkString outStr) {
+    return chilkatJNI.CkStringBuilder_GetBefore(swigCPtr, this, marker, removeFlag, CkString.getCPtr(outStr), outStr);
+  }
+
+  public String getBefore(String marker, boolean removeFlag) {
+    return chilkatJNI.CkStringBuilder_getBefore(swigCPtr, this, marker, removeFlag);
+  }
+
+  public String before(String marker, boolean removeFlag) {
+    return chilkatJNI.CkStringBuilder_before(swigCPtr, this, marker, removeFlag);
   }
 
   public boolean GetBetween(String beginMark, String endMark, CkString outStr) {
@@ -199,6 +227,10 @@ public class CkStringBuilder {
     return chilkatJNI.CkStringBuilder_LoadFile(swigCPtr, this, path, charset);
   }
 
+  public void Obfuscate() {
+    chilkatJNI.CkStringBuilder_Obfuscate(swigCPtr, this);
+  }
+
   public boolean Prepend(String value) {
     return chilkatJNI.CkStringBuilder_Prepend(swigCPtr, this, value);
   }
@@ -209,6 +241,14 @@ public class CkStringBuilder {
 
   public boolean PunyEncode() {
     return chilkatJNI.CkStringBuilder_PunyEncode(swigCPtr, this);
+  }
+
+  public boolean RemoveAfterFinal(String marker) {
+    return chilkatJNI.CkStringBuilder_RemoveAfterFinal(swigCPtr, this, marker);
+  }
+
+  public boolean RemoveBefore(String marker) {
+    return chilkatJNI.CkStringBuilder_RemoveBefore(swigCPtr, this, marker);
   }
 
   public int Replace(String value, String replacement) {
@@ -227,8 +267,16 @@ public class CkStringBuilder {
     return chilkatJNI.CkStringBuilder_ReplaceBetween(swigCPtr, this, beginMark, endMark, value, replacement);
   }
 
+  public boolean ReplaceFirst(String value, String replacement) {
+    return chilkatJNI.CkStringBuilder_ReplaceFirst(swigCPtr, this, value, replacement);
+  }
+
   public int ReplaceI(String value, int replacement) {
     return chilkatJNI.CkStringBuilder_ReplaceI(swigCPtr, this, value, replacement);
+  }
+
+  public int ReplaceNoCase(String value, String replacement) {
+    return chilkatJNI.CkStringBuilder_ReplaceNoCase(swigCPtr, this, value, replacement);
   }
 
   public int ReplaceWord(String value, String replacement) {
@@ -273,6 +321,10 @@ public class CkStringBuilder {
 
   public boolean TrimInsideSpaces() {
     return chilkatJNI.CkStringBuilder_TrimInsideSpaces(swigCPtr, this);
+  }
+
+  public void Unobfuscate() {
+    chilkatJNI.CkStringBuilder_Unobfuscate(swigCPtr, this);
   }
 
   public boolean WriteFile(String path, String charset, boolean emitBom) {

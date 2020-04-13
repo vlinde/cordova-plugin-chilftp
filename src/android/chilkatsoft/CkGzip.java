@@ -324,6 +324,10 @@ public class CkGzip {
     return chilkatJNI.CkGzip_IsUnlocked(swigCPtr, this);
   }
 
+  public boolean LoadTaskCaller(CkTask task) {
+    return chilkatJNI.CkGzip_LoadTaskCaller(swigCPtr, this, CkTask.getCPtr(task), task);
+  }
+
   public boolean ReadFile(String path, CkByteData outBytes) {
     return chilkatJNI.CkGzip_ReadFile(swigCPtr, this, path, CkByteData.getCPtr(outBytes), outBytes);
   }

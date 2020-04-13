@@ -107,6 +107,18 @@ public class CkXmp {
     chilkatJNI.CkXmp_put_StructInnerDescrip(swigCPtr, this, newVal);
   }
 
+  public void get_UncommonOptions(CkString str) {
+    chilkatJNI.CkXmp_get_UncommonOptions(swigCPtr, this, CkString.getCPtr(str), str);
+  }
+
+  public String uncommonOptions() {
+    return chilkatJNI.CkXmp_uncommonOptions(swigCPtr, this);
+  }
+
+  public void put_UncommonOptions(String newVal) {
+    chilkatJNI.CkXmp_put_UncommonOptions(swigCPtr, this, newVal);
+  }
+
   public boolean get_VerboseLogging() {
     return chilkatJNI.CkXmp_get_VerboseLogging(swigCPtr, this);
   }

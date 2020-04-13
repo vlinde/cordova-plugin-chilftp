@@ -1,5 +1,5 @@
 // Chilkat Objective-C header.
-// This is a generated header file for Chilkat version 9.5.0.75
+// This is a generated header file for Chilkat version 9.5.0.82
 
 // Generic/internal class name =  Pem
 // Wrapped Chilkat C++ class name =  CkPem
@@ -43,6 +43,7 @@
 @property (nonatomic, readonly, copy) NSString *LastErrorXml;
 @property (nonatomic) BOOL LastMethodSuccess;
 @property (nonatomic, readonly, copy) NSNumber *NumCerts;
+@property (nonatomic, readonly, copy) NSNumber *NumCrls;
 @property (nonatomic, readonly, copy) NSNumber *NumCsrs;
 @property (nonatomic, readonly, copy) NSNumber *NumPrivateKeys;
 @property (nonatomic, readonly, copy) NSNumber *NumPublicKeys;
@@ -97,6 +98,8 @@
 // method: LoadPemFileAsync
 - (CkoTask *)LoadPemFileAsync: (NSString *)path 
 	password: (NSString *)password;
+// method: LoadTaskCaller
+- (BOOL)LoadTaskCaller: (CkoTask *)task;
 // method: RemoveCert
 - (BOOL)RemoveCert: (NSNumber *)index;
 // method: RemovePrivateKey

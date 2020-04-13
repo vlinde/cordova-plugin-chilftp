@@ -123,6 +123,18 @@ public class CkScp {
     chilkatJNI.CkScp_put_PercentDoneScale(swigCPtr, this, newVal);
   }
 
+  public void get_SendEnv(CkString str) {
+    chilkatJNI.CkScp_get_SendEnv(swigCPtr, this, CkString.getCPtr(str), str);
+  }
+
+  public String sendEnv() {
+    return chilkatJNI.CkScp_sendEnv(swigCPtr, this);
+  }
+
+  public void put_SendEnv(String newVal) {
+    chilkatJNI.CkScp_put_SendEnv(swigCPtr, this, newVal);
+  }
+
   public void get_SyncedFiles(CkString str) {
     chilkatJNI.CkScp_get_SyncedFiles(swigCPtr, this, CkString.getCPtr(str), str);
   }
@@ -183,6 +195,30 @@ public class CkScp {
     chilkatJNI.CkScp_put_SyncMustNotMatchDir(swigCPtr, this, newVal);
   }
 
+  public void get_UncommonOptions(CkString str) {
+    chilkatJNI.CkScp_get_UncommonOptions(swigCPtr, this, CkString.getCPtr(str), str);
+  }
+
+  public String uncommonOptions() {
+    return chilkatJNI.CkScp_uncommonOptions(swigCPtr, this);
+  }
+
+  public void put_UncommonOptions(String newVal) {
+    chilkatJNI.CkScp_put_UncommonOptions(swigCPtr, this, newVal);
+  }
+
+  public void get_UnixPermOverride(CkString str) {
+    chilkatJNI.CkScp_get_UnixPermOverride(swigCPtr, this, CkString.getCPtr(str), str);
+  }
+
+  public String unixPermOverride() {
+    return chilkatJNI.CkScp_unixPermOverride(swigCPtr, this);
+  }
+
+  public void put_UnixPermOverride(String newVal) {
+    chilkatJNI.CkScp_put_UnixPermOverride(swigCPtr, this, newVal);
+  }
+
   public boolean get_VerboseLogging() {
     return chilkatJNI.CkScp_get_VerboseLogging(swigCPtr, this);
   }
@@ -197,6 +233,15 @@ public class CkScp {
 
   public String version() {
     return chilkatJNI.CkScp_version(swigCPtr, this);
+  }
+
+  public boolean DownloadBd(String remotePath, CkBinData bd) {
+    return chilkatJNI.CkScp_DownloadBd(swigCPtr, this, remotePath, CkBinData.getCPtr(bd), bd);
+  }
+
+  public CkTask DownloadBdAsync(String remotePath, CkBinData bd) {
+    long cPtr = chilkatJNI.CkScp_DownloadBdAsync(swigCPtr, this, remotePath, CkBinData.getCPtr(bd), bd);
+    return (cPtr == 0) ? null : new CkTask(cPtr, true);
   }
 
   public boolean DownloadBinary(String remotePath, CkByteData outBytes) {
@@ -243,6 +288,10 @@ public class CkScp {
     return (cPtr == 0) ? null : new CkTask(cPtr, true);
   }
 
+  public boolean LoadTaskCaller(CkTask task) {
+    return chilkatJNI.CkScp_LoadTaskCaller(swigCPtr, this, CkTask.getCPtr(task), task);
+  }
+
   public boolean SaveLastError(String path) {
     return chilkatJNI.CkScp_SaveLastError(swigCPtr, this, path);
   }
@@ -262,6 +311,15 @@ public class CkScp {
 
   public CkTask SyncTreeUploadAsync(String localBaseDir, String remoteBaseDir, int mode, boolean bRecurse) {
     long cPtr = chilkatJNI.CkScp_SyncTreeUploadAsync(swigCPtr, this, localBaseDir, remoteBaseDir, mode, bRecurse);
+    return (cPtr == 0) ? null : new CkTask(cPtr, true);
+  }
+
+  public boolean UploadBd(String remotePath, CkBinData bd) {
+    return chilkatJNI.CkScp_UploadBd(swigCPtr, this, remotePath, CkBinData.getCPtr(bd), bd);
+  }
+
+  public CkTask UploadBdAsync(String remotePath, CkBinData bd) {
+    long cPtr = chilkatJNI.CkScp_UploadBdAsync(swigCPtr, this, remotePath, CkBinData.getCPtr(bd), bd);
     return (cPtr == 0) ? null : new CkTask(cPtr, true);
   }
 

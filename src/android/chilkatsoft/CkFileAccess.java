@@ -119,6 +119,14 @@ public class CkFileAccess {
     chilkatJNI.CkFileAccess_put_LastMethodSuccess(swigCPtr, this, newVal);
   }
 
+  public boolean get_LockFileOnOpen() {
+    return chilkatJNI.CkFileAccess_get_LockFileOnOpen(swigCPtr, this);
+  }
+
+  public void put_LockFileOnOpen(boolean newVal) {
+    chilkatJNI.CkFileAccess_put_LockFileOnOpen(swigCPtr, this, newVal);
+  }
+
   public boolean get_VerboseLogging() {
     return chilkatJNI.CkFileAccess_get_VerboseLogging(swigCPtr, this);
   }
@@ -137,6 +145,14 @@ public class CkFileAccess {
 
   public boolean AppendAnsi(String text) {
     return chilkatJNI.CkFileAccess_AppendAnsi(swigCPtr, this, text);
+  }
+
+  public boolean AppendBd(CkBinData bd) {
+    return chilkatJNI.CkFileAccess_AppendBd(swigCPtr, this, CkBinData.getCPtr(bd), bd);
+  }
+
+  public boolean AppendSb(CkStringBuilder sb, String charset) {
+    return chilkatJNI.CkFileAccess_AppendSb(swigCPtr, this, CkStringBuilder.getCPtr(sb), sb, charset);
   }
 
   public boolean AppendText(String str, String charset) {
@@ -213,6 +229,18 @@ public class CkFileAccess {
 
   public int FileSize(String filePath) {
     return chilkatJNI.CkFileAccess_FileSize(swigCPtr, this, filePath);
+  }
+
+  public boolean FileSizeStr(String filePath, CkString outStr) {
+    return chilkatJNI.CkFileAccess_FileSizeStr(swigCPtr, this, filePath, CkString.getCPtr(outStr), outStr);
+  }
+
+  public String fileSizeStr(String filePath) {
+    return chilkatJNI.CkFileAccess_fileSizeStr(swigCPtr, this, filePath);
+  }
+
+  public int FileType(String path) {
+    return chilkatJNI.CkFileAccess_FileType(swigCPtr, this, path);
   }
 
   public boolean FileWrite(CkByteData data) {
@@ -333,6 +361,10 @@ public class CkFileAccess {
     return chilkatJNI.CkFileAccess_ReadBlock(swigCPtr, this, blockIndex, blockSize, CkByteData.getCPtr(outBytes), outBytes);
   }
 
+  public boolean ReadBlockBd(int blockIndex, int blockSize, CkBinData bd) {
+    return chilkatJNI.CkFileAccess_ReadBlockBd(swigCPtr, this, blockIndex, blockSize, CkBinData.getCPtr(bd), bd);
+  }
+
   public boolean ReadEntireFile(String filePath, CkByteData outBytes) {
     return chilkatJNI.CkFileAccess_ReadEntireFile(swigCPtr, this, filePath, CkByteData.getCPtr(outBytes), outBytes);
   }
@@ -343,6 +375,10 @@ public class CkFileAccess {
 
   public String readEntireTextFile(String filePath, String charset) {
     return chilkatJNI.CkFileAccess_readEntireTextFile(swigCPtr, this, filePath, charset);
+  }
+
+  public int ReadNextFragment(boolean startAtBeginning, String beginMarker, String endMarker, String charset, CkStringBuilder sb) {
+    return chilkatJNI.CkFileAccess_ReadNextFragment(swigCPtr, this, startAtBeginning, beginMarker, endMarker, charset, CkStringBuilder.getCPtr(sb), sb);
   }
 
   public boolean ReassembleFile(String partsDirPath, String partPrefix, String partExtension, String reassembledFilename) {
@@ -373,8 +409,24 @@ public class CkFileAccess {
     return chilkatJNI.CkFileAccess_SplitFile(swigCPtr, this, fileToSplit, partPrefix, partExtension, partSize, destDir);
   }
 
+  public boolean SymlinkCreate(String targetPath, String linkPath) {
+    return chilkatJNI.CkFileAccess_SymlinkCreate(swigCPtr, this, targetPath, linkPath);
+  }
+
+  public boolean SymlinkTarget(String linkPath, CkString outStr) {
+    return chilkatJNI.CkFileAccess_SymlinkTarget(swigCPtr, this, linkPath, CkString.getCPtr(outStr), outStr);
+  }
+
+  public String symlinkTarget(String linkPath) {
+    return chilkatJNI.CkFileAccess_symlinkTarget(swigCPtr, this, linkPath);
+  }
+
   public boolean TreeDelete(String path) {
     return chilkatJNI.CkFileAccess_TreeDelete(swigCPtr, this, path);
+  }
+
+  public boolean Truncate() {
+    return chilkatJNI.CkFileAccess_Truncate(swigCPtr, this);
   }
 
   public boolean WriteEntireFile(String filePath, CkByteData fileData) {

@@ -579,6 +579,18 @@ public class CkImap {
     return chilkatJNI.CkImap_get_UidValidity(swigCPtr, this);
   }
 
+  public void get_UncommonOptions(CkString str) {
+    chilkatJNI.CkImap_get_UncommonOptions(swigCPtr, this, CkString.getCPtr(str), str);
+  }
+
+  public String uncommonOptions() {
+    return chilkatJNI.CkImap_uncommonOptions(swigCPtr, this);
+  }
+
+  public void put_UncommonOptions(String newVal) {
+    chilkatJNI.CkImap_put_UncommonOptions(swigCPtr, this, newVal);
+  }
+
   public boolean get_VerboseLogging() {
     return chilkatJNI.CkImap_get_VerboseLogging(swigCPtr, this);
   }
@@ -946,6 +958,15 @@ public class CkImap {
     return (cPtr == 0) ? null : new CkTask(cPtr, true);
   }
 
+  public boolean FetchSingleBd(int msgId, boolean bUid, CkBinData mimeData) {
+    return chilkatJNI.CkImap_FetchSingleBd(swigCPtr, this, msgId, bUid, CkBinData.getCPtr(mimeData), mimeData);
+  }
+
+  public CkTask FetchSingleBdAsync(int msgId, boolean bUid, CkBinData mimeData) {
+    long cPtr = chilkatJNI.CkImap_FetchSingleBdAsync(swigCPtr, this, msgId, bUid, CkBinData.getCPtr(mimeData), mimeData);
+    return (cPtr == 0) ? null : new CkTask(cPtr, true);
+  }
+
   public CkEmail FetchSingleHeader(int msgId, boolean bUid) {
     long cPtr = chilkatJNI.CkImap_FetchSingleHeader(swigCPtr, this, msgId, bUid);
     return (cPtr == 0) ? null : new CkEmail(cPtr, true);
@@ -1130,6 +1151,10 @@ public class CkImap {
     return (cPtr == 0) ? null : new CkTask(cPtr, true);
   }
 
+  public boolean LoadTaskCaller(CkTask task) {
+    return chilkatJNI.CkImap_LoadTaskCaller(swigCPtr, this, CkTask.getCPtr(task), task);
+  }
+
   public boolean Login(String loginName, String password) {
     return chilkatJNI.CkImap_Login(swigCPtr, this, loginName, password);
   }
@@ -1303,6 +1328,16 @@ public class CkImap {
     return chilkatJNI.CkImap_SetSslClientCertPfx(swigCPtr, this, pfxFilename, pfxPassword);
   }
 
+  public CkMessageSet Sort(String sortCriteria, String charset, String searchCriteria, boolean bUid) {
+    long cPtr = chilkatJNI.CkImap_Sort(swigCPtr, this, sortCriteria, charset, searchCriteria, bUid);
+    return (cPtr == 0) ? null : new CkMessageSet(cPtr, true);
+  }
+
+  public CkTask SortAsync(String sortCriteria, String charset, String searchCriteria, boolean bUid) {
+    long cPtr = chilkatJNI.CkImap_SortAsync(swigCPtr, this, sortCriteria, charset, searchCriteria, bUid);
+    return (cPtr == 0) ? null : new CkTask(cPtr, true);
+  }
+
   public boolean SshAuthenticatePk(String sshLogin, CkSshKey privateKey) {
     return chilkatJNI.CkImap_SshAuthenticatePk(swigCPtr, this, sshLogin, CkSshKey.getCPtr(privateKey), privateKey);
   }
@@ -1354,6 +1389,16 @@ public class CkImap {
 
   public CkTask SubscribeAsync(String mailbox) {
     long cPtr = chilkatJNI.CkImap_SubscribeAsync(swigCPtr, this, mailbox);
+    return (cPtr == 0) ? null : new CkTask(cPtr, true);
+  }
+
+  public CkJsonObject ThreadCmd(String threadAlg, String charset, String searchCriteria, boolean bUid) {
+    long cPtr = chilkatJNI.CkImap_ThreadCmd(swigCPtr, this, threadAlg, charset, searchCriteria, bUid);
+    return (cPtr == 0) ? null : new CkJsonObject(cPtr, true);
+  }
+
+  public CkTask ThreadCmdAsync(String threadAlg, String charset, String searchCriteria, boolean bUid) {
+    long cPtr = chilkatJNI.CkImap_ThreadCmdAsync(swigCPtr, this, threadAlg, charset, searchCriteria, bUid);
     return (cPtr == 0) ? null : new CkTask(cPtr, true);
   }
 

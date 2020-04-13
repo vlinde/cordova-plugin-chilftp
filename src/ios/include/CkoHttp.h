@@ -1,16 +1,16 @@
 // Chilkat Objective-C header.
-// This is a generated header file for Chilkat version 9.5.0.75
+// This is a generated header file for Chilkat version 9.5.0.82
 
 // Generic/internal class name =  Http
 // Wrapped Chilkat C++ class name =  CkHttp
 
-@class CkoHttpResponse;
 @class CkoTask;
 @class CkoJsonObject;
 @class CkoBinData;
 @class CkoStringBuilder;
 @class CkoCert;
 @class CkoHashtable;
+@class CkoHttpResponse;
 @class CkoHttpRequest;
 @class CkoStringArray;
 @class CkoDateTime;
@@ -57,14 +57,6 @@
 @property (nonatomic, copy) NSNumber *BandwidthThrottleDown;
 @property (nonatomic, copy) NSNumber *BandwidthThrottleUp;
 @property (nonatomic) BOOL BasicAuth;
-@property (nonatomic, readonly, copy) NSString *BgLastErrorText;
-@property (nonatomic, readonly, copy) NSNumber *BgPercentDone;
-@property (nonatomic, readonly, copy) NSData *BgResultData;
-@property (nonatomic, readonly, copy) NSNumber *BgResultInt;
-@property (nonatomic, readonly, copy) NSString *BgResultString;
-@property (nonatomic, readonly) BOOL BgTaskFinished;
-@property (nonatomic, readonly) BOOL BgTaskRunning;
-@property (nonatomic, readonly) BOOL BgTaskSuccess;
 @property (nonatomic, copy) NSString *ClientIpAddress;
 @property (nonatomic, readonly, copy) NSNumber *ConnectFailReason;
 @property (nonatomic, copy) NSString *Connection;
@@ -73,7 +65,6 @@
 @property (nonatomic, copy) NSString *DebugLogFilePath;
 @property (nonatomic, copy) NSNumber *DefaultFreshPeriod;
 @property (nonatomic) BOOL DigestAuth;
-@property (nonatomic, readonly, copy) NSNumber *EventLogCount;
 @property (nonatomic) BOOL FetchFromCache;
 @property (nonatomic, readonly, copy) NSString *FinalRedirectUrl;
 @property (nonatomic) BOOL FollowRedirects;
@@ -81,7 +72,6 @@
 @property (nonatomic, copy) NSNumber *HeartbeatMs;
 @property (nonatomic) BOOL IgnoreMustRevalidate;
 @property (nonatomic) BOOL IgnoreNoCache;
-@property (nonatomic) BOOL KeepEventLog;
 @property (nonatomic) BOOL KeepResponseBody;
 @property (nonatomic, readonly, copy) NSString *LastContentType;
 @property (nonatomic, readonly, copy) NSString *LastErrorHtml;
@@ -136,6 +126,7 @@
 @property (nonatomic, copy) NSNumber *SendBufferSize;
 @property (nonatomic) BOOL SendCookies;
 @property (nonatomic, copy) NSString *SessionLogFilename;
+@property (nonatomic, copy) NSString *SniHostname;
 @property (nonatomic, copy) NSString *SocksHostname;
 @property (nonatomic, copy) NSString *SocksPassword;
 @property (nonatomic, copy) NSNumber *SocksPort;
@@ -149,8 +140,8 @@
 @property (nonatomic, readonly, copy) NSString *TlsCipherSuite;
 @property (nonatomic, copy) NSString *TlsPinSet;
 @property (nonatomic, readonly, copy) NSString *TlsVersion;
+@property (nonatomic, copy) NSString *UncommonOptions;
 @property (nonatomic) BOOL UpdateCache;
-@property (nonatomic) BOOL UseBgThread;
 @property (nonatomic) BOOL UseIEProxy;
 @property (nonatomic, copy) NSString *UserAgent;
 @property (nonatomic) BOOL VerboseLogging;
@@ -158,15 +149,8 @@
 @property (nonatomic, readonly) BOOL WasRedirected;
 // method: AddCacheRoot
 - (void)AddCacheRoot: (NSString *)dir;
-// method: AddQuickHeader
-- (BOOL)AddQuickHeader: (NSString *)name 
-	value: (NSString *)value;
-// method: BgResponseObject
-- (CkoHttpResponse *)BgResponseObject;
-// method: BgTaskAbort
-- (void)BgTaskAbort;
-// method: ClearBgEventLog
-- (void)ClearBgEventLog;
+// method: ClearHeaders
+- (void)ClearHeaders;
 // method: ClearInMemoryCookies
 - (void)ClearInMemoryCookies;
 // method: ClearUrlVars
@@ -221,10 +205,6 @@
 - (CkoTask *)DownloadSbAsync: (NSString *)url 
 	charset: (NSString *)charset 
 	sb: (CkoStringBuilder *)sb;
-// method: EventLogName
-- (NSString *)EventLogName: (NSNumber *)index;
-// method: EventLogValue
-- (NSString *)EventLogValue: (NSNumber *)index;
 // method: ExtractMetaRefreshUrl
 - (NSString *)ExtractMetaRefreshUrl: (NSString *)html;
 // method: G_SvcOauthAccessToken
@@ -273,6 +253,10 @@
 - (BOOL)HasRequestHeader: (NSString *)name;
 // method: IsUnlocked
 - (BOOL)IsUnlocked;
+// method: LastJsonData
+- (CkoJsonObject *)LastJsonData;
+// method: LoadTaskCaller
+- (BOOL)LoadTaskCaller: (CkoTask *)task;
 // method: ParseOcspReply
 - (NSNumber *)ParseOcspReply: (CkoBinData *)ocspReply 
 	replyData: (CkoJsonObject *)replyData;
@@ -442,8 +426,12 @@
 - (NSString *)QuickPutStr: (NSString *)url;
 // method: QuickPutStrAsync
 - (CkoTask *)QuickPutStrAsync: (NSString *)url;
-// method: RemoveQuickHeader
-- (BOOL)RemoveQuickHeader: (NSString *)name;
+// method: QuickRequest
+- (CkoHttpResponse *)QuickRequest: (NSString *)verb 
+	url: (NSString *)url;
+// method: QuickRequestAsync
+- (CkoTask *)QuickRequestAsync: (NSString *)verb 
+	url: (NSString *)url;
 // method: RemoveRequestHeader
 - (void)RemoveRequestHeader: (NSString *)name;
 // method: RenderGet
@@ -480,6 +468,14 @@
 // method: S3_DeleteObjectAsync
 - (CkoTask *)S3_DeleteObjectAsync: (NSString *)bucketName 
 	objectName: (NSString *)objectName;
+// method: S3_DownloadBd
+- (BOOL)S3_DownloadBd: (NSString *)bucketPath 
+	objectName: (NSString *)objectName 
+	bd: (CkoBinData *)bd;
+// method: S3_DownloadBdAsync
+- (CkoTask *)S3_DownloadBdAsync: (NSString *)bucketPath 
+	objectName: (NSString *)objectName 
+	bd: (CkoBinData *)bd;
 // method: S3_DownloadBytes
 - (NSData *)S3_DownloadBytes: (NSString *)bucketName 
 	objectName: (NSString *)objectName;
@@ -526,6 +522,16 @@
 - (NSString *)S3_ListBuckets;
 // method: S3_ListBucketsAsync
 - (CkoTask *)S3_ListBucketsAsync;
+// method: S3_UploadBd
+- (BOOL)S3_UploadBd: (CkoBinData *)bd 
+	contentType: (NSString *)contentType 
+	bucketPath: (NSString *)bucketPath 
+	objectName: (NSString *)objectName;
+// method: S3_UploadBdAsync
+- (CkoTask *)S3_UploadBdAsync: (CkoBinData *)bd 
+	contentType: (NSString *)contentType 
+	bucketPath: (NSString *)bucketPath 
+	objectName: (NSString *)objectName;
 // method: S3_UploadBytes
 - (BOOL)S3_UploadBytes: (NSData *)objectContent 
 	contentType: (NSString *)contentType 
@@ -570,6 +576,8 @@
 // method: SetRequestHeader
 - (void)SetRequestHeader: (NSString *)name 
 	value: (NSString *)value;
+// method: SetSecurePassword
+- (BOOL)SetSecurePassword: (CkoSecureString *)password;
 // method: SetSslClientCert
 - (BOOL)SetSslClientCert: (CkoCert *)cert;
 // method: SetSslClientCertPem

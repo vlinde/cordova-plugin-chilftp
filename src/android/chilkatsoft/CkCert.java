@@ -295,6 +295,14 @@ public class CkCert {
     return chilkatJNI.CkCert_get_Silent(swigCPtr, this);
   }
 
+  public boolean get_SmartCardNoDialog() {
+    return chilkatJNI.CkCert_get_SmartCardNoDialog(swigCPtr, this);
+  }
+
+  public void put_SmartCardNoDialog(boolean newVal) {
+    chilkatJNI.CkCert_put_SmartCardNoDialog(swigCPtr, this, newVal);
+  }
+
   public void get_SmartCardPin(CkString str) {
     chilkatJNI.CkCert_get_SmartCardPin(swigCPtr, this, CkString.getCPtr(str), str);
   }
@@ -425,6 +433,10 @@ public class CkCert {
 
   public int CheckRevoked() {
     return chilkatJNI.CkCert_CheckRevoked(swigCPtr, this);
+  }
+
+  public int CheckSmartCardPin() {
+    return chilkatJNI.CkCert_CheckSmartCardPin(swigCPtr, this);
   }
 
   public boolean ExportCertDer(CkByteData outData) {
@@ -589,6 +601,10 @@ public class CkCert {
     return chilkatJNI.CkCert_LoadFromFile(swigCPtr, this, path);
   }
 
+  public boolean LoadFromSmartcard(String csp) {
+    return chilkatJNI.CkCert_LoadFromSmartcard(swigCPtr, this, csp);
+  }
+
   public boolean LoadPem(String strPem) {
     return chilkatJNI.CkCert_LoadPem(swigCPtr, this, strPem);
   }
@@ -639,6 +655,14 @@ public class CkCert {
 
   public boolean VerifySignature() {
     return chilkatJNI.CkCert_VerifySignature(swigCPtr, this);
+  }
+
+  public boolean X509PKIPathv1(CkString outStr) {
+    return chilkatJNI.CkCert_X509PKIPathv1(swigCPtr, this, CkString.getCPtr(outStr), outStr);
+  }
+
+  public String x509PKIPathv1() {
+    return chilkatJNI.CkCert_x509PKIPathv1(swigCPtr, this);
   }
 
 }

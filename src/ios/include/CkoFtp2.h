@@ -1,5 +1,5 @@
 // Chilkat Objective-C header.
-// This is a generated header file for Chilkat version 9.5.0.75
+// This is a generated header file for Chilkat version 9.5.0.82
 
 // Generic/internal class name =  Ftp2
 // Wrapped Chilkat C++ class name =  CkFtp2
@@ -47,10 +47,6 @@
 @property (nonatomic, readonly, copy) NSNumber *AsyncBytesSent;
 @property (nonatomic, readonly, copy) NSNumber *AsyncBytesSent64;
 @property (nonatomic, readonly, copy) NSString *AsyncBytesSentStr;
-@property (nonatomic, readonly) BOOL AsyncFinished;
-@property (nonatomic, readonly, copy) NSString *AsyncLog;
-@property (nonatomic, readonly, copy) NSNumber *AsyncPercentDone;
-@property (nonatomic, readonly) BOOL AsyncSuccess;
 @property (nonatomic) BOOL AuthSsl;
 @property (nonatomic) BOOL AuthTls;
 @property (nonatomic) BOOL AutoFeat;
@@ -113,9 +109,7 @@
 @property (nonatomic, copy) NSNumber *ReadTimeout;
 @property (nonatomic) BOOL RequireSslCertVerify;
 @property (nonatomic) BOOL RestartNext;
-@property (nonatomic, copy) NSNumber *SendBufferSize;
 @property (nonatomic, readonly, copy) NSString *SessionLog;
-@property (nonatomic) BOOL SkipFinalReply;
 @property (nonatomic, copy) NSString *SocksHostname;
 @property (nonatomic, copy) NSString *SocksPassword;
 @property (nonatomic, copy) NSNumber *SocksPort;
@@ -127,13 +121,17 @@
 @property (nonatomic, copy) NSString *SslAllowedCiphers;
 @property (nonatomic, copy) NSString *SslProtocol;
 @property (nonatomic, readonly) BOOL SslServerCertVerified;
+@property (nonatomic) BOOL SyncCreateAllLocalDirs;
 @property (nonatomic, copy) NSString *SyncedFiles;
 @property (nonatomic, copy) NSString *SyncMustMatch;
+@property (nonatomic, copy) NSString *SyncMustMatchDir;
 @property (nonatomic, copy) NSString *SyncMustNotMatch;
+@property (nonatomic, copy) NSString *SyncMustNotMatchDir;
 @property (nonatomic, readonly, copy) NSString *SyncPreview;
 @property (nonatomic, readonly, copy) NSString *TlsCipherSuite;
 @property (nonatomic, copy) NSString *TlsPinSet;
 @property (nonatomic, readonly, copy) NSString *TlsVersion;
+@property (nonatomic, copy) NSString *UncommonOptions;
 @property (nonatomic, readonly, copy) NSNumber *UploadTransferRate;
 @property (nonatomic) BOOL UseEpsv;
 @property (nonatomic, copy) NSString *Username;
@@ -159,17 +157,6 @@
 - (CkoTask *)AppendFileFromTextDataAsync: (NSString *)remoteFilename 
 	textData: (NSString *)textData 
 	charset: (NSString *)charset;
-// method: AsyncAbort
-- (void)AsyncAbort;
-// method: AsyncAppendFileStart
-- (BOOL)AsyncAppendFileStart: (NSString *)localPath 
-	remoteFilename: (NSString *)remoteFilename;
-// method: AsyncGetFileStart
-- (BOOL)AsyncGetFileStart: (NSString *)remoteFilename 
-	localFilename: (NSString *)localFilename;
-// method: AsyncPutFileStart
-- (BOOL)AsyncPutFileStart: (NSString *)localPath 
-	remoteFilename: (NSString *)remoteFilename;
 // method: ChangeRemoteDir
 - (BOOL)ChangeRemoteDir: (NSString *)relativeDirPath;
 // method: ChangeRemoteDirAsync
@@ -296,10 +283,10 @@
 	sb: (CkoStringBuilder *)sb;
 // method: GetFileToStream
 - (BOOL)GetFileToStream: (NSString *)remoteFilePath 
-	toStream: (CkoStream *)toStream;
+	to: (CkoStream *)to;
 // method: GetFileToStreamAsync
 - (CkoTask *)GetFileToStreamAsync: (NSString *)remoteFilePath 
-	toStream: (CkoStream *)toStream;
+	to: (CkoStream *)to;
 // method: GetGroup
 - (NSString *)GetGroup: (NSNumber *)index;
 // method: GetGroupAsync
@@ -312,26 +299,6 @@
 - (BOOL)GetIsSymbolicLink: (NSNumber *)index;
 // method: GetIsSymbolicLinkAsync
 - (CkoTask *)GetIsSymbolicLinkAsync: (NSNumber *)index;
-// method: GetLastAccessDt
-- (CkoDateTime *)GetLastAccessDt: (NSNumber *)index;
-// method: GetLastAccessDtAsync
-- (CkoTask *)GetLastAccessDtAsync: (NSNumber *)index;
-// method: GetLastAccessDtByName
-- (CkoDateTime *)GetLastAccessDtByName: (NSString *)filename;
-// method: GetLastAccessDtByNameAsync
-- (CkoTask *)GetLastAccessDtByNameAsync: (NSString *)filename;
-// method: GetLastAccessTime
-- (NSDate *)GetLastAccessTime: (NSNumber *)index;
-// method: GetLastAccessTimeByName
-- (NSDate *)GetLastAccessTimeByName: (NSString *)filename;
-// method: GetLastAccessTimeByNameStr
-- (NSString *)GetLastAccessTimeByNameStr: (NSString *)filename;
-// method: GetLastAccessTimeByNameStrAsync
-- (CkoTask *)GetLastAccessTimeByNameStrAsync: (NSString *)filename;
-// method: GetLastAccessTimeStr
-- (NSString *)GetLastAccessTimeStr: (NSNumber *)index;
-// method: GetLastAccessTimeStrAsync
-- (CkoTask *)GetLastAccessTimeStrAsync: (NSNumber *)index;
 // method: GetLastModDt
 - (CkoDateTime *)GetLastModDt: (NSNumber *)index;
 // method: GetLastModDtAsync
@@ -418,6 +385,8 @@
 - (CkoTask *)LargeFileUploadAsync: (NSString *)localPath 
 	remotePath: (NSString *)remotePath 
 	chunkSize: (NSNumber *)chunkSize;
+// method: LoadTaskCaller
+- (BOOL)LoadTaskCaller: (CkoTask *)task;
 // method: LoginAfterConnectOnly
 - (BOOL)LoginAfterConnectOnly;
 // method: LoginAfterConnectOnlyAsync
@@ -533,6 +502,8 @@
 // method: SetRemoteFileDtAsync
 - (CkoTask *)SetRemoteFileDtAsync: (CkoDateTime *)dt 
 	remoteFilename: (NSString *)remoteFilename;
+// method: SetSecurePassword
+- (BOOL)SetSecurePassword: (CkoSecureString *)password;
 // method: SetSslCertRequirement
 - (void)SetSslCertRequirement: (NSString *)name 
 	value: (NSString *)value;

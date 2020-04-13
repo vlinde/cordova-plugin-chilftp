@@ -21,13 +21,6 @@ ChilFtp.prototype.connect = function (hostname, port, username, password, restar
         "connect", [hostname, port, username, password, restartNext, ssl]);
 };
 
-ChilFtp.prototype.asyncPutFile = function (local, remote, successCallback, errorCallback) {
-    exec(successCallback,
-        errorCallback,
-        "ChilFtp",
-        "asyncPutFile", [removePathProtocolPrefix(local), removePathProtocolPrefix(remote)]);
-};
-
 ChilFtp.prototype.upload = function (local, remote, successCallback, errorCallback) {
     exec(successCallback,
         errorCallback,
@@ -40,13 +33,6 @@ ChilFtp.prototype.ls = function (remote, successCallback, errorCallback) {
         errorCallback,
         "ChilFtp",
         "ls", [removePathProtocolPrefix(remote)]);
-};
-
-ChilFtp.prototype.asyncGetFile = function (remote, local, successCallback, errorCallback) {
-    exec(successCallback,
-        errorCallback,
-        "ChilFtp",
-        "asyncGetFile", [removePathProtocolPrefix(remote), removePathProtocolPrefix(local)]);
 };
 
 ChilFtp.prototype.download = function (remote, local, successCallback, errorCallback) {

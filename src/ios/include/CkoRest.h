@@ -1,5 +1,5 @@
 // Chilkat Objective-C header.
-// This is a generated header file for Chilkat version 9.5.0.75
+// This is a generated header file for Chilkat version 9.5.0.82
 
 // Generic/internal class name =  Rest
 // Wrapped Chilkat C++ class name =  CkRest
@@ -8,6 +8,7 @@
 @class CkoTask;
 @class CkoBinData;
 @class CkoStream;
+@class CkoJsonObject;
 @class CkoUrl;
 @class CkoAuthAws;
 @class CkoAuthAzureAD;
@@ -48,6 +49,7 @@
 @property (nonatomic, readonly, copy) NSNumber *ConnectFailReason;
 @property (nonatomic, copy) NSNumber *ConnectTimeoutMs;
 @property (nonatomic, copy) NSString *DebugLogFilePath;
+@property (nonatomic) BOOL DebugMode;
 @property (nonatomic, copy) NSNumber *HeartbeatMs;
 @property (nonatomic, copy) NSString *Host;
 @property (nonatomic, copy) NSNumber *IdleTimeoutMs;
@@ -64,6 +66,7 @@
 @property (nonatomic, readonly, copy) NSNumber *ResponseStatusCode;
 @property (nonatomic, readonly, copy) NSString *ResponseStatusText;
 @property (nonatomic) BOOL StreamNonChunked;
+@property (nonatomic, copy) NSString *UncommonOptions;
 @property (nonatomic) BOOL VerboseLogging;
 @property (nonatomic, readonly, copy) NSString *Version;
 // method: AddHeader
@@ -189,6 +192,12 @@
 - (CkoTask *)FullRequestStringAsync: (NSString *)httpVerb 
 	uriPath: (NSString *)uriPath 
 	bodyText: (NSString *)bodyText;
+// method: GetLastDebugRequest
+- (BOOL)GetLastDebugRequest: (CkoBinData *)bd;
+// method: LastJsonData
+- (CkoJsonObject *)LastJsonData;
+// method: LoadTaskCaller
+- (BOOL)LoadTaskCaller: (CkoTask *)task;
 // method: ReadRespBd
 - (BOOL)ReadRespBd: (CkoBinData *)responseBody;
 // method: ReadRespBdAsync

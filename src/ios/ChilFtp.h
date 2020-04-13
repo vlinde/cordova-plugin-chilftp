@@ -7,9 +7,7 @@ extern CkoFtp2 *ftp;
 
 - (void) keySetting:(CDVInvokedUrlCommand*)command;
 - (void) connect:(CDVInvokedUrlCommand*)command;
-- (void) asyncPutFile:(CDVInvokedUrlCommand*)command;
 - (void) upload:(CDVInvokedUrlCommand*)command;
-- (void) asyncGetFile:(CDVInvokedUrlCommand*)command;
 - (void) download:(CDVInvokedUrlCommand*)command;
 - (void) rename:(CDVInvokedUrlCommand*)command;
 - (void) ls:(CDVInvokedUrlCommand*)command;

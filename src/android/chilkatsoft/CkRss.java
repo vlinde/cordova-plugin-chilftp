@@ -218,6 +218,10 @@ public class CkRss {
     return chilkatJNI.CkRss_LoadRssString(swigCPtr, this, rssString);
   }
 
+  public boolean LoadTaskCaller(CkTask task) {
+    return chilkatJNI.CkRss_LoadTaskCaller(swigCPtr, this, CkTask.getCPtr(task), task);
+  }
+
   public boolean MGetAttr(String tag, int index, String attrName, CkString outStr) {
     return chilkatJNI.CkRss_MGetAttr(swigCPtr, this, tag, index, attrName, CkString.getCPtr(outStr), outStr);
   }

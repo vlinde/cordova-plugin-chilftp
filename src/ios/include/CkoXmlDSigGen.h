@@ -1,5 +1,5 @@
 // Chilkat Objective-C header.
-// This is a generated header file for Chilkat version 9.5.0.75
+// This is a generated header file for Chilkat version 9.5.0.82
 
 // Generic/internal class name =  XmlDSigGen
 // Wrapped Chilkat C++ class name =  CkXmlDSigGen
@@ -40,6 +40,7 @@
 @property (nonatomic) BOOL LastMethodSuccess;
 @property (nonatomic, copy) NSString *SigId;
 @property (nonatomic, copy) NSString *SigLocation;
+@property (nonatomic, copy) NSNumber *SigLocationMod;
 @property (nonatomic, copy) NSString *SigNamespacePrefix;
 @property (nonatomic, copy) NSString *SigNamespaceUri;
 @property (nonatomic, copy) NSString *SignedInfoCanonAlg;

@@ -183,6 +183,14 @@ public class CkGlobal {
     chilkatJNI.CkGlobal_put_VerboseLogging(swigCPtr, this, newVal);
   }
 
+  public boolean get_VerboseTls() {
+    return chilkatJNI.CkGlobal_get_VerboseTls(swigCPtr, this);
+  }
+
+  public void put_VerboseTls(boolean newVal) {
+    chilkatJNI.CkGlobal_put_VerboseTls(swigCPtr, this, newVal);
+  }
+
   public void get_Version(CkString str) {
     chilkatJNI.CkGlobal_get_Version(swigCPtr, this, CkString.getCPtr(str), str);
   }
@@ -201,6 +209,10 @@ public class CkGlobal {
 
   public boolean SaveLastError(String path) {
     return chilkatJNI.CkGlobal_SaveLastError(swigCPtr, this, path);
+  }
+
+  public boolean ThreadPoolLogLine(String str) {
+    return chilkatJNI.CkGlobal_ThreadPoolLogLine(swigCPtr, this, str);
   }
 
   public boolean UnlockBundle(String bundleUnlockCode) {

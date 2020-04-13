@@ -1,5 +1,5 @@
 // Chilkat Objective-C header.
-// This is a generated header file for Chilkat version 9.5.0.75
+// This is a generated header file for Chilkat version 9.5.0.82
 
 // Generic/internal class name =  Mime
 // Wrapped Chilkat C++ class name =  CkMime
@@ -32,6 +32,7 @@
 
 @property (nonatomic, copy) NSString *Boundary;
 @property (nonatomic, copy) NSString *Charset;
+@property (nonatomic, copy) NSString *CmsOptions;
 @property (nonatomic, copy) NSString *ContentType;
 @property (nonatomic, readonly, copy) NSString *CurrentDateTime;
 @property (nonatomic, copy) NSString *DebugLogFilePath;

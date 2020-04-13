@@ -1,5 +1,5 @@
 // Chilkat Objective-C header.
-// This is a generated header file for Chilkat version 9.5.0.75
+// This is a generated header file for Chilkat version 9.5.0.82
 
 // Generic/internal class name =  JavaKeyStore
 // Wrapped Chilkat C++ class name =  CkJavaKeyStore
@@ -8,6 +8,7 @@
 @class CkoCert;
 @class CkoCertChain;
 @class CkoPrivateKey;
+@class CkoBinData;
 @class CkoJsonObject;
 @class CkoStringBuilder;
 @class CkoPem;
@@ -90,6 +91,9 @@
 - (CkoCert *)GetTrustedCert: (NSNumber *)index;
 // method: GetTrustedCertAlias
 - (NSString *)GetTrustedCertAlias: (NSNumber *)index;
+// method: LoadBd
+- (BOOL)LoadBd: (NSString *)password 
+	bd: (CkoBinData *)bd;
 // method: LoadBinary
 - (BOOL)LoadBinary: (NSString *)password 
 	jksData: (NSData *)jksData;

@@ -143,6 +143,18 @@ public class CkCrypt2 {
     chilkatJNI.CkCrypt2_put_CipherMode(swigCPtr, this, newVal);
   }
 
+  public void get_CmsOptions(CkString str) {
+    chilkatJNI.CkCrypt2_get_CmsOptions(swigCPtr, this, CkString.getCPtr(str), str);
+  }
+
+  public String cmsOptions() {
+    return chilkatJNI.CkCrypt2_cmsOptions(swigCPtr, this);
+  }
+
+  public void put_CmsOptions(String newVal) {
+    chilkatJNI.CkCrypt2_put_CmsOptions(swigCPtr, this, newVal);
+  }
+
   public void get_CompressionAlgorithm(CkString str) {
     chilkatJNI.CkCrypt2_get_CompressionAlgorithm(swigCPtr, this, CkString.getCPtr(str), str);
   }
@@ -606,8 +618,18 @@ public class CkCrypt2 {
     return chilkatJNI.CkCrypt2_CreateP7M(swigCPtr, this, inFilename, p7mPath);
   }
 
+  public CkTask CreateP7MAsync(String inFilename, String p7mPath) {
+    long cPtr = chilkatJNI.CkCrypt2_CreateP7MAsync(swigCPtr, this, inFilename, p7mPath);
+    return (cPtr == 0) ? null : new CkTask(cPtr, true);
+  }
+
   public boolean CreateP7S(String inFilename, String p7sPath) {
     return chilkatJNI.CkCrypt2_CreateP7S(swigCPtr, this, inFilename, p7sPath);
+  }
+
+  public CkTask CreateP7SAsync(String inFilename, String p7sPath) {
+    long cPtr = chilkatJNI.CkCrypt2_CreateP7SAsync(swigCPtr, this, inFilename, p7sPath);
+    return (cPtr == 0) ? null : new CkTask(cPtr, true);
   }
 
   public boolean Decode(String str, String encoding, CkByteData outData) {
@@ -681,6 +703,14 @@ public class CkCrypt2 {
 
   public String encode(CkByteData byteData, String encoding) {
     return chilkatJNI.CkCrypt2_encode(swigCPtr, this, CkByteData.getCPtr(byteData), byteData, encoding);
+  }
+
+  public boolean EncodeInt(int value, int numBytes, boolean littleEndian, String encoding, CkString outStr) {
+    return chilkatJNI.CkCrypt2_EncodeInt(swigCPtr, this, value, numBytes, littleEndian, encoding, CkString.getCPtr(outStr), outStr);
+  }
+
+  public String encodeInt(int value, int numBytes, boolean littleEndian, String encoding) {
+    return chilkatJNI.CkCrypt2_encodeInt(swigCPtr, this, value, numBytes, littleEndian, encoding);
   }
 
   public boolean EncodeString(String strToEncode, String charsetName, String toEncodingName, CkString outStr) {
@@ -986,6 +1016,14 @@ public class CkCrypt2 {
     return chilkatJNI.CkCrypt2_hmacStringENC(swigCPtr, this, inText);
   }
 
+  public boolean Hotp(String secret, String secretEnc, String counterHex, int numDigits, int truncOffset, String hashAlg, CkString outStr) {
+    return chilkatJNI.CkCrypt2_Hotp(swigCPtr, this, secret, secretEnc, counterHex, numDigits, truncOffset, hashAlg, CkString.getCPtr(outStr), outStr);
+  }
+
+  public String hotp(String secret, String secretEnc, String counterHex, int numDigits, int truncOffset, String hashAlg) {
+    return chilkatJNI.CkCrypt2_hotp(swigCPtr, this, secret, secretEnc, counterHex, numDigits, truncOffset, hashAlg);
+  }
+
   public boolean InflateBytes(CkByteData data, CkByteData outData) {
     return chilkatJNI.CkCrypt2_InflateBytes(swigCPtr, this, CkByteData.getCPtr(data), data, CkByteData.getCPtr(outData), outData);
   }
@@ -1017,6 +1055,10 @@ public class CkCrypt2 {
   public CkJsonObject LastJsonData() {
     long cPtr = chilkatJNI.CkCrypt2_LastJsonData(swigCPtr, this);
     return (cPtr == 0) ? null : new CkJsonObject(cPtr, true);
+  }
+
+  public boolean LoadTaskCaller(CkTask task) {
+    return chilkatJNI.CkCrypt2_LoadTaskCaller(swigCPtr, this, CkTask.getCPtr(task), task);
   }
 
   public boolean MacBdENC(CkBinData bd, CkString outStr) {
@@ -1071,8 +1113,18 @@ public class CkCrypt2 {
     return chilkatJNI.CkCrypt2_OpaqueSignBd(swigCPtr, this, CkBinData.getCPtr(bd), bd);
   }
 
+  public CkTask OpaqueSignBdAsync(CkBinData bd) {
+    long cPtr = chilkatJNI.CkCrypt2_OpaqueSignBdAsync(swigCPtr, this, CkBinData.getCPtr(bd), bd);
+    return (cPtr == 0) ? null : new CkTask(cPtr, true);
+  }
+
   public boolean OpaqueSignBytes(CkByteData data, CkByteData outData) {
     return chilkatJNI.CkCrypt2_OpaqueSignBytes(swigCPtr, this, CkByteData.getCPtr(data), data, CkByteData.getCPtr(outData), outData);
+  }
+
+  public CkTask OpaqueSignBytesAsync(CkByteData data) {
+    long cPtr = chilkatJNI.CkCrypt2_OpaqueSignBytesAsync(swigCPtr, this, CkByteData.getCPtr(data), data);
+    return (cPtr == 0) ? null : new CkTask(cPtr, true);
   }
 
   public boolean OpaqueSignBytesENC(CkByteData data, CkString outStr) {
@@ -1083,8 +1135,18 @@ public class CkCrypt2 {
     return chilkatJNI.CkCrypt2_opaqueSignBytesENC(swigCPtr, this, CkByteData.getCPtr(data), data);
   }
 
+  public CkTask OpaqueSignBytesENCAsync(CkByteData data) {
+    long cPtr = chilkatJNI.CkCrypt2_OpaqueSignBytesENCAsync(swigCPtr, this, CkByteData.getCPtr(data), data);
+    return (cPtr == 0) ? null : new CkTask(cPtr, true);
+  }
+
   public boolean OpaqueSignString(String str, CkByteData outData) {
     return chilkatJNI.CkCrypt2_OpaqueSignString(swigCPtr, this, str, CkByteData.getCPtr(outData), outData);
+  }
+
+  public CkTask OpaqueSignStringAsync(String str) {
+    long cPtr = chilkatJNI.CkCrypt2_OpaqueSignStringAsync(swigCPtr, this, str);
+    return (cPtr == 0) ? null : new CkTask(cPtr, true);
   }
 
   public boolean OpaqueSignStringENC(String str, CkString outStr) {
@@ -1093,6 +1155,11 @@ public class CkCrypt2 {
 
   public String opaqueSignStringENC(String str) {
     return chilkatJNI.CkCrypt2_opaqueSignStringENC(swigCPtr, this, str);
+  }
+
+  public CkTask OpaqueSignStringENCAsync(String str) {
+    long cPtr = chilkatJNI.CkCrypt2_OpaqueSignStringENCAsync(swigCPtr, this, str);
+    return (cPtr == 0) ? null : new CkTask(cPtr, true);
   }
 
   public boolean OpaqueVerifyBd(CkBinData bd) {
@@ -1239,6 +1306,10 @@ public class CkCrypt2 {
     return chilkatJNI.CkCrypt2_SetSigningCert2(swigCPtr, this, CkCert.getCPtr(cert), cert, CkPrivateKey.getCPtr(privateKey), privateKey);
   }
 
+  public void SetTsaHttpObj(CkHttp http) {
+    chilkatJNI.CkCrypt2_SetTsaHttpObj(swigCPtr, this, CkHttp.getCPtr(http), http);
+  }
+
   public boolean SetVerifyCert(CkCert cert) {
     return chilkatJNI.CkCrypt2_SetVerifyCert(swigCPtr, this, CkCert.getCPtr(cert), cert);
   }
@@ -1251,8 +1322,18 @@ public class CkCrypt2 {
     return chilkatJNI.CkCrypt2_signBdENC(swigCPtr, this, CkBinData.getCPtr(dataToSign), dataToSign);
   }
 
+  public CkTask SignBdENCAsync(CkBinData dataToSign) {
+    long cPtr = chilkatJNI.CkCrypt2_SignBdENCAsync(swigCPtr, this, CkBinData.getCPtr(dataToSign), dataToSign);
+    return (cPtr == 0) ? null : new CkTask(cPtr, true);
+  }
+
   public boolean SignBytes(CkByteData data, CkByteData outData) {
     return chilkatJNI.CkCrypt2_SignBytes(swigCPtr, this, CkByteData.getCPtr(data), data, CkByteData.getCPtr(outData), outData);
+  }
+
+  public CkTask SignBytesAsync(CkByteData data) {
+    long cPtr = chilkatJNI.CkCrypt2_SignBytesAsync(swigCPtr, this, CkByteData.getCPtr(data), data);
+    return (cPtr == 0) ? null : new CkTask(cPtr, true);
   }
 
   public boolean SignBytesENC(CkByteData data, CkString outStr) {
@@ -1263,6 +1344,11 @@ public class CkCrypt2 {
     return chilkatJNI.CkCrypt2_signBytesENC(swigCPtr, this, CkByteData.getCPtr(data), data);
   }
 
+  public CkTask SignBytesENCAsync(CkByteData data) {
+    long cPtr = chilkatJNI.CkCrypt2_SignBytesENCAsync(swigCPtr, this, CkByteData.getCPtr(data), data);
+    return (cPtr == 0) ? null : new CkTask(cPtr, true);
+  }
+
   public boolean SignSbENC(CkStringBuilder sb, CkString outStr) {
     return chilkatJNI.CkCrypt2_SignSbENC(swigCPtr, this, CkStringBuilder.getCPtr(sb), sb, CkString.getCPtr(outStr), outStr);
   }
@@ -1271,8 +1357,18 @@ public class CkCrypt2 {
     return chilkatJNI.CkCrypt2_signSbENC(swigCPtr, this, CkStringBuilder.getCPtr(sb), sb);
   }
 
+  public CkTask SignSbENCAsync(CkStringBuilder sb) {
+    long cPtr = chilkatJNI.CkCrypt2_SignSbENCAsync(swigCPtr, this, CkStringBuilder.getCPtr(sb), sb);
+    return (cPtr == 0) ? null : new CkTask(cPtr, true);
+  }
+
   public boolean SignString(String str, CkByteData outData) {
     return chilkatJNI.CkCrypt2_SignString(swigCPtr, this, str, CkByteData.getCPtr(outData), outData);
+  }
+
+  public CkTask SignStringAsync(String str) {
+    long cPtr = chilkatJNI.CkCrypt2_SignStringAsync(swigCPtr, this, str);
+    return (cPtr == 0) ? null : new CkTask(cPtr, true);
   }
 
   public boolean SignStringENC(String str, CkString outStr) {
@@ -1283,8 +1379,21 @@ public class CkCrypt2 {
     return chilkatJNI.CkCrypt2_signStringENC(swigCPtr, this, str);
   }
 
+  public CkTask SignStringENCAsync(String str) {
+    long cPtr = chilkatJNI.CkCrypt2_SignStringENCAsync(swigCPtr, this, str);
+    return (cPtr == 0) ? null : new CkTask(cPtr, true);
+  }
+
   public boolean StringToBytes(String inStr, String charset, CkByteData outBytes) {
     return chilkatJNI.CkCrypt2_StringToBytes(swigCPtr, this, inStr, charset, CkByteData.getCPtr(outBytes), outBytes);
+  }
+
+  public boolean Totp(String secret, String secretEnc, String t0, String tNow, int tStep, int numDigits, int truncOffset, String hashAlg, CkString outStr) {
+    return chilkatJNI.CkCrypt2_Totp(swigCPtr, this, secret, secretEnc, t0, tNow, tStep, numDigits, truncOffset, hashAlg, CkString.getCPtr(outStr), outStr);
+  }
+
+  public String totp(String secret, String secretEnc, String t0, String tNow, int tStep, int numDigits, int truncOffset, String hashAlg) {
+    return chilkatJNI.CkCrypt2_totp(swigCPtr, this, secret, secretEnc, t0, tNow, tStep, numDigits, truncOffset, hashAlg);
   }
 
   public boolean TrimEndingWith(String inStr, String ending, CkString outStr) {

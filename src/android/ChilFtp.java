@@ -30,12 +30,8 @@ public class ChilFtp extends CordovaPlugin {
                 keySetting(data.getString(0), callbackContext);
             } else if (action.equals("connect")) {
                 connect(data.getString(0), data.getString(1), data.getString(2), data.getString(3), data.getBoolean(4), data.getBoolean(5), callbackContext);
-            } else if (action.equals("asyncPutFile")) {
-                asyncPutFile(data.getString(0), data.getString(1), callbackContext);
             } else if (action.equals("upload")) {
                 upload(data.getString(0), data.getString(1), callbackContext);
-            } else if (action.equals("asyncGetFile")) {
-                asyncGetFile(data.getString(0), data.getString(1), callbackContext);
             } else if (action.equals("download")) {
                 download(data.getString(0), data.getString(1), callbackContext);
             } else if (action.equals("rename")) {
@@ -127,7 +123,7 @@ public class ChilFtp extends CordovaPlugin {
     }
 
     public void asyncAbort() {
-        ftp.AsyncAbort();
+        ftp.put_AbortCurrent(true);
         Log.i(TAG, ftp.lastErrorText());
     }
 
@@ -143,83 +139,6 @@ public class ChilFtp extends CordovaPlugin {
         } catch (JSONException e) {
 
         }
-    }
-
-    public void asyncPutFile(String localFileName, String remoteFileName, final CallbackContext callbackContext) {
-        boolean success;
-
-        success = ftp.AsyncPutFileStart(localFileName, remoteFileName);
-        if (success != true) {
-            callbackContext.error(ftp.lastErrorText());
-            Log.i(TAG, ftp.lastErrorText());
-            return;
-        }
-        //  The application is now free to do anything else
-        //  while the file is uploading.
-        //  For this example, we'll simply sleep and periodically
-        //  check to see if the transfer if finished.  While checking
-        //  however, we'll report on the progress in both number
-        //  of bytes tranferred and performance in bytes/second.
-
-        this.cordova.getThreadPool().execute(new Runnable() {
-            public void run() {
-                try {
-                    long fileSize = 0;
-                    JSONObject result = new JSONObject();
-
-                    while (ftp.get_AsyncFinished() != true) {
-                        Log.i(TAG, String.valueOf(ftp.get_AsyncBytesSent()) + " bytes sent");
-                        Log.i(TAG, String.valueOf(ftp.get_UploadTransferRate()) + " bytes per second");
-
-                        result.put("sendByte", String.valueOf(ftp.get_AsyncBytesSent()));
-                        result.put("transferRate", String.valueOf(ftp.get_UploadTransferRate()));
-
-
-                        if (ftp.get_AsyncBytesSent() > 0 && fileSize == ftp.get_AsyncBytesSent()) {
-                            result = new JSONObject();
-                            result.put("value", String.valueOf(ftp.get_AsyncSuccess()));
-                            result.put("log", ftp.asyncLog());
-                            callbackContext.error(result);
-
-                            Log.i(TAG, result.toString());
-                            ftp.Disconnect();
-                            return;
-                        } else {
-
-                            PluginResult progressResult = new PluginResult(PluginResult.Status.OK, result);
-                            progressResult.setKeepCallback(true);
-                            callbackContext.sendPluginResult(progressResult);
-
-                            fileSize = ftp.get_AsyncBytesSent();
-
-                            //  Sleep 1 second.
-                            ftp.SleepMs(1000);
-                        }
-                    }
-
-                    //  Did the upload succeed?
-                    if (ftp.get_AsyncSuccess() == true) {
-                        result = new JSONObject();
-                        result.put("value", String.valueOf(ftp.get_AsyncSuccess()));
-                        result.put("log", ftp.asyncLog());
-                        callbackContext.success(result);
-
-                        Log.i(TAG, "File Uploaded!");
-                    } else {
-                        //  The error information for asynchronous ops
-                        //  is in AsyncLog as opposed to LastErrorText
-                        result = new JSONObject();
-                        result.put("value", String.valueOf(ftp.get_AsyncSuccess()));
-                        result.put("log", ftp.asyncLog());
-                        callbackContext.error(result);
-                        Log.i(TAG, ftp.asyncLog());
-                    }
-                } catch (JSONException e) {
-
-                }
-            }
-        });
-
     }
 
     public void upload(String localFile, String remoteFile, final CallbackContext callbackContext) {
@@ -247,83 +166,6 @@ public class ChilFtp extends CordovaPlugin {
             } catch (JSONException e) {
             }
         }
-    }
-
-    public void asyncGetFile(String remoteFileName, String localFileName, final CallbackContext callbackContext) {
-        boolean success;
-
-        success = ftp.AsyncGetFileStart(remoteFileName, localFileName);
-        if (success != true) {
-            callbackContext.error(ftp.lastErrorText());
-            Log.i(TAG, ftp.lastErrorText());
-            return;
-        }
-        //  The application is now free to do anything else
-        //  while the file is uploading.
-        //  For this example, we'll simply sleep and periodically
-        //  check to see if the transfer if finished.  While checking
-        //  however, we'll report on the progress in both number
-        //  of bytes tranferred and performance in bytes/second.
-
-        this.cordova.getThreadPool().execute(new Runnable() {
-            public void run() {
-                try {
-                    long fileSize = 0;
-                    JSONObject result = new JSONObject();
-
-                    while (ftp.get_AsyncFinished() != true) {
-                        Log.i(TAG, String.valueOf(ftp.get_AsyncBytesReceived()) + " bytes sent");
-                        Log.i(TAG, String.valueOf(ftp.get_DownloadTransferRate()) + " bytes per second");
-
-                        result.put("sendByte", String.valueOf(ftp.get_AsyncBytesSent()));
-                        result.put("transferRate", String.valueOf(ftp.get_DownloadTransferRate()));
-
-
-                        if (ftp.get_AsyncBytesReceived() > 0 && fileSize == ftp.get_AsyncBytesReceived()) {
-                            result = new JSONObject();
-                            result.put("value", String.valueOf(ftp.get_AsyncSuccess()));
-                            result.put("log", ftp.asyncLog());
-                            callbackContext.error(result);
-
-                            Log.i(TAG, result.toString());
-                            ftp.Disconnect();
-                            return;
-                        } else {
-
-                            PluginResult progressResult = new PluginResult(PluginResult.Status.OK, result);
-                            progressResult.setKeepCallback(true);
-                            callbackContext.sendPluginResult(progressResult);
-
-                            fileSize = ftp.get_AsyncBytesReceived();
-
-                            //  Sleep 1 second.
-                            ftp.SleepMs(1000);
-                        }
-                    }
-
-                    //  Did the upload succeed?
-                    if (ftp.get_AsyncSuccess() == true) {
-                        result = new JSONObject();
-                        result.put("value", String.valueOf(ftp.get_AsyncSuccess()));
-                        result.put("log", ftp.asyncLog());
-                        callbackContext.success(result);
-
-                        Log.i(TAG, "File Uploaded!");
-                    } else {
-                        //  The error information for asynchronous ops
-                        //  is in AsyncLog as opposed to LastErrorText
-                        result = new JSONObject();
-                        result.put("value", String.valueOf(ftp.get_AsyncSuccess()));
-                        result.put("log", ftp.asyncLog());
-                        callbackContext.error(result);
-                        Log.i(TAG, ftp.asyncLog());
-                    }
-                } catch (JSONException e) {
-
-                }
-            }
-        });
-
     }
 
     public void download(String remoteFile, String localFile, final CallbackContext callbackContext) {

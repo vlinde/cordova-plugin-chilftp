@@ -1,10 +1,11 @@
 // Chilkat Objective-C header.
-// This is a generated header file for Chilkat version 9.5.0.75
+// This is a generated header file for Chilkat version 9.5.0.82
 
 // Generic/internal class name =  Xml
 // Wrapped Chilkat C++ class name =  CkXml
 
 @class CkoStringBuilder;
+@class CkoBinData;
 
 
 @interface CkoXml : NSObject {
@@ -33,6 +34,7 @@
 @property (nonatomic) BOOL EmitXmlDecl;
 @property (nonatomic, copy) NSString *Encoding;
 @property (nonatomic, copy) NSNumber *I;
+@property (nonatomic, readonly) BOOL IsBase64;
 @property (nonatomic, copy) NSNumber *J;
 @property (nonatomic, copy) NSNumber *K;
 @property (nonatomic, readonly, copy) NSString *LastErrorHtml;
@@ -44,6 +46,9 @@
 @property (nonatomic) BOOL SortCaseInsensitive;
 @property (nonatomic) BOOL Standalone;
 @property (nonatomic, copy) NSString *Tag;
+@property (nonatomic, copy) NSString *TagNsPrefix;
+@property (nonatomic, readonly, copy) NSString *TagPath;
+@property (nonatomic, copy) NSString *TagUnprefixed;
 @property (nonatomic, readonly, copy) NSNumber *TreeId;
 @property (nonatomic) BOOL VerboseLogging;
 @property (nonatomic, readonly, copy) NSString *Version;
@@ -139,12 +144,18 @@
 - (CkoXml *)GetChild: (NSNumber *)index;
 // method: GetChild2
 - (BOOL)GetChild2: (NSNumber *)index;
+// method: GetChildAttrValue
+- (NSString *)GetChildAttrValue: (NSString *)tagPath 
+	attrName: (NSString *)attrName;
 // method: GetChildBoolValue
 - (BOOL)GetChildBoolValue: (NSString *)tagPath;
 // method: GetChildContent
 - (NSString *)GetChildContent: (NSString *)tagPath;
 // method: GetChildContentByIndex
 - (NSString *)GetChildContentByIndex: (NSNumber *)index;
+// method: GetChildContentSb
+- (BOOL)GetChildContentSb: (NSString *)tagPath 
+	sb: (CkoStringBuilder *)sb;
 // method: GetChildExact
 - (CkoXml *)GetChildExact: (NSString *)tag 
 	content: (NSString *)content;
@@ -180,6 +191,8 @@
 - (CkoXml *)GetSelf;
 // method: GetXml
 - (NSString *)GetXml;
+// method: GetXmlBd
+- (BOOL)GetXmlBd: (CkoBinData *)bd;
 // method: GetXmlSb
 - (BOOL)GetXmlSb: (CkoStringBuilder *)sb;
 // method: HasAttribute
@@ -204,6 +217,9 @@
 - (CkoXml *)LastChild;
 // method: LastChild2
 - (BOOL)LastChild2;
+// method: LoadBd
+- (BOOL)LoadBd: (CkoBinData *)bd 
+	autoTrim: (BOOL)autoTrim;
 // method: LoadSb
 - (BOOL)LoadSb: (CkoStringBuilder *)sb 
 	autoTrim: (BOOL)autoTrim;
@@ -234,6 +250,8 @@
 // method: NewChildInt2
 - (void)NewChildInt2: (NSString *)tagPath 
 	value: (NSNumber *)value;
+// method: NextInTraversal2
+- (BOOL)NextInTraversal2: (CkoStringBuilder *)sbState;
 // method: NextSibling
 - (CkoXml *)NextSibling;
 // method: NextSibling2
@@ -246,6 +264,10 @@
 - (CkoXml *)PreviousSibling;
 // method: PreviousSibling2
 - (BOOL)PreviousSibling2;
+// method: PruneAttribute
+- (NSNumber *)PruneAttribute: (NSString *)attrName;
+// method: PruneTag
+- (NSNumber *)PruneTag: (NSString *)tag;
 // method: QEncodeContent
 - (BOOL)QEncodeContent: (NSString *)charset 
 	db: (NSData *)db;
@@ -263,6 +285,9 @@
 - (void)RemoveChildWithContent: (NSString *)content;
 // method: RemoveFromTree
 - (void)RemoveFromTree;
+// method: RemoveStyleSheet
+- (NSNumber *)RemoveStyleSheet: (NSString *)attrName 
+	attrValue: (NSString *)attrValue;
 // method: SaveBinaryContent
 - (BOOL)SaveBinaryContent: (NSString *)path 
 	unzipFlag: (BOOL)unzipFlag 
@@ -272,6 +297,8 @@
 - (BOOL)SaveLastError: (NSString *)path;
 // method: SaveXml
 - (BOOL)SaveXml: (NSString *)path;
+// method: Scrub
+- (void)Scrub: (NSString *)directives;
 // method: SearchAllForContent
 - (CkoXml *)SearchAllForContent: (CkoXml *)after 
 	contentPattern: (NSString *)contentPattern;
@@ -346,6 +373,12 @@
 - (NSString *)TagContent: (NSString *)tag;
 // method: TagEquals
 - (BOOL)TagEquals: (NSString *)tag;
+// method: TagIndex
+- (NSNumber *)TagIndex: (NSString *)tagPath;
+// method: TagNsEquals
+- (BOOL)TagNsEquals: (NSString *)ns;
+// method: TagUnpEquals
+- (BOOL)TagUnpEquals: (NSString *)unprefixedTag;
 // method: UnzipContent
 - (BOOL)UnzipContent;
 // method: UnzipTree

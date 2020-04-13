@@ -1,9 +1,10 @@
 // Chilkat Objective-C header.
-// This is a generated header file for Chilkat version 9.5.0.75
+// This is a generated header file for Chilkat version 9.5.0.82
 
 // Generic/internal class name =  Scp
 // Wrapped Chilkat C++ class name =  CkScp
 
+@class CkoBinData;
 @class CkoTask;
 @class CkoSsh;
 
@@ -38,13 +39,22 @@
 @property (nonatomic, readonly, copy) NSString *LastErrorXml;
 @property (nonatomic) BOOL LastMethodSuccess;
 @property (nonatomic, copy) NSNumber *PercentDoneScale;
+@property (nonatomic, copy) NSString *SendEnv;
 @property (nonatomic, copy) NSString *SyncedFiles;
 @property (nonatomic, copy) NSString *SyncMustMatch;
 @property (nonatomic, copy) NSString *SyncMustMatchDir;
 @property (nonatomic, copy) NSString *SyncMustNotMatch;
 @property (nonatomic, copy) NSString *SyncMustNotMatchDir;
+@property (nonatomic, copy) NSString *UncommonOptions;
+@property (nonatomic, copy) NSString *UnixPermOverride;
 @property (nonatomic) BOOL VerboseLogging;
 @property (nonatomic, readonly, copy) NSString *Version;
+// method: DownloadBd
+- (BOOL)DownloadBd: (NSString *)remotePath 
+	bd: (CkoBinData *)bd;
+// method: DownloadBdAsync
+- (CkoTask *)DownloadBdAsync: (NSString *)remotePath 
+	bd: (CkoBinData *)bd;
 // method: DownloadBinary
 - (NSData *)DownloadBinary: (NSString *)remotePath;
 // method: DownloadBinaryAsync
@@ -67,6 +77,8 @@
 // method: DownloadStringAsync
 - (CkoTask *)DownloadStringAsync: (NSString *)remotePath 
 	charset: (NSString *)charset;
+// method: LoadTaskCaller
+- (BOOL)LoadTaskCaller: (CkoTask *)task;
 // method: SaveLastError
 - (BOOL)SaveLastError: (NSString *)path;
 // method: SyncTreeDownload
@@ -89,6 +101,12 @@
 	remoteBaseDir: (NSString *)remoteBaseDir 
 	mode: (NSNumber *)mode 
 	bRecurse: (BOOL)bRecurse;
+// method: UploadBd
+- (BOOL)UploadBd: (NSString *)remotePath 
+	bd: (CkoBinData *)bd;
+// method: UploadBdAsync
+- (CkoTask *)UploadBdAsync: (NSString *)remotePath 
+	bd: (CkoBinData *)bd;
 // method: UploadBinary
 - (BOOL)UploadBinary: (NSString *)remotePath 
 	binData: (NSData *)binData;

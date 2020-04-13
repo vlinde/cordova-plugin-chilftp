@@ -1,5 +1,5 @@
 // Chilkat Objective-C header.
-// This is a generated header file for Chilkat version 9.5.0.75
+// This is a generated header file for Chilkat version 9.5.0.82
 
 // Generic/internal class name =  JsonObject
 // Wrapped Chilkat C++ class name =  CkJsonObject
@@ -40,12 +40,17 @@
 @property (nonatomic, readonly, copy) NSString *LastErrorText;
 @property (nonatomic, readonly, copy) NSString *LastErrorXml;
 @property (nonatomic) BOOL LastMethodSuccess;
+@property (nonatomic, copy) NSString *PathPrefix;
 @property (nonatomic, readonly, copy) NSNumber *Size;
 @property (nonatomic) BOOL VerboseLogging;
 @property (nonatomic, readonly, copy) NSString *Version;
 // method: AddArrayAt
 - (BOOL)AddArrayAt: (NSNumber *)index 
 	name: (NSString *)name;
+// method: AddArrayCopyAt
+- (BOOL)AddArrayCopyAt: (NSNumber *)index 
+	name: (NSString *)name 
+	jarr: (CkoJsonArray *)jarr;
 // method: AddBoolAt
 - (BOOL)AddBoolAt: (NSNumber *)index 
 	name: (NSString *)name 
@@ -64,12 +69,19 @@
 // method: AddObjectAt
 - (BOOL)AddObjectAt: (NSNumber *)index 
 	name: (NSString *)name;
+// method: AddObjectCopyAt
+- (BOOL)AddObjectCopyAt: (NSNumber *)index 
+	name: (NSString *)name 
+	jsonObj: (CkoJsonObject *)jsonObj;
 // method: AddStringAt
 - (BOOL)AddStringAt: (NSNumber *)index 
 	name: (NSString *)name 
 	value: (NSString *)value;
 // method: AppendArray
 - (CkoJsonArray *)AppendArray: (NSString *)name;
+// method: AppendArrayCopy
+- (BOOL)AppendArrayCopy: (NSString *)name 
+	jarr: (CkoJsonArray *)jarr;
 // method: AppendBool
 - (BOOL)AppendBool: (NSString *)name 
 	value: (BOOL)value;
@@ -78,6 +90,9 @@
 	value: (NSNumber *)value;
 // method: AppendObject
 - (CkoJsonObject *)AppendObject: (NSString *)name;
+// method: AppendObjectCopy
+- (BOOL)AppendObjectCopy: (NSString *)name 
+	jsonObj: (CkoJsonObject *)jsonObj;
 // method: AppendString
 - (BOOL)AppendString: (NSString *)name 
 	value: (NSString *)value;
@@ -96,6 +111,8 @@
 - (BOOL)BytesOf: (NSString *)jsonPath 
 	encoding: (NSString *)encoding 
 	bd: (CkoBinData *)bd;
+// method: Clear
+- (void)Clear;
 // method: Clone
 - (CkoJsonObject *)Clone;
 // method: DateOf
@@ -111,6 +128,8 @@
 	dt: (CkoDtObj *)dt;
 // method: Emit
 - (NSString *)Emit;
+// method: EmitBd
+- (BOOL)EmitBd: (CkoBinData *)bd;
 // method: EmitSb
 - (BOOL)EmitSb: (CkoStringBuilder *)sb;
 // method: EmitWithSubs
@@ -156,12 +175,17 @@
 - (NSNumber *)JsonTypeOf: (NSString *)jsonPath;
 // method: Load
 - (BOOL)Load: (NSString *)json;
+// method: LoadBd
+- (BOOL)LoadBd: (CkoBinData *)bd;
 // method: LoadFile
 - (BOOL)LoadFile: (NSString *)path;
 // method: LoadPredefined
 - (BOOL)LoadPredefined: (NSString *)name;
 // method: LoadSb
 - (BOOL)LoadSb: (CkoStringBuilder *)sb;
+// method: MoveMember
+- (BOOL)MoveMember: (NSNumber *)fromIndex 
+	toIndex: (NSNumber *)toIndex;
 // method: NameAt
 - (NSString *)NameAt: (NSNumber *)index;
 // method: ObjectAt
@@ -215,6 +239,9 @@
 // method: StringOfSb
 - (BOOL)StringOfSb: (NSString *)jsonPath 
 	sb: (CkoStringBuilder *)sb;
+// method: Swap
+- (BOOL)Swap: (NSNumber *)index1 
+	index2: (NSNumber *)index2;
 // method: TypeAt
 - (NSNumber *)TypeAt: (NSNumber *)index;
 // method: UpdateBd
@@ -242,5 +269,7 @@
 // method: UpdateString
 - (BOOL)UpdateString: (NSString *)jsonPath 
 	value: (NSString *)value;
+// method: WriteFile
+- (BOOL)WriteFile: (NSString *)path;
 
 @end

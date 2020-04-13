@@ -155,8 +155,16 @@ public class CkJsonArray {
     return chilkatJNI.CkJsonArray_AddObjectAt(swigCPtr, this, index);
   }
 
+  public boolean AddObjectCopyAt(int index, CkJsonObject jsonObj) {
+    return chilkatJNI.CkJsonArray_AddObjectCopyAt(swigCPtr, this, index, CkJsonObject.getCPtr(jsonObj), jsonObj);
+  }
+
   public boolean AddStringAt(int index, String value) {
     return chilkatJNI.CkJsonArray_AddStringAt(swigCPtr, this, index, value);
+  }
+
+  public boolean AppendArrayItems(CkJsonArray jarr) {
+    return chilkatJNI.CkJsonArray_AppendArrayItems(swigCPtr, this, CkJsonArray.getCPtr(jarr), jarr);
   }
 
   public CkJsonArray ArrayAt(int index) {
@@ -166,6 +174,10 @@ public class CkJsonArray {
 
   public boolean BoolAt(int index) {
     return chilkatJNI.CkJsonArray_BoolAt(swigCPtr, this, index);
+  }
+
+  public void Clear() {
+    chilkatJNI.CkJsonArray_Clear(swigCPtr, this);
   }
 
   public boolean DateAt(int index, CkDateTime dateTime) {
@@ -251,6 +263,10 @@ public class CkJsonArray {
 
   public String stringAt(int index) {
     return chilkatJNI.CkJsonArray_stringAt(swigCPtr, this, index);
+  }
+
+  public boolean Swap(int index1, int index2) {
+    return chilkatJNI.CkJsonArray_Swap(swigCPtr, this, index1, index2);
   }
 
   public int TypeAt(int index) {

@@ -408,6 +408,10 @@ public class CkUpload {
     chilkatJNI.CkUpload_ClearParams(swigCPtr, this);
   }
 
+  public boolean LoadTaskCaller(CkTask task) {
+    return chilkatJNI.CkUpload_LoadTaskCaller(swigCPtr, this, CkTask.getCPtr(task), task);
+  }
+
   public boolean SaveLastError(String path) {
     return chilkatJNI.CkUpload_SaveLastError(swigCPtr, this, path);
   }

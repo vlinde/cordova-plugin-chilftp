@@ -1,5 +1,5 @@
 // Chilkat Objective-C header.
-// This is a generated header file for Chilkat version 9.5.0.75
+// This is a generated header file for Chilkat version 9.5.0.82
 
 // Generic/internal class name =  Cert
 // Wrapped Chilkat C++ class name =  CkCert
@@ -76,8 +76,6 @@
 @property (nonatomic, readonly, copy) NSString *ValidToStr;
 @property (nonatomic) BOOL VerboseLogging;
 @property (nonatomic, readonly, copy) NSString *Version;
-// method: CheckRevoked
-- (NSNumber *)CheckRevoked;
 // method: ExportCertDer
 - (NSData *)ExportCertDer;
 // method: ExportCertDerBd
@@ -101,6 +99,10 @@
 // method: ExportToPfxData
 - (NSData *)ExportToPfxData: (NSString *)password 
 	includeCertChain: (BOOL)includeCertChain;
+// method: ExportToPfxFile
+- (BOOL)ExportToPfxFile: (NSString *)pfxFilename 
+	pfxPassword: (NSString *)pfxPassword 
+	bIncludeCertChain: (BOOL)bIncludeCertChain;
 // method: FindIssuer
 - (CkoCert *)FindIssuer;
 // method: GetCertChain
@@ -135,6 +137,8 @@
 	szByteData: (NSNumber *)szByteData;
 // method: LoadFromFile
 - (BOOL)LoadFromFile: (NSString *)path;
+// method: LoadFromSmartcard
+- (BOOL)LoadFromSmartcard: (NSString *)csp;
 // method: LoadPem
 - (BOOL)LoadPem: (NSString *)strPem;
 // method: LoadPfxBd
@@ -169,5 +173,7 @@
 - (BOOL)UseCertVault: (CkoXmlCertVault *)vault;
 // method: VerifySignature
 - (BOOL)VerifySignature;
+// method: X509PKIPathv1
+- (NSString *)X509PKIPathv1;
 
 @end

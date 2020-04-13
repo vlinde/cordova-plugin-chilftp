@@ -1,5 +1,5 @@
 // Chilkat Objective-C header.
-// This is a generated header file for Chilkat version 9.5.0.75
+// This is a generated header file for Chilkat version 9.5.0.82
 
 // Generic/internal class name =  Email
 // Wrapped Chilkat C++ class name =  CkEmail
@@ -86,6 +86,7 @@
 @property (nonatomic, readonly, copy) NSNumber *Size;
 @property (nonatomic, copy) NSString *Subject;
 @property (nonatomic, readonly, copy) NSString *Uidl;
+@property (nonatomic, copy) NSString *UncommonOptions;
 @property (nonatomic) BOOL UnpackUseRelPaths;
 @property (nonatomic) BOOL VerboseLogging;
 @property (nonatomic, readonly, copy) NSString *Version;
@@ -150,7 +151,7 @@
 	fileNameInHtml: (NSString *)fileNameInHtml;
 // method: AddRelatedData
 - (NSString *)AddRelatedData: (NSString *)fileName 
-	inData: (NSData *)inData;
+	in: (NSData *)in;
 // method: AddRelatedData2
 - (void)AddRelatedData2: (NSData *)inData 
 	fileNameInHtml: (NSString *)fileNameInHtml;
@@ -215,6 +216,8 @@
 // method: BEncodeString
 - (NSString *)BEncodeString: (NSString *)str 
 	charset: (NSString *)charset;
+// method: Clear
+- (void)Clear;
 // method: ClearBcc
 - (void)ClearBcc;
 // method: ClearCC
@@ -231,6 +234,8 @@
 // method: ComputeGlobalKey2
 - (NSString *)ComputeGlobalKey2: (NSString *)encoding 
 	bFold: (BOOL)bFold;
+// method: ConvertInlineImages
+- (BOOL)ConvertInlineImages;
 // method: CreateDsn
 - (CkoEmail *)CreateDsn: (NSString *)explanation 
 	xmlDeliveryStatus: (NSString *)xmlDeliveryStatus 
@@ -509,16 +514,16 @@
 - (void)SetHtmlBody: (NSString *)html;
 // method: SetMbHtmlBody
 - (BOOL)SetMbHtmlBody: (NSString *)charset 
-	inData: (NSData *)inData;
+	in: (NSData *)in;
 // method: SetMbPlainTextBody
 - (BOOL)SetMbPlainTextBody: (NSString *)charset 
-	inData: (NSData *)inData;
+	in: (NSData *)in;
 // method: SetRelatedFilename
 - (BOOL)SetRelatedFilename: (NSNumber *)index 
 	filename: (NSString *)filename;
 // method: SetReplacePattern
 - (BOOL)SetReplacePattern: (NSString *)pattern 
-	replaceString: (NSString *)replaceString;
+	replace: (NSString *)replace;
 // method: SetSigningCert
 - (BOOL)SetSigningCert: (CkoCert *)cert;
 // method: SetSigningCert2

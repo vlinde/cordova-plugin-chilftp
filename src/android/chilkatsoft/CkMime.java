@@ -75,6 +75,18 @@ public class CkMime {
     chilkatJNI.CkMime_put_Charset(swigCPtr, this, newVal);
   }
 
+  public void get_CmsOptions(CkString str) {
+    chilkatJNI.CkMime_get_CmsOptions(swigCPtr, this, CkString.getCPtr(str), str);
+  }
+
+  public String cmsOptions() {
+    return chilkatJNI.CkMime_cmsOptions(swigCPtr, this);
+  }
+
+  public void put_CmsOptions(String newVal) {
+    chilkatJNI.CkMime_put_CmsOptions(swigCPtr, this, newVal);
+  }
+
   public void get_ContentType(CkString str) {
     chilkatJNI.CkMime_get_ContentType(swigCPtr, this, CkString.getCPtr(str), str);
   }

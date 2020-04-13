@@ -211,6 +211,10 @@ public class CkHttpRequest {
     return chilkatJNI.CkHttpRequest_version(swigCPtr, this);
   }
 
+  public boolean AddBdForUpload(String name, String remoteFilename, CkBinData byteData, String contentType) {
+    return chilkatJNI.CkHttpRequest_AddBdForUpload(swigCPtr, this, name, remoteFilename, CkBinData.getCPtr(byteData), byteData, contentType);
+  }
+
   public boolean AddBytesForUpload(String name, String remoteFileName, CkByteData byteData) {
     return chilkatJNI.CkHttpRequest_AddBytesForUpload(swigCPtr, this, name, remoteFileName, CkByteData.getCPtr(byteData), byteData);
   }

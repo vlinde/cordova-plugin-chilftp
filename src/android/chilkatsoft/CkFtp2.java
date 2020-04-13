@@ -131,26 +131,6 @@ public class CkFtp2 {
     return chilkatJNI.CkFtp2_asyncBytesSentStr(swigCPtr, this);
   }
 
-  public boolean get_AsyncFinished() {
-    return chilkatJNI.CkFtp2_get_AsyncFinished(swigCPtr, this);
-  }
-
-  public void get_AsyncLog(CkString str) {
-    chilkatJNI.CkFtp2_get_AsyncLog(swigCPtr, this, CkString.getCPtr(str), str);
-  }
-
-  public String asyncLog() {
-    return chilkatJNI.CkFtp2_asyncLog(swigCPtr, this);
-  }
-
-  public long get_AsyncPercentDone() {
-    return chilkatJNI.CkFtp2_get_AsyncPercentDone(swigCPtr, this);
-  }
-
-  public boolean get_AsyncSuccess() {
-    return chilkatJNI.CkFtp2_get_AsyncSuccess(swigCPtr, this);
-  }
-
   public boolean get_AuthSsl() {
     return chilkatJNI.CkFtp2_get_AuthSsl(swigCPtr, this);
   }
@@ -675,28 +655,12 @@ public class CkFtp2 {
     chilkatJNI.CkFtp2_put_RestartNext(swigCPtr, this, newVal);
   }
 
-  public int get_SendBufferSize() {
-    return chilkatJNI.CkFtp2_get_SendBufferSize(swigCPtr, this);
-  }
-
-  public void put_SendBufferSize(int newVal) {
-    chilkatJNI.CkFtp2_put_SendBufferSize(swigCPtr, this, newVal);
-  }
-
   public void get_SessionLog(CkString str) {
     chilkatJNI.CkFtp2_get_SessionLog(swigCPtr, this, CkString.getCPtr(str), str);
   }
 
   public String sessionLog() {
     return chilkatJNI.CkFtp2_sessionLog(swigCPtr, this);
-  }
-
-  public boolean get_SkipFinalReply() {
-    return chilkatJNI.CkFtp2_get_SkipFinalReply(swigCPtr, this);
-  }
-
-  public void put_SkipFinalReply(boolean newVal) {
-    chilkatJNI.CkFtp2_put_SkipFinalReply(swigCPtr, this, newVal);
   }
 
   public void get_SocksHostname(CkString str) {
@@ -803,6 +767,14 @@ public class CkFtp2 {
     return chilkatJNI.CkFtp2_get_SslServerCertVerified(swigCPtr, this);
   }
 
+  public boolean get_SyncCreateAllLocalDirs() {
+    return chilkatJNI.CkFtp2_get_SyncCreateAllLocalDirs(swigCPtr, this);
+  }
+
+  public void put_SyncCreateAllLocalDirs(boolean newVal) {
+    chilkatJNI.CkFtp2_put_SyncCreateAllLocalDirs(swigCPtr, this, newVal);
+  }
+
   public void get_SyncedFiles(CkString str) {
     chilkatJNI.CkFtp2_get_SyncedFiles(swigCPtr, this, CkString.getCPtr(str), str);
   }
@@ -827,6 +799,18 @@ public class CkFtp2 {
     chilkatJNI.CkFtp2_put_SyncMustMatch(swigCPtr, this, newVal);
   }
 
+  public void get_SyncMustMatchDir(CkString str) {
+    chilkatJNI.CkFtp2_get_SyncMustMatchDir(swigCPtr, this, CkString.getCPtr(str), str);
+  }
+
+  public String syncMustMatchDir() {
+    return chilkatJNI.CkFtp2_syncMustMatchDir(swigCPtr, this);
+  }
+
+  public void put_SyncMustMatchDir(String newVal) {
+    chilkatJNI.CkFtp2_put_SyncMustMatchDir(swigCPtr, this, newVal);
+  }
+
   public void get_SyncMustNotMatch(CkString str) {
     chilkatJNI.CkFtp2_get_SyncMustNotMatch(swigCPtr, this, CkString.getCPtr(str), str);
   }
@@ -837,6 +821,18 @@ public class CkFtp2 {
 
   public void put_SyncMustNotMatch(String newVal) {
     chilkatJNI.CkFtp2_put_SyncMustNotMatch(swigCPtr, this, newVal);
+  }
+
+  public void get_SyncMustNotMatchDir(CkString str) {
+    chilkatJNI.CkFtp2_get_SyncMustNotMatchDir(swigCPtr, this, CkString.getCPtr(str), str);
+  }
+
+  public String syncMustNotMatchDir() {
+    return chilkatJNI.CkFtp2_syncMustNotMatchDir(swigCPtr, this);
+  }
+
+  public void put_SyncMustNotMatchDir(String newVal) {
+    chilkatJNI.CkFtp2_put_SyncMustNotMatchDir(swigCPtr, this, newVal);
   }
 
   public void get_SyncPreview(CkString str) {
@@ -873,6 +869,18 @@ public class CkFtp2 {
 
   public String tlsVersion() {
     return chilkatJNI.CkFtp2_tlsVersion(swigCPtr, this);
+  }
+
+  public void get_UncommonOptions(CkString str) {
+    chilkatJNI.CkFtp2_get_UncommonOptions(swigCPtr, this, CkString.getCPtr(str), str);
+  }
+
+  public String uncommonOptions() {
+    return chilkatJNI.CkFtp2_uncommonOptions(swigCPtr, this);
+  }
+
+  public void put_UncommonOptions(String newVal) {
+    chilkatJNI.CkFtp2_put_UncommonOptions(swigCPtr, this, newVal);
   }
 
   public int get_UploadTransferRate() {
@@ -940,22 +948,6 @@ public class CkFtp2 {
   public CkTask AppendFileFromTextDataAsync(String remoteFilename, String textData, String charset) {
     long cPtr = chilkatJNI.CkFtp2_AppendFileFromTextDataAsync(swigCPtr, this, remoteFilename, textData, charset);
     return (cPtr == 0) ? null : new CkTask(cPtr, true);
-  }
-
-  public void AsyncAbort() {
-    chilkatJNI.CkFtp2_AsyncAbort(swigCPtr, this);
-  }
-
-  public boolean AsyncAppendFileStart(String localFilename, String remoteFilename) {
-    return chilkatJNI.CkFtp2_AsyncAppendFileStart(swigCPtr, this, localFilename, remoteFilename);
-  }
-
-  public boolean AsyncGetFileStart(String remoteFilename, String localFilename) {
-    return chilkatJNI.CkFtp2_AsyncGetFileStart(swigCPtr, this, remoteFilename, localFilename);
-  }
-
-  public boolean AsyncPutFileStart(String localFilename, String remoteFilename) {
-    return chilkatJNI.CkFtp2_AsyncPutFileStart(swigCPtr, this, localFilename, remoteFilename);
   }
 
   public boolean ChangeRemoteDir(String remoteDirPath) {
@@ -1311,68 +1303,6 @@ public class CkFtp2 {
     return (cPtr == 0) ? null : new CkTask(cPtr, true);
   }
 
-  public CkDateTime GetLastAccessDt(int index) {
-    long cPtr = chilkatJNI.CkFtp2_GetLastAccessDt(swigCPtr, this, index);
-    return (cPtr == 0) ? null : new CkDateTime(cPtr, true);
-  }
-
-  public CkTask GetLastAccessDtAsync(int index) {
-    long cPtr = chilkatJNI.CkFtp2_GetLastAccessDtAsync(swigCPtr, this, index);
-    return (cPtr == 0) ? null : new CkTask(cPtr, true);
-  }
-
-  public CkDateTime GetLastAccessDtByName(String filename) {
-    long cPtr = chilkatJNI.CkFtp2_GetLastAccessDtByName(swigCPtr, this, filename);
-    return (cPtr == 0) ? null : new CkDateTime(cPtr, true);
-  }
-
-  public CkTask GetLastAccessDtByNameAsync(String filename) {
-    long cPtr = chilkatJNI.CkFtp2_GetLastAccessDtByNameAsync(swigCPtr, this, filename);
-    return (cPtr == 0) ? null : new CkTask(cPtr, true);
-  }
-
-  public boolean GetLastAccessTime(int index, SYSTEMTIME outSysTime) {
-    return chilkatJNI.CkFtp2_GetLastAccessTime(swigCPtr, this, index, SYSTEMTIME.getCPtr(outSysTime), outSysTime);
-  }
-
-  public boolean GetLastAccessTimeByName(String filename, SYSTEMTIME outSysTime) {
-    return chilkatJNI.CkFtp2_GetLastAccessTimeByName(swigCPtr, this, filename, SYSTEMTIME.getCPtr(outSysTime), outSysTime);
-  }
-
-  public boolean GetLastAccessTimeByNameStr(String filename, CkString outStr) {
-    return chilkatJNI.CkFtp2_GetLastAccessTimeByNameStr(swigCPtr, this, filename, CkString.getCPtr(outStr), outStr);
-  }
-
-  public String getLastAccessTimeByNameStr(String filename) {
-    return chilkatJNI.CkFtp2_getLastAccessTimeByNameStr(swigCPtr, this, filename);
-  }
-
-  public String lastAccessTimeByNameStr(String filename) {
-    return chilkatJNI.CkFtp2_lastAccessTimeByNameStr(swigCPtr, this, filename);
-  }
-
-  public CkTask GetLastAccessTimeByNameStrAsync(String filename) {
-    long cPtr = chilkatJNI.CkFtp2_GetLastAccessTimeByNameStrAsync(swigCPtr, this, filename);
-    return (cPtr == 0) ? null : new CkTask(cPtr, true);
-  }
-
-  public boolean GetLastAccessTimeStr(int index, CkString outStr) {
-    return chilkatJNI.CkFtp2_GetLastAccessTimeStr(swigCPtr, this, index, CkString.getCPtr(outStr), outStr);
-  }
-
-  public String getLastAccessTimeStr(int index) {
-    return chilkatJNI.CkFtp2_getLastAccessTimeStr(swigCPtr, this, index);
-  }
-
-  public String lastAccessTimeStr(int index) {
-    return chilkatJNI.CkFtp2_lastAccessTimeStr(swigCPtr, this, index);
-  }
-
-  public CkTask GetLastAccessTimeStrAsync(int index) {
-    long cPtr = chilkatJNI.CkFtp2_GetLastAccessTimeStrAsync(swigCPtr, this, index);
-    return (cPtr == 0) ? null : new CkTask(cPtr, true);
-  }
-
   public CkDateTime GetLastModDt(int index) {
     long cPtr = chilkatJNI.CkFtp2_GetLastModDt(swigCPtr, this, index);
     return (cPtr == 0) ? null : new CkDateTime(cPtr, true);
@@ -1641,6 +1571,10 @@ public class CkFtp2 {
     return (cPtr == 0) ? null : new CkTask(cPtr, true);
   }
 
+  public boolean LoadTaskCaller(CkTask task) {
+    return chilkatJNI.CkFtp2_LoadTaskCaller(swigCPtr, this, CkTask.getCPtr(task), task);
+  }
+
   public boolean LoginAfterConnectOnly() {
     return chilkatJNI.CkFtp2_LoginAfterConnectOnly(swigCPtr, this);
   }
@@ -1842,6 +1776,10 @@ public class CkFtp2 {
   public CkTask SetRemoteFileDtAsync(CkDateTime dt, String remoteFilename) {
     long cPtr = chilkatJNI.CkFtp2_SetRemoteFileDtAsync(swigCPtr, this, CkDateTime.getCPtr(dt), dt, remoteFilename);
     return (cPtr == 0) ? null : new CkTask(cPtr, true);
+  }
+
+  public boolean SetSecurePassword(CkSecureString password) {
+    return chilkatJNI.CkFtp2_SetSecurePassword(swigCPtr, this, CkSecureString.getCPtr(password), password);
   }
 
   public void SetSslCertRequirement(String reqName, String reqValue) {

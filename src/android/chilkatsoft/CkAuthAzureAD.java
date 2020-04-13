@@ -183,6 +183,10 @@ public class CkAuthAzureAD {
     return chilkatJNI.CkAuthAzureAD_version(swigCPtr, this);
   }
 
+  public boolean LoadTaskCaller(CkTask task) {
+    return chilkatJNI.CkAuthAzureAD_LoadTaskCaller(swigCPtr, this, CkTask.getCPtr(task), task);
+  }
+
   public boolean ObtainAccessToken(CkSocket connection) {
     return chilkatJNI.CkAuthAzureAD_ObtainAccessToken(swigCPtr, this, CkSocket.getCPtr(connection), connection);
   }

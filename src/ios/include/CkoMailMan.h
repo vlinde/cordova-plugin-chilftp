@@ -1,5 +1,5 @@
 // Chilkat Objective-C header.
-// This is a generated header file for Chilkat version 9.5.0.75
+// This is a generated header file for Chilkat version 9.5.0.82
 
 // Generic/internal class name =  MailMan
 // Wrapped Chilkat C++ class name =  CkMailMan
@@ -126,6 +126,7 @@
 @property (nonatomic, readonly, copy) NSString *TlsCipherSuite;
 @property (nonatomic, copy) NSString *TlsPinSet;
 @property (nonatomic, readonly, copy) NSString *TlsVersion;
+@property (nonatomic, copy) NSString *UncommonOptions;
 @property (nonatomic) BOOL UseApop;
 @property (nonatomic) BOOL VerboseLogging;
 @property (nonatomic, readonly, copy) NSString *Version;
@@ -279,6 +280,8 @@
 - (CkoEmailBundle *)LoadMbx: (NSString *)mbxPath;
 // method: LoadMime
 - (CkoEmail *)LoadMime: (NSString *)mimeText;
+// method: LoadTaskCaller
+- (BOOL)LoadTaskCaller: (CkoTask *)task;
 // method: LoadXmlEmail
 - (CkoEmail *)LoadXmlEmail: (NSString *)folderPath;
 // method: LoadXmlEmailString

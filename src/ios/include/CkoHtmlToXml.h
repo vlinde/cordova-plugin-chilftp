@@ -1,9 +1,11 @@
 // Chilkat Objective-C header.
-// This is a generated header file for Chilkat version 9.5.0.75
+// This is a generated header file for Chilkat version 9.5.0.82
 
 // Generic/internal class name =  HtmlToXml
 // Wrapped Chilkat C++ class name =  CkHtmlToXml
 
+@class CkoBinData;
+@class CkoStringBuilder;
 
 
 @interface CkoHtmlToXml : NSObject {
@@ -49,12 +51,16 @@
 	srcCharset: (NSString *)srcCharset;
 // method: SaveLastError
 - (BOOL)SaveLastError: (NSString *)path;
+// method: SetHtmlBd
+- (BOOL)SetHtmlBd: (CkoBinData *)bd;
 // method: SetHtmlBytes
 - (void)SetHtmlBytes: (NSData *)inData;
 // method: SetHtmlFromFile
 - (BOOL)SetHtmlFromFile: (NSString *)path;
 // method: ToXml
 - (NSString *)ToXml;
+// method: ToXmlSb
+- (BOOL)ToXmlSb: (CkoStringBuilder *)sb;
 // method: UndropTagType
 - (void)UndropTagType: (NSString *)tagName;
 // method: UndropTextFormattingTags

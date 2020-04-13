@@ -63,12 +63,28 @@ public class CkBinData {
     return chilkatJNI.CkBinData_AppendBom(swigCPtr, this, charset);
   }
 
+  public boolean AppendByte(int byteValue) {
+    return chilkatJNI.CkBinData_AppendByte(swigCPtr, this, byteValue);
+  }
+
   public boolean AppendEncoded(String encData, String encoding) {
     return chilkatJNI.CkBinData_AppendEncoded(swigCPtr, this, encData, encoding);
   }
 
   public boolean AppendEncodedSb(CkStringBuilder sb, String encoding) {
     return chilkatJNI.CkBinData_AppendEncodedSb(swigCPtr, this, CkStringBuilder.getCPtr(sb), sb, encoding);
+  }
+
+  public boolean AppendInt2(int value, boolean littleEndian) {
+    return chilkatJNI.CkBinData_AppendInt2(swigCPtr, this, value, littleEndian);
+  }
+
+  public boolean AppendInt4(int value, boolean littleEndian) {
+    return chilkatJNI.CkBinData_AppendInt4(swigCPtr, this, value, littleEndian);
+  }
+
+  public boolean AppendPadded(String str, String charset, boolean padWithSpace, int fieldLen) {
+    return chilkatJNI.CkBinData_AppendPadded(swigCPtr, this, str, charset, padWithSpace, fieldLen);
   }
 
   public boolean AppendSb(CkStringBuilder sb, String charset) {
@@ -93,6 +109,11 @@ public class CkBinData {
 
   public boolean GetBinaryChunk(int offset, int numBytes, CkByteData outBytes) {
     return chilkatJNI.CkBinData_GetBinaryChunk(swigCPtr, this, offset, numBytes, CkByteData.getCPtr(outBytes), outBytes);
+  }
+
+  public SWIGTYPE_p_void GetBytesPtr() {
+    long cPtr = chilkatJNI.CkBinData_GetBytesPtr(swigCPtr, this);
+    return (cPtr == 0) ? null : new SWIGTYPE_p_void(cPtr, false);
   }
 
   public boolean GetEncoded(String encoding, CkString outStr) {

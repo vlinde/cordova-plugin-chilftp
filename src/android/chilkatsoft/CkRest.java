@@ -107,6 +107,14 @@ public class CkRest {
     chilkatJNI.CkRest_put_DebugLogFilePath(swigCPtr, this, newVal);
   }
 
+  public boolean get_DebugMode() {
+    return chilkatJNI.CkRest_get_DebugMode(swigCPtr, this);
+  }
+
+  public void put_DebugMode(boolean newVal) {
+    chilkatJNI.CkRest_put_DebugMode(swigCPtr, this, newVal);
+  }
+
   public int get_HeartbeatMs() {
     return chilkatJNI.CkRest_get_HeartbeatMs(swigCPtr, this);
   }
@@ -233,6 +241,18 @@ public class CkRest {
 
   public void put_StreamNonChunked(boolean newVal) {
     chilkatJNI.CkRest_put_StreamNonChunked(swigCPtr, this, newVal);
+  }
+
+  public void get_UncommonOptions(CkString str) {
+    chilkatJNI.CkRest_get_UncommonOptions(swigCPtr, this, CkString.getCPtr(str), str);
+  }
+
+  public String uncommonOptions() {
+    return chilkatJNI.CkRest_uncommonOptions(swigCPtr, this);
+  }
+
+  public void put_UncommonOptions(String newVal) {
+    chilkatJNI.CkRest_put_UncommonOptions(swigCPtr, this, newVal);
   }
 
   public boolean get_VerboseLogging() {
@@ -429,6 +449,19 @@ public class CkRest {
   public CkTask FullRequestStringAsync(String httpVerb, String uriPath, String bodyText) {
     long cPtr = chilkatJNI.CkRest_FullRequestStringAsync(swigCPtr, this, httpVerb, uriPath, bodyText);
     return (cPtr == 0) ? null : new CkTask(cPtr, true);
+  }
+
+  public boolean GetLastDebugRequest(CkBinData bd) {
+    return chilkatJNI.CkRest_GetLastDebugRequest(swigCPtr, this, CkBinData.getCPtr(bd), bd);
+  }
+
+  public CkJsonObject LastJsonData() {
+    long cPtr = chilkatJNI.CkRest_LastJsonData(swigCPtr, this);
+    return (cPtr == 0) ? null : new CkJsonObject(cPtr, true);
+  }
+
+  public boolean LoadTaskCaller(CkTask task) {
+    return chilkatJNI.CkRest_LoadTaskCaller(swigCPtr, this, CkTask.getCPtr(task), task);
   }
 
   public boolean ReadRespBd(CkBinData responseBody) {

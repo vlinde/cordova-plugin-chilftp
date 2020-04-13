@@ -543,6 +543,19 @@ public class CkSshTunnel {
     return (cPtr == 0) ? null : new CkTask(cPtr, true);
   }
 
+  public boolean ContinueKeyboardAuth(String response, CkString outStr) {
+    return chilkatJNI.CkSshTunnel_ContinueKeyboardAuth(swigCPtr, this, response, CkString.getCPtr(outStr), outStr);
+  }
+
+  public String continueKeyboardAuth(String response) {
+    return chilkatJNI.CkSshTunnel_continueKeyboardAuth(swigCPtr, this, response);
+  }
+
+  public CkTask ContinueKeyboardAuthAsync(String response) {
+    long cPtr = chilkatJNI.CkSshTunnel_ContinueKeyboardAuthAsync(swigCPtr, this, response);
+    return (cPtr == 0) ? null : new CkTask(cPtr, true);
+  }
+
   public boolean DisconnectAllClients(boolean waitForThreads) {
     return chilkatJNI.CkSshTunnel_DisconnectAllClients(swigCPtr, this, waitForThreads);
   }
@@ -563,8 +576,25 @@ public class CkSshTunnel {
     return chilkatJNI.CkSshTunnel_IsSshConnected(swigCPtr, this);
   }
 
+  public boolean LoadTaskCaller(CkTask task) {
+    return chilkatJNI.CkSshTunnel_LoadTaskCaller(swigCPtr, this, CkTask.getCPtr(task), task);
+  }
+
   public boolean SaveLastError(String path) {
     return chilkatJNI.CkSshTunnel_SaveLastError(swigCPtr, this, path);
+  }
+
+  public boolean StartKeyboardAuth(String login, CkString outStr) {
+    return chilkatJNI.CkSshTunnel_StartKeyboardAuth(swigCPtr, this, login, CkString.getCPtr(outStr), outStr);
+  }
+
+  public String startKeyboardAuth(String login) {
+    return chilkatJNI.CkSshTunnel_startKeyboardAuth(swigCPtr, this, login);
+  }
+
+  public CkTask StartKeyboardAuthAsync(String login) {
+    long cPtr = chilkatJNI.CkSshTunnel_StartKeyboardAuthAsync(swigCPtr, this, login);
+    return (cPtr == 0) ? null : new CkTask(cPtr, true);
   }
 
   public boolean StopAccepting(boolean waitForThread) {

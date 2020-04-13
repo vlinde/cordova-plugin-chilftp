@@ -167,6 +167,10 @@ public class CkBz2 {
     return (cPtr == 0) ? null : new CkTask(cPtr, true);
   }
 
+  public boolean LoadTaskCaller(CkTask task) {
+    return chilkatJNI.CkBz2_LoadTaskCaller(swigCPtr, this, CkTask.getCPtr(task), task);
+  }
+
   public boolean SaveLastError(String path) {
     return chilkatJNI.CkBz2_SaveLastError(swigCPtr, this, path);
   }

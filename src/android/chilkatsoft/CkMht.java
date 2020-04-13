@@ -613,6 +613,10 @@ public class CkMht {
     return chilkatJNI.CkMht_IsUnlocked(swigCPtr, this);
   }
 
+  public boolean LoadTaskCaller(CkTask task) {
+    return chilkatJNI.CkMht_LoadTaskCaller(swigCPtr, this, CkTask.getCPtr(task), task);
+  }
+
   public void RemoveCustomHeader(String name) {
     chilkatJNI.CkMht_RemoveCustomHeader(swigCPtr, this, name);
   }

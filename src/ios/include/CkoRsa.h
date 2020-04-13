@@ -1,9 +1,10 @@
 // Chilkat Objective-C header.
-// This is a generated header file for Chilkat version 9.5.0.75
+// This is a generated header file for Chilkat version 9.5.0.82
 
 // Generic/internal class name =  Rsa
 // Wrapped Chilkat C++ class name =  CkRsa
 
+@class CkoBinData;
 @class CkoPrivateKey;
 @class CkoPublicKey;
 @class CkoCert;
@@ -38,8 +39,12 @@
 @property (nonatomic, copy) NSString *OaepHash;
 @property (nonatomic, copy) NSString *OaepMgfHash;
 @property (nonatomic) BOOL OaepPadding;
+@property (nonatomic, copy) NSNumber *PssSaltLen;
 @property (nonatomic) BOOL VerboseLogging;
 @property (nonatomic, readonly, copy) NSString *Version;
+// method: DecryptBd
+- (BOOL)DecryptBd: (CkoBinData *)bd 
+	usePrivateKey: (BOOL)usePrivateKey;
 // method: DecryptBytes
 - (NSData *)DecryptBytes: (NSData *)bData 
 	bUsePrivateKey: (BOOL)bUsePrivateKey;
@@ -52,6 +57,9 @@
 // method: DecryptStringENC
 - (NSString *)DecryptStringENC: (NSString *)str 
 	bUsePrivateKey: (BOOL)bUsePrivateKey;
+// method: EncryptBd
+- (BOOL)EncryptBd: (CkoBinData *)bd 
+	usePrivateKey: (BOOL)usePrivateKey;
 // method: EncryptBytes
 - (NSData *)EncryptBytes: (NSData *)bData 
 	bUsePrivateKey: (BOOL)bUsePrivateKey;
@@ -82,6 +90,8 @@
 - (BOOL)ImportPublicKey: (NSString *)strXml;
 // method: ImportPublicKeyObj
 - (BOOL)ImportPublicKeyObj: (CkoPublicKey *)key;
+// method: OpenSslSignBd
+- (BOOL)OpenSslSignBd: (CkoBinData *)bd;
 // method: OpenSslSignBytes
 - (NSData *)OpenSslSignBytes: (NSData *)data;
 // method: OpenSslSignBytesENC
@@ -90,6 +100,8 @@
 - (NSData *)OpenSslSignString: (NSString *)str;
 // method: OpenSslSignStringENC
 - (NSString *)OpenSslSignStringENC: (NSString *)str;
+// method: OpenSslVerifyBd
+- (BOOL)OpenSslVerifyBd: (CkoBinData *)bd;
 // method: OpenSslVerifyBytes
 - (NSData *)OpenSslVerifyBytes: (NSData *)signature;
 // method: OpenSslVerifyBytesENC
@@ -103,6 +115,10 @@
 // method: SetX509Cert
 - (BOOL)SetX509Cert: (CkoCert *)cert 
 	usePrivateKey: (BOOL)usePrivateKey;
+// method: SignBd
+- (BOOL)SignBd: (CkoBinData *)bdData 
+	hashAlgorithm: (NSString *)hashAlgorithm 
+	bdSig: (CkoBinData *)bdSig;
 // method: SignBytes
 - (NSData *)SignBytes: (NSData *)bData 
 	hashAlg: (NSString *)hashAlg;
@@ -125,6 +141,10 @@
 - (NSString *)SnkToXml: (NSString *)snkPath;
 // method: UnlockComponent
 - (BOOL)UnlockComponent: (NSString *)unlockCode;
+// method: VerifyBd
+- (BOOL)VerifyBd: (CkoBinData *)bdData 
+	hashAlgorithm: (NSString *)hashAlgorithm 
+	bdSig: (CkoBinData *)bdSig;
 // method: VerifyBytes
 - (BOOL)VerifyBytes: (NSData *)bData 
 	hashAlg: (NSString *)hashAlg 

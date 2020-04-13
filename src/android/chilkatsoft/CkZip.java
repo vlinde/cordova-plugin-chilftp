@@ -545,6 +545,10 @@ public class CkZip {
     return chilkatJNI.CkZip_IsUnlocked(swigCPtr, this);
   }
 
+  public boolean LoadTaskCaller(CkTask task) {
+    return chilkatJNI.CkZip_LoadTaskCaller(swigCPtr, this, CkTask.getCPtr(task), task);
+  }
+
   public boolean NewZip(String zipFilePath) {
     return chilkatJNI.CkZip_NewZip(swigCPtr, this, zipFilePath);
   }

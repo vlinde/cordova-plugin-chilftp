@@ -123,6 +123,11 @@ public class CkCertStore {
     return chilkatJNI.CkCertStore_version(swigCPtr, this);
   }
 
+  public CkCert FindCertByKeyContainer(String name) {
+    long cPtr = chilkatJNI.CkCertStore_FindCertByKeyContainer(swigCPtr, this, name);
+    return (cPtr == 0) ? null : new CkCert(cPtr, true);
+  }
+
   public CkCert FindCertByRfc822Name(String name) {
     long cPtr = chilkatJNI.CkCertStore_FindCertByRfc822Name(swigCPtr, this, name);
     return (cPtr == 0) ? null : new CkCert(cPtr, true);

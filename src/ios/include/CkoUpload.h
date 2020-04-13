@@ -1,5 +1,5 @@
 // Chilkat Objective-C header.
-// This is a generated header file for Chilkat version 9.5.0.75
+// This is a generated header file for Chilkat version 9.5.0.82
 
 // Generic/internal class name =  Upload
 // Wrapped Chilkat C++ class name =  CkUpload
@@ -87,6 +87,8 @@
 - (void)ClearFileReferences;
 // method: ClearParams
 - (void)ClearParams;
+// method: LoadTaskCaller
+- (BOOL)LoadTaskCaller: (CkoTask *)task;
 // method: SaveLastError
 - (BOOL)SaveLastError: (NSString *)path;
 // method: SleepMs

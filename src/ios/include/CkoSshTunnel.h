@@ -1,5 +1,5 @@
 // Chilkat Objective-C header.
-// This is a generated header file for Chilkat version 9.5.0.75
+// This is a generated header file for Chilkat version 9.5.0.82
 
 // Generic/internal class name =  SshTunnel
 // Wrapped Chilkat C++ class name =  CkSshTunnel
@@ -129,14 +129,24 @@
 - (CkoTask *)ConnectThroughSshAsync: (CkoSsh *)ssh 
 	hostname: (NSString *)hostname 
 	port: (NSNumber *)port;
+// method: ContinueKeyboardAuth
+- (NSString *)ContinueKeyboardAuth: (NSString *)response;
+// method: ContinueKeyboardAuthAsync
+- (CkoTask *)ContinueKeyboardAuthAsync: (NSString *)response;
 // method: DisconnectAllClients
 - (BOOL)DisconnectAllClients: (BOOL)waitForThreads;
 // method: GetCurrentState
 - (NSString *)GetCurrentState;
 // method: IsSshConnected
 - (BOOL)IsSshConnected;
+// method: LoadTaskCaller
+- (BOOL)LoadTaskCaller: (CkoTask *)task;
 // method: SaveLastError
 - (BOOL)SaveLastError: (NSString *)path;
+// method: StartKeyboardAuth
+- (NSString *)StartKeyboardAuth: (NSString *)login;
+// method: StartKeyboardAuthAsync
+- (CkoTask *)StartKeyboardAuthAsync: (NSString *)login;
 // method: StopAccepting
 - (BOOL)StopAccepting: (BOOL)waitForThread;
 // method: UnlockComponent

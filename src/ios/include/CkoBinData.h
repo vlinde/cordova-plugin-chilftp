@@ -1,5 +1,5 @@
 // Chilkat Objective-C header.
-// This is a generated header file for Chilkat version 9.5.0.75
+// This is a generated header file for Chilkat version 9.5.0.82
 
 // Generic/internal class name =  BinData
 // Wrapped Chilkat C++ class name =  CkBinData
@@ -29,14 +29,30 @@
 - (BOOL)AppendBd: (CkoBinData *)binData;
 // method: AppendBinary
 - (BOOL)AppendBinary: (NSData *)data;
+// method: AppendBinary2
+- (BOOL)AppendBinary2: (NSData *)pByteData 
+	szByteData: (NSNumber *)szByteData;
 // method: AppendBom
 - (BOOL)AppendBom: (NSString *)charset;
+// method: AppendByte
+- (BOOL)AppendByte: (NSNumber *)byteValue;
 // method: AppendEncoded
 - (BOOL)AppendEncoded: (NSString *)encData 
 	encoding: (NSString *)encoding;
 // method: AppendEncodedSb
 - (BOOL)AppendEncodedSb: (CkoStringBuilder *)sb 
 	encoding: (NSString *)encoding;
+// method: AppendInt2
+- (BOOL)AppendInt2: (NSNumber *)value 
+	littleEndian: (BOOL)littleEndian;
+// method: AppendInt4
+- (BOOL)AppendInt4: (NSNumber *)value 
+	littleEndian: (BOOL)littleEndian;
+// method: AppendPadded
+- (BOOL)AppendPadded: (NSString *)str 
+	charset: (NSString *)charset 
+	padWithSpace: (BOOL)padWithSpace 
+	fieldLen: (NSNumber *)fieldLen;
 // method: AppendSb
 - (BOOL)AppendSb: (CkoStringBuilder *)sb 
 	charset: (NSString *)charset;
@@ -65,6 +81,9 @@
 - (NSString *)GetString: (NSString *)charset;
 // method: LoadBinary
 - (BOOL)LoadBinary: (NSData *)data;
+// method: LoadBinary2
+- (BOOL)LoadBinary2: (NSData *)pByteData 
+	szByteData: (NSNumber *)szByteData;
 // method: LoadEncoded
 - (BOOL)LoadEncoded: (NSString *)encData 
 	encoding: (NSString *)encoding;

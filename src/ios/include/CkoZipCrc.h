@@ -1,5 +1,5 @@
 // Chilkat Objective-C header.
-// This is a generated header file for Chilkat version 9.5.0.75
+// This is a generated header file for Chilkat version 9.5.0.82
 
 // Generic/internal class name =  ZipCrc
 // Wrapped Chilkat C++ class name =  CkZipCrc
@@ -56,6 +56,8 @@
 - (NSNumber *)FileCrc: (NSString *)path;
 // method: FileCrcAsync
 - (CkoTask *)FileCrcAsync: (NSString *)path;
+// method: LoadTaskCaller
+- (BOOL)LoadTaskCaller: (CkoTask *)task;
 // method: MoreData
 - (void)MoreData: (NSData *)data;
 // method: SaveLastError

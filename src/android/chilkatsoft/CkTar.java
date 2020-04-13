@@ -404,6 +404,10 @@ public class CkTar {
     return (cPtr == 0) ? null : new CkTask(cPtr, true);
   }
 
+  public boolean LoadTaskCaller(CkTask task) {
+    return chilkatJNI.CkTar_LoadTaskCaller(swigCPtr, this, CkTask.getCPtr(task), task);
+  }
+
   public boolean SaveLastError(String path) {
     return chilkatJNI.CkTar_SaveLastError(swigCPtr, this, path);
   }
@@ -428,6 +432,10 @@ public class CkTar {
   public CkTask UntarBz2Async(String tarPath) {
     long cPtr = chilkatJNI.CkTar_UntarBz2Async(swigCPtr, this, tarPath);
     return (cPtr == 0) ? null : new CkTask(cPtr, true);
+  }
+
+  public boolean UntarFirstMatchingToBd(String tarPath, String matchPattern, CkBinData bd) {
+    return chilkatJNI.CkTar_UntarFirstMatchingToBd(swigCPtr, this, tarPath, matchPattern, CkBinData.getCPtr(bd), bd);
   }
 
   public boolean UntarFirstMatchingToMemory(CkByteData tarFileBytes, String matchPattern, CkByteData outBytes) {

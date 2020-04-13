@@ -1,5 +1,5 @@
 // Chilkat Objective-C header.
-// This is a generated header file for Chilkat version 9.5.0.75
+// This is a generated header file for Chilkat version 9.5.0.82
 
 // Generic/internal class name =  UnixCompress
 // Wrapped Chilkat C++ class name =  CkUnixCompress
@@ -62,6 +62,8 @@
 	destPath: (NSString *)destPath;
 // method: IsUnlocked
 - (BOOL)IsUnlocked;
+// method: LoadTaskCaller
+- (BOOL)LoadTaskCaller: (CkoTask *)task;
 // method: SaveLastError
 - (BOOL)SaveLastError: (NSString *)path;
 // method: UncompressFile

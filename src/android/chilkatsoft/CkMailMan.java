@@ -831,6 +831,18 @@ public class CkMailMan {
     return chilkatJNI.CkMailMan_tlsVersion(swigCPtr, this);
   }
 
+  public void get_UncommonOptions(CkString str) {
+    chilkatJNI.CkMailMan_get_UncommonOptions(swigCPtr, this, CkString.getCPtr(str), str);
+  }
+
+  public String uncommonOptions() {
+    return chilkatJNI.CkMailMan_uncommonOptions(swigCPtr, this);
+  }
+
+  public void put_UncommonOptions(String newVal) {
+    chilkatJNI.CkMailMan_put_UncommonOptions(swigCPtr, this, newVal);
+  }
+
   public boolean get_UseApop() {
     return chilkatJNI.CkMailMan_get_UseApop(swigCPtr, this);
   }
@@ -1180,6 +1192,10 @@ public class CkMailMan {
   public CkEmail LoadMime(String mimeText) {
     long cPtr = chilkatJNI.CkMailMan_LoadMime(swigCPtr, this, mimeText);
     return (cPtr == 0) ? null : new CkEmail(cPtr, true);
+  }
+
+  public boolean LoadTaskCaller(CkTask task) {
+    return chilkatJNI.CkMailMan_LoadTaskCaller(swigCPtr, this, CkTask.getCPtr(task), task);
   }
 
   public CkEmail LoadXmlEmail(String filename) {

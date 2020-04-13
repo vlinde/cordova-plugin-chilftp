@@ -147,6 +147,18 @@ public class CkJsonObject {
     chilkatJNI.CkJsonObject_put_LastMethodSuccess(swigCPtr, this, newVal);
   }
 
+  public void get_PathPrefix(CkString str) {
+    chilkatJNI.CkJsonObject_get_PathPrefix(swigCPtr, this, CkString.getCPtr(str), str);
+  }
+
+  public String pathPrefix() {
+    return chilkatJNI.CkJsonObject_pathPrefix(swigCPtr, this);
+  }
+
+  public void put_PathPrefix(String newVal) {
+    chilkatJNI.CkJsonObject_put_PathPrefix(swigCPtr, this, newVal);
+  }
+
   public int get_Size() {
     return chilkatJNI.CkJsonObject_get_Size(swigCPtr, this);
   }
@@ -171,6 +183,10 @@ public class CkJsonObject {
     return chilkatJNI.CkJsonObject_AddArrayAt(swigCPtr, this, index, name);
   }
 
+  public boolean AddArrayCopyAt(int index, String name, CkJsonArray jarr) {
+    return chilkatJNI.CkJsonObject_AddArrayCopyAt(swigCPtr, this, index, name, CkJsonArray.getCPtr(jarr), jarr);
+  }
+
   public boolean AddBoolAt(int index, String name, boolean value) {
     return chilkatJNI.CkJsonObject_AddBoolAt(swigCPtr, this, index, name, value);
   }
@@ -191,6 +207,10 @@ public class CkJsonObject {
     return chilkatJNI.CkJsonObject_AddObjectAt(swigCPtr, this, index, name);
   }
 
+  public boolean AddObjectCopyAt(int index, String name, CkJsonObject jsonObj) {
+    return chilkatJNI.CkJsonObject_AddObjectCopyAt(swigCPtr, this, index, name, CkJsonObject.getCPtr(jsonObj), jsonObj);
+  }
+
   public boolean AddStringAt(int index, String name, String value) {
     return chilkatJNI.CkJsonObject_AddStringAt(swigCPtr, this, index, name, value);
   }
@@ -198,6 +218,10 @@ public class CkJsonObject {
   public CkJsonArray AppendArray(String name) {
     long cPtr = chilkatJNI.CkJsonObject_AppendArray(swigCPtr, this, name);
     return (cPtr == 0) ? null : new CkJsonArray(cPtr, true);
+  }
+
+  public boolean AppendArrayCopy(String name, CkJsonArray jarr) {
+    return chilkatJNI.CkJsonObject_AppendArrayCopy(swigCPtr, this, name, CkJsonArray.getCPtr(jarr), jarr);
   }
 
   public boolean AppendBool(String name, boolean value) {
@@ -211,6 +235,10 @@ public class CkJsonObject {
   public CkJsonObject AppendObject(String name) {
     long cPtr = chilkatJNI.CkJsonObject_AppendObject(swigCPtr, this, name);
     return (cPtr == 0) ? null : new CkJsonObject(cPtr, true);
+  }
+
+  public boolean AppendObjectCopy(String name, CkJsonObject jsonObj) {
+    return chilkatJNI.CkJsonObject_AppendObjectCopy(swigCPtr, this, name, CkJsonObject.getCPtr(jsonObj), jsonObj);
   }
 
   public boolean AppendString(String name, String value) {
@@ -243,6 +271,10 @@ public class CkJsonObject {
     return chilkatJNI.CkJsonObject_BytesOf(swigCPtr, this, jsonPath, encoding, CkBinData.getCPtr(bd), bd);
   }
 
+  public void Clear() {
+    chilkatJNI.CkJsonObject_Clear(swigCPtr, this);
+  }
+
   public CkJsonObject Clone() {
     long cPtr = chilkatJNI.CkJsonObject_Clone(swigCPtr, this);
     return (cPtr == 0) ? null : new CkJsonObject(cPtr, true);
@@ -270,6 +302,10 @@ public class CkJsonObject {
 
   public String emit() {
     return chilkatJNI.CkJsonObject_emit(swigCPtr, this);
+  }
+
+  public boolean EmitBd(CkBinData bd) {
+    return chilkatJNI.CkJsonObject_EmitBd(swigCPtr, this, CkBinData.getCPtr(bd), bd);
   }
 
   public boolean EmitSb(CkStringBuilder sb) {
@@ -351,6 +387,10 @@ public class CkJsonObject {
     return chilkatJNI.CkJsonObject_Load(swigCPtr, this, json);
   }
 
+  public boolean LoadBd(CkBinData bd) {
+    return chilkatJNI.CkJsonObject_LoadBd(swigCPtr, this, CkBinData.getCPtr(bd), bd);
+  }
+
   public boolean LoadFile(String path) {
     return chilkatJNI.CkJsonObject_LoadFile(swigCPtr, this, path);
   }
@@ -361,6 +401,10 @@ public class CkJsonObject {
 
   public boolean LoadSb(CkStringBuilder sb) {
     return chilkatJNI.CkJsonObject_LoadSb(swigCPtr, this, CkStringBuilder.getCPtr(sb), sb);
+  }
+
+  public boolean MoveMember(int fromIndex, int toIndex) {
+    return chilkatJNI.CkJsonObject_MoveMember(swigCPtr, this, fromIndex, toIndex);
   }
 
   public boolean NameAt(int index, CkString outStr) {
@@ -461,6 +505,10 @@ public class CkJsonObject {
     return chilkatJNI.CkJsonObject_StringOfSb(swigCPtr, this, jsonPath, CkStringBuilder.getCPtr(sb), sb);
   }
 
+  public boolean Swap(int index1, int index2) {
+    return chilkatJNI.CkJsonObject_Swap(swigCPtr, this, index1, index2);
+  }
+
   public int TypeAt(int index) {
     return chilkatJNI.CkJsonObject_TypeAt(swigCPtr, this, index);
   }
@@ -499,6 +547,10 @@ public class CkJsonObject {
 
   public boolean UpdateString(String jsonPath, String value) {
     return chilkatJNI.CkJsonObject_UpdateString(swigCPtr, this, jsonPath, value);
+  }
+
+  public boolean WriteFile(String path) {
+    return chilkatJNI.CkJsonObject_WriteFile(swigCPtr, this, path);
   }
 
 }

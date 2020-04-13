@@ -1,5 +1,5 @@
 // Chilkat Objective-C header.
-// This is a generated header file for Chilkat version 9.5.0.75
+// This is a generated header file for Chilkat version 9.5.0.82
 
 // Generic/internal class name =  SFtpDir
 // Wrapped Chilkat C++ class name =  CkSFtpDir
@@ -33,5 +33,8 @@
 - (CkoSFtpFile *)GetFileObject: (NSNumber *)index;
 // method: LoadTaskResult
 - (BOOL)LoadTaskResult: (CkoTask *)task;
+// method: Sort
+- (void)Sort: (NSString *)field 
+	ascending: (BOOL)ascending;
 
 @end

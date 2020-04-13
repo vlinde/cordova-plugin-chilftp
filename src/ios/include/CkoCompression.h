@@ -1,5 +1,5 @@
 // Chilkat Objective-C header.
-// This is a generated header file for Chilkat version 9.5.0.75
+// This is a generated header file for Chilkat version 9.5.0.82
 
 // Generic/internal class name =  Compression
 // Wrapped Chilkat C++ class name =  CkCompression
@@ -48,6 +48,9 @@
 - (NSData *)BeginCompressBytes: (NSData *)bData;
 // method: BeginCompressBytesAsync
 - (CkoTask *)BeginCompressBytesAsync: (NSData *)bData;
+// method: BeginCompressBytes2
+- (NSData *)BeginCompressBytes2: (NSData *)pByteData 
+	szByteData: (NSNumber *)szByteData;
 // method: BeginCompressBytesENC
 - (NSString *)BeginCompressBytesENC: (NSData *)bData;
 // method: BeginCompressBytesENCAsync
@@ -64,6 +67,9 @@
 - (NSData *)BeginDecompressBytes: (NSData *)bData;
 // method: BeginDecompressBytesAsync
 - (CkoTask *)BeginDecompressBytesAsync: (NSData *)bData;
+// method: BeginDecompressBytes2
+- (NSData *)BeginDecompressBytes2: (NSData *)pByteData 
+	szByteData: (NSNumber *)szByteData;
 // method: BeginDecompressBytesENC
 - (NSData *)BeginDecompressBytesENC: (NSString *)str;
 // method: BeginDecompressBytesENCAsync
@@ -84,6 +90,9 @@
 - (NSData *)CompressBytes: (NSData *)bData;
 // method: CompressBytesAsync
 - (CkoTask *)CompressBytesAsync: (NSData *)bData;
+// method: CompressBytes2
+- (NSData *)CompressBytes2: (NSData *)pByteData 
+	szByteData: (NSNumber *)szByteData;
 // method: CompressBytesENC
 - (NSString *)CompressBytesENC: (NSData *)bData;
 // method: CompressBytesENCAsync
@@ -120,6 +129,9 @@
 - (NSData *)DecompressBytes: (NSData *)bData;
 // method: DecompressBytesAsync
 - (CkoTask *)DecompressBytesAsync: (NSData *)bData;
+// method: DecompressBytes2
+- (NSData *)DecompressBytes2: (NSData *)pByteData 
+	szByteData: (NSNumber *)szByteData;
 // method: DecompressBytesENC
 - (NSData *)DecompressBytesENC: (NSString *)str;
 // method: DecompressBytesENCAsync
@@ -180,10 +192,15 @@
 - (NSString *)EndDecompressStringENC;
 // method: EndDecompressStringENCAsync
 - (CkoTask *)EndDecompressStringENCAsync;
+// method: LoadTaskCaller
+- (BOOL)LoadTaskCaller: (CkoTask *)task;
 // method: MoreCompressBytes
 - (NSData *)MoreCompressBytes: (NSData *)bData;
 // method: MoreCompressBytesAsync
 - (CkoTask *)MoreCompressBytesAsync: (NSData *)bData;
+// method: MoreCompressBytes2
+- (NSData *)MoreCompressBytes2: (NSData *)pByteData 
+	szByteData: (NSNumber *)szByteData;
 // method: MoreCompressBytesENC
 - (NSString *)MoreCompressBytesENC: (NSData *)bData;
 // method: MoreCompressBytesENCAsync
@@ -200,6 +217,9 @@
 - (NSData *)MoreDecompressBytes: (NSData *)bData;
 // method: MoreDecompressBytesAsync
 - (CkoTask *)MoreDecompressBytesAsync: (NSData *)bData;
+// method: MoreDecompressBytes2
+- (NSData *)MoreDecompressBytes2: (NSData *)pByteData 
+	szByteData: (NSNumber *)szByteData;
 // method: MoreDecompressBytesENC
 - (NSData *)MoreDecompressBytesENC: (NSString *)str;
 // method: MoreDecompressBytesENCAsync

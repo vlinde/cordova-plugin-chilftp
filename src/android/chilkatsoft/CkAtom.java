@@ -278,6 +278,10 @@ public class CkAtom {
     return chilkatJNI.CkAtom_HasElement(swigCPtr, this, tag);
   }
 
+  public boolean LoadTaskCaller(CkTask task) {
+    return chilkatJNI.CkAtom_LoadTaskCaller(swigCPtr, this, CkTask.getCPtr(task), task);
+  }
+
   public boolean LoadXml(String xmlStr) {
     return chilkatJNI.CkAtom_LoadXml(swigCPtr, this, xmlStr);
   }

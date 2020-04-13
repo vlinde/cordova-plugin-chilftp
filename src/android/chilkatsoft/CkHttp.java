@@ -227,46 +227,6 @@ public class CkHttp {
     chilkatJNI.CkHttp_put_BasicAuth(swigCPtr, this, newVal);
   }
 
-  public void get_BgLastErrorText(CkString str) {
-    chilkatJNI.CkHttp_get_BgLastErrorText(swigCPtr, this, CkString.getCPtr(str), str);
-  }
-
-  public String bgLastErrorText() {
-    return chilkatJNI.CkHttp_bgLastErrorText(swigCPtr, this);
-  }
-
-  public int get_BgPercentDone() {
-    return chilkatJNI.CkHttp_get_BgPercentDone(swigCPtr, this);
-  }
-
-  public void get_BgResultData(CkByteData outBytes) {
-    chilkatJNI.CkHttp_get_BgResultData(swigCPtr, this, CkByteData.getCPtr(outBytes), outBytes);
-  }
-
-  public int get_BgResultInt() {
-    return chilkatJNI.CkHttp_get_BgResultInt(swigCPtr, this);
-  }
-
-  public void get_BgResultString(CkString str) {
-    chilkatJNI.CkHttp_get_BgResultString(swigCPtr, this, CkString.getCPtr(str), str);
-  }
-
-  public String bgResultString() {
-    return chilkatJNI.CkHttp_bgResultString(swigCPtr, this);
-  }
-
-  public boolean get_BgTaskFinished() {
-    return chilkatJNI.CkHttp_get_BgTaskFinished(swigCPtr, this);
-  }
-
-  public boolean get_BgTaskRunning() {
-    return chilkatJNI.CkHttp_get_BgTaskRunning(swigCPtr, this);
-  }
-
-  public boolean get_BgTaskSuccess() {
-    return chilkatJNI.CkHttp_get_BgTaskSuccess(swigCPtr, this);
-  }
-
   public void get_ClientIpAddress(CkString str) {
     chilkatJNI.CkHttp_get_ClientIpAddress(swigCPtr, this, CkString.getCPtr(str), str);
   }
@@ -343,10 +303,6 @@ public class CkHttp {
     chilkatJNI.CkHttp_put_DigestAuth(swigCPtr, this, newVal);
   }
 
-  public int get_EventLogCount() {
-    return chilkatJNI.CkHttp_get_EventLogCount(swigCPtr, this);
-  }
-
   public boolean get_FetchFromCache() {
     return chilkatJNI.CkHttp_get_FetchFromCache(swigCPtr, this);
   }
@@ -401,14 +357,6 @@ public class CkHttp {
 
   public void put_IgnoreNoCache(boolean newVal) {
     chilkatJNI.CkHttp_put_IgnoreNoCache(swigCPtr, this, newVal);
-  }
-
-  public boolean get_KeepEventLog() {
-    return chilkatJNI.CkHttp_get_KeepEventLog(swigCPtr, this);
-  }
-
-  public void put_KeepEventLog(boolean newVal) {
-    chilkatJNI.CkHttp_put_KeepEventLog(swigCPtr, this, newVal);
   }
 
   public boolean get_KeepResponseBody() {
@@ -915,6 +863,18 @@ public class CkHttp {
     chilkatJNI.CkHttp_put_SessionLogFilename(swigCPtr, this, newVal);
   }
 
+  public void get_SniHostname(CkString str) {
+    chilkatJNI.CkHttp_get_SniHostname(swigCPtr, this, CkString.getCPtr(str), str);
+  }
+
+  public String sniHostname() {
+    return chilkatJNI.CkHttp_sniHostname(swigCPtr, this);
+  }
+
+  public void put_SniHostname(String newVal) {
+    chilkatJNI.CkHttp_put_SniHostname(swigCPtr, this, newVal);
+  }
+
   public void get_SocksHostname(CkString str) {
     chilkatJNI.CkHttp_get_SocksHostname(swigCPtr, this, CkString.getCPtr(str), str);
   }
@@ -1047,20 +1007,24 @@ public class CkHttp {
     return chilkatJNI.CkHttp_tlsVersion(swigCPtr, this);
   }
 
+  public void get_UncommonOptions(CkString str) {
+    chilkatJNI.CkHttp_get_UncommonOptions(swigCPtr, this, CkString.getCPtr(str), str);
+  }
+
+  public String uncommonOptions() {
+    return chilkatJNI.CkHttp_uncommonOptions(swigCPtr, this);
+  }
+
+  public void put_UncommonOptions(String newVal) {
+    chilkatJNI.CkHttp_put_UncommonOptions(swigCPtr, this, newVal);
+  }
+
   public boolean get_UpdateCache() {
     return chilkatJNI.CkHttp_get_UpdateCache(swigCPtr, this);
   }
 
   public void put_UpdateCache(boolean newVal) {
     chilkatJNI.CkHttp_put_UpdateCache(swigCPtr, this, newVal);
-  }
-
-  public boolean get_UseBgThread() {
-    return chilkatJNI.CkHttp_get_UseBgThread(swigCPtr, this);
-  }
-
-  public void put_UseBgThread(boolean newVal) {
-    chilkatJNI.CkHttp_put_UseBgThread(swigCPtr, this, newVal);
   }
 
   public boolean get_UseIEProxy() {
@@ -1107,21 +1071,8 @@ public class CkHttp {
     chilkatJNI.CkHttp_AddCacheRoot(swigCPtr, this, dir);
   }
 
-  public boolean AddQuickHeader(String headerFieldName, String headerFieldValue) {
-    return chilkatJNI.CkHttp_AddQuickHeader(swigCPtr, this, headerFieldName, headerFieldValue);
-  }
-
-  public CkHttpResponse BgResponseObject() {
-    long cPtr = chilkatJNI.CkHttp_BgResponseObject(swigCPtr, this);
-    return (cPtr == 0) ? null : new CkHttpResponse(cPtr, true);
-  }
-
-  public void BgTaskAbort() {
-    chilkatJNI.CkHttp_BgTaskAbort(swigCPtr, this);
-  }
-
-  public void ClearBgEventLog() {
-    chilkatJNI.CkHttp_ClearBgEventLog(swigCPtr, this);
+  public void ClearHeaders() {
+    chilkatJNI.CkHttp_ClearHeaders(swigCPtr, this);
   }
 
   public void ClearInMemoryCookies() {
@@ -1200,22 +1151,6 @@ public class CkHttp {
   public CkTask DownloadSbAsync(String url, String charset, CkStringBuilder sb) {
     long cPtr = chilkatJNI.CkHttp_DownloadSbAsync(swigCPtr, this, url, charset, CkStringBuilder.getCPtr(sb), sb);
     return (cPtr == 0) ? null : new CkTask(cPtr, true);
-  }
-
-  public boolean EventLogName(int index, CkString outStr) {
-    return chilkatJNI.CkHttp_EventLogName(swigCPtr, this, index, CkString.getCPtr(outStr), outStr);
-  }
-
-  public String eventLogName(int index) {
-    return chilkatJNI.CkHttp_eventLogName(swigCPtr, this, index);
-  }
-
-  public boolean EventLogValue(int index, CkString outStr) {
-    return chilkatJNI.CkHttp_EventLogValue(swigCPtr, this, index, CkString.getCPtr(outStr), outStr);
-  }
-
-  public String eventLogValue(int index) {
-    return chilkatJNI.CkHttp_eventLogValue(swigCPtr, this, index);
   }
 
   public boolean ExtractMetaRefreshUrl(String htmlContent, CkString outStr) {
@@ -1346,6 +1281,15 @@ public class CkHttp {
 
   public boolean IsUnlocked() {
     return chilkatJNI.CkHttp_IsUnlocked(swigCPtr, this);
+  }
+
+  public CkJsonObject LastJsonData() {
+    long cPtr = chilkatJNI.CkHttp_LastJsonData(swigCPtr, this);
+    return (cPtr == 0) ? null : new CkJsonObject(cPtr, true);
+  }
+
+  public boolean LoadTaskCaller(CkTask task) {
+    return chilkatJNI.CkHttp_LoadTaskCaller(swigCPtr, this, CkTask.getCPtr(task), task);
   }
 
   public int ParseOcspReply(CkBinData ocspReply, CkJsonObject replyData) {
@@ -1557,8 +1501,14 @@ public class CkHttp {
     return (cPtr == 0) ? null : new CkTask(cPtr, true);
   }
 
-  public boolean RemoveQuickHeader(String headerFieldName) {
-    return chilkatJNI.CkHttp_RemoveQuickHeader(swigCPtr, this, headerFieldName);
+  public CkHttpResponse QuickRequest(String verb, String url) {
+    long cPtr = chilkatJNI.CkHttp_QuickRequest(swigCPtr, this, verb, url);
+    return (cPtr == 0) ? null : new CkHttpResponse(cPtr, true);
+  }
+
+  public CkTask QuickRequestAsync(String verb, String url) {
+    long cPtr = chilkatJNI.CkHttp_QuickRequestAsync(swigCPtr, this, verb, url);
+    return (cPtr == 0) ? null : new CkTask(cPtr, true);
   }
 
   public void RemoveRequestHeader(String name) {
@@ -1625,6 +1575,15 @@ public class CkHttp {
 
   public CkTask S3_DeleteObjectAsync(String bucketPath, String objectName) {
     long cPtr = chilkatJNI.CkHttp_S3_DeleteObjectAsync(swigCPtr, this, bucketPath, objectName);
+    return (cPtr == 0) ? null : new CkTask(cPtr, true);
+  }
+
+  public boolean S3_DownloadBd(String bucketPath, String objectName, CkBinData bd) {
+    return chilkatJNI.CkHttp_S3_DownloadBd(swigCPtr, this, bucketPath, objectName, CkBinData.getCPtr(bd), bd);
+  }
+
+  public CkTask S3_DownloadBdAsync(String bucketPath, String objectName, CkBinData bd) {
+    long cPtr = chilkatJNI.CkHttp_S3_DownloadBdAsync(swigCPtr, this, bucketPath, objectName, CkBinData.getCPtr(bd), bd);
     return (cPtr == 0) ? null : new CkTask(cPtr, true);
   }
 
@@ -1710,6 +1669,15 @@ public class CkHttp {
     return (cPtr == 0) ? null : new CkTask(cPtr, true);
   }
 
+  public boolean S3_UploadBd(CkBinData bd, String contentType, String bucketPath, String objectName) {
+    return chilkatJNI.CkHttp_S3_UploadBd(swigCPtr, this, CkBinData.getCPtr(bd), bd, contentType, bucketPath, objectName);
+  }
+
+  public CkTask S3_UploadBdAsync(CkBinData bd, String contentType, String bucketPath, String objectName) {
+    long cPtr = chilkatJNI.CkHttp_S3_UploadBdAsync(swigCPtr, this, CkBinData.getCPtr(bd), bd, contentType, bucketPath, objectName);
+    return (cPtr == 0) ? null : new CkTask(cPtr, true);
+  }
+
   public boolean S3_UploadBytes(CkByteData contentBytes, String contentType, String bucketPath, String objectName) {
     return chilkatJNI.CkHttp_S3_UploadBytes(swigCPtr, this, CkByteData.getCPtr(contentBytes), contentBytes, contentType, bucketPath, objectName);
   }
@@ -1755,6 +1723,10 @@ public class CkHttp {
 
   public void SetRequestHeader(String headerFieldName, String headerFieldValue) {
     chilkatJNI.CkHttp_SetRequestHeader(swigCPtr, this, headerFieldName, headerFieldValue);
+  }
+
+  public boolean SetSecurePassword(CkSecureString password) {
+    return chilkatJNI.CkHttp_SetSecurePassword(swigCPtr, this, CkSecureString.getCPtr(password), password);
   }
 
   public boolean SetSslClientCert(CkCert cert) {

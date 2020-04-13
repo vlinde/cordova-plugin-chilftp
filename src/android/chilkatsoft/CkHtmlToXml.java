@@ -183,6 +183,10 @@ public class CkHtmlToXml {
     return chilkatJNI.CkHtmlToXml_SaveLastError(swigCPtr, this, path);
   }
 
+  public boolean SetHtmlBd(CkBinData bd) {
+    return chilkatJNI.CkHtmlToXml_SetHtmlBd(swigCPtr, this, CkBinData.getCPtr(bd), bd);
+  }
+
   public void SetHtmlBytes(CkByteData inData) {
     chilkatJNI.CkHtmlToXml_SetHtmlBytes(swigCPtr, this, CkByteData.getCPtr(inData), inData);
   }
@@ -197,6 +201,10 @@ public class CkHtmlToXml {
 
   public String toXml() {
     return chilkatJNI.CkHtmlToXml_toXml(swigCPtr, this);
+  }
+
+  public boolean ToXmlSb(CkStringBuilder sb) {
+    return chilkatJNI.CkHtmlToXml_ToXmlSb(swigCPtr, this, CkStringBuilder.getCPtr(sb), sb);
   }
 
   public void UndropTagType(String tagName) {

@@ -67,104 +67,16 @@ public class CkSocket {
     return chilkatJNI.CkSocket_get_AcceptFailReason(swigCPtr, this);
   }
 
-  public boolean get_AsyncAcceptFinished() {
-    return chilkatJNI.CkSocket_get_AsyncAcceptFinished(swigCPtr, this);
+  public void get_AlpnProtocol(CkString str) {
+    chilkatJNI.CkSocket_get_AlpnProtocol(swigCPtr, this, CkString.getCPtr(str), str);
   }
 
-  public void get_AsyncAcceptLog(CkString str) {
-    chilkatJNI.CkSocket_get_AsyncAcceptLog(swigCPtr, this, CkString.getCPtr(str), str);
+  public String alpnProtocol() {
+    return chilkatJNI.CkSocket_alpnProtocol(swigCPtr, this);
   }
 
-  public String asyncAcceptLog() {
-    return chilkatJNI.CkSocket_asyncAcceptLog(swigCPtr, this);
-  }
-
-  public boolean get_AsyncAcceptSuccess() {
-    return chilkatJNI.CkSocket_get_AsyncAcceptSuccess(swigCPtr, this);
-  }
-
-  public boolean get_AsyncConnectFinished() {
-    return chilkatJNI.CkSocket_get_AsyncConnectFinished(swigCPtr, this);
-  }
-
-  public void get_AsyncConnectLog(CkString str) {
-    chilkatJNI.CkSocket_get_AsyncConnectLog(swigCPtr, this, CkString.getCPtr(str), str);
-  }
-
-  public String asyncConnectLog() {
-    return chilkatJNI.CkSocket_asyncConnectLog(swigCPtr, this);
-  }
-
-  public boolean get_AsyncConnectSuccess() {
-    return chilkatJNI.CkSocket_get_AsyncConnectSuccess(swigCPtr, this);
-  }
-
-  public boolean get_AsyncDnsFinished() {
-    return chilkatJNI.CkSocket_get_AsyncDnsFinished(swigCPtr, this);
-  }
-
-  public void get_AsyncDnsLog(CkString str) {
-    chilkatJNI.CkSocket_get_AsyncDnsLog(swigCPtr, this, CkString.getCPtr(str), str);
-  }
-
-  public String asyncDnsLog() {
-    return chilkatJNI.CkSocket_asyncDnsLog(swigCPtr, this);
-  }
-
-  public void get_AsyncDnsResult(CkString str) {
-    chilkatJNI.CkSocket_get_AsyncDnsResult(swigCPtr, this, CkString.getCPtr(str), str);
-  }
-
-  public String asyncDnsResult() {
-    return chilkatJNI.CkSocket_asyncDnsResult(swigCPtr, this);
-  }
-
-  public boolean get_AsyncDnsSuccess() {
-    return chilkatJNI.CkSocket_get_AsyncDnsSuccess(swigCPtr, this);
-  }
-
-  public void get_AsyncReceivedBytes(CkByteData outBytes) {
-    chilkatJNI.CkSocket_get_AsyncReceivedBytes(swigCPtr, this, CkByteData.getCPtr(outBytes), outBytes);
-  }
-
-  public void get_AsyncReceivedString(CkString str) {
-    chilkatJNI.CkSocket_get_AsyncReceivedString(swigCPtr, this, CkString.getCPtr(str), str);
-  }
-
-  public String asyncReceivedString() {
-    return chilkatJNI.CkSocket_asyncReceivedString(swigCPtr, this);
-  }
-
-  public boolean get_AsyncReceiveFinished() {
-    return chilkatJNI.CkSocket_get_AsyncReceiveFinished(swigCPtr, this);
-  }
-
-  public void get_AsyncReceiveLog(CkString str) {
-    chilkatJNI.CkSocket_get_AsyncReceiveLog(swigCPtr, this, CkString.getCPtr(str), str);
-  }
-
-  public String asyncReceiveLog() {
-    return chilkatJNI.CkSocket_asyncReceiveLog(swigCPtr, this);
-  }
-
-  public boolean get_AsyncReceiveSuccess() {
-    return chilkatJNI.CkSocket_get_AsyncReceiveSuccess(swigCPtr, this);
-  }
-
-  public boolean get_AsyncSendFinished() {
-    return chilkatJNI.CkSocket_get_AsyncSendFinished(swigCPtr, this);
-  }
-
-  public void get_AsyncSendLog(CkString str) {
-    chilkatJNI.CkSocket_get_AsyncSendLog(swigCPtr, this, CkString.getCPtr(str), str);
-  }
-
-  public String asyncSendLog() {
-    return chilkatJNI.CkSocket_asyncSendLog(swigCPtr, this);
-  }
-
-  public boolean get_AsyncSendSuccess() {
-    return chilkatJNI.CkSocket_get_AsyncSendSuccess(swigCPtr, this);
+  public void put_AlpnProtocol(String newVal) {
+    chilkatJNI.CkSocket_put_AlpnProtocol(swigCPtr, this, newVal);
   }
 
   public int get_BandwidthThrottleDown() {
@@ -213,22 +125,6 @@ public class CkSocket {
 
   public int get_ConnectFailReason() {
     return chilkatJNI.CkSocket_get_ConnectFailReason(swigCPtr, this);
-  }
-
-  public int get_DebugConnectDelayMs() {
-    return chilkatJNI.CkSocket_get_DebugConnectDelayMs(swigCPtr, this);
-  }
-
-  public void put_DebugConnectDelayMs(int newVal) {
-    chilkatJNI.CkSocket_put_DebugConnectDelayMs(swigCPtr, this, newVal);
-  }
-
-  public int get_DebugDnsDelayMs() {
-    return chilkatJNI.CkSocket_get_DebugDnsDelayMs(swigCPtr, this);
-  }
-
-  public void put_DebugDnsDelayMs(int newVal) {
-    chilkatJNI.CkSocket_put_DebugDnsDelayMs(swigCPtr, this, newVal);
   }
 
   public void get_DebugLogFilePath(CkString str) {
@@ -467,6 +363,10 @@ public class CkSocket {
     chilkatJNI.CkSocket_put_PreferIpv6(swigCPtr, this, newVal);
   }
 
+  public int get_RcvBytesPerSec() {
+    return chilkatJNI.CkSocket_get_RcvBytesPerSec(swigCPtr, this);
+  }
+
   public int get_ReceivedCount() {
     return chilkatJNI.CkSocket_get_ReceivedCount(swigCPtr, this);
   }
@@ -539,6 +439,10 @@ public class CkSocket {
     chilkatJNI.CkSocket_put_SelectorWriteIndex(swigCPtr, this, newVal);
   }
 
+  public int get_SendBytesPerSec() {
+    return chilkatJNI.CkSocket_get_SendBytesPerSec(swigCPtr, this);
+  }
+
   public int get_SendFailReason() {
     return chilkatJNI.CkSocket_get_SendFailReason(swigCPtr, this);
   }
@@ -569,6 +473,18 @@ public class CkSocket {
 
   public void put_SessionLogEncoding(String newVal) {
     chilkatJNI.CkSocket_put_SessionLogEncoding(swigCPtr, this, newVal);
+  }
+
+  public void get_SniHostname(CkString str) {
+    chilkatJNI.CkSocket_get_SniHostname(swigCPtr, this, CkString.getCPtr(str), str);
+  }
+
+  public String sniHostname() {
+    return chilkatJNI.CkSocket_sniHostname(swigCPtr, this);
+  }
+
+  public void put_SniHostname(String newVal) {
+    chilkatJNI.CkSocket_put_SniHostname(swigCPtr, this, newVal);
   }
 
   public void get_SocksHostname(CkString str) {
@@ -727,6 +643,18 @@ public class CkSocket {
     return chilkatJNI.CkSocket_tlsVersion(swigCPtr, this);
   }
 
+  public void get_UncommonOptions(CkString str) {
+    chilkatJNI.CkSocket_get_UncommonOptions(swigCPtr, this, CkString.getCPtr(str), str);
+  }
+
+  public String uncommonOptions() {
+    return chilkatJNI.CkSocket_uncommonOptions(swigCPtr, this);
+  }
+
+  public void put_UncommonOptions(String newVal) {
+    chilkatJNI.CkSocket_put_UncommonOptions(swigCPtr, this, newVal);
+  }
+
   public void get_UserData(CkString str) {
     chilkatJNI.CkSocket_get_UserData(swigCPtr, this, CkString.getCPtr(str), str);
   }
@@ -767,75 +695,6 @@ public class CkSocket {
 
   public boolean AddSslAcceptableClientCaDn(String certAuthDN) {
     return chilkatJNI.CkSocket_AddSslAcceptableClientCaDn(swigCPtr, this, certAuthDN);
-  }
-
-  public void AsyncAcceptAbort() {
-    chilkatJNI.CkSocket_AsyncAcceptAbort(swigCPtr, this);
-  }
-
-  public CkSocket AsyncAcceptSocket() {
-    long cPtr = chilkatJNI.CkSocket_AsyncAcceptSocket(swigCPtr, this);
-    return (cPtr == 0) ? null : new CkSocket(cPtr, true);
-  }
-
-  public boolean AsyncAcceptStart(int maxWaitMs) {
-    return chilkatJNI.CkSocket_AsyncAcceptStart(swigCPtr, this, maxWaitMs);
-  }
-
-  public void AsyncConnectAbort() {
-    chilkatJNI.CkSocket_AsyncConnectAbort(swigCPtr, this);
-  }
-
-  public boolean AsyncConnectStart(String hostname, int port, boolean ssl, int maxWaitMs) {
-    return chilkatJNI.CkSocket_AsyncConnectStart(swigCPtr, this, hostname, port, ssl, maxWaitMs);
-  }
-
-  public void AsyncDnsAbort() {
-    chilkatJNI.CkSocket_AsyncDnsAbort(swigCPtr, this);
-  }
-
-  public boolean AsyncDnsStart(String hostname, int maxWaitMs) {
-    return chilkatJNI.CkSocket_AsyncDnsStart(swigCPtr, this, hostname, maxWaitMs);
-  }
-
-  public void AsyncReceiveAbort() {
-    chilkatJNI.CkSocket_AsyncReceiveAbort(swigCPtr, this);
-  }
-
-  public boolean AsyncReceiveBytes() {
-    return chilkatJNI.CkSocket_AsyncReceiveBytes(swigCPtr, this);
-  }
-
-  public boolean AsyncReceiveBytesN(long numBytes) {
-    return chilkatJNI.CkSocket_AsyncReceiveBytesN(swigCPtr, this, numBytes);
-  }
-
-  public boolean AsyncReceiveString() {
-    return chilkatJNI.CkSocket_AsyncReceiveString(swigCPtr, this);
-  }
-
-  public boolean AsyncReceiveToCRLF() {
-    return chilkatJNI.CkSocket_AsyncReceiveToCRLF(swigCPtr, this);
-  }
-
-  public boolean AsyncReceiveUntilMatch(String matchStr) {
-    return chilkatJNI.CkSocket_AsyncReceiveUntilMatch(swigCPtr, this, matchStr);
-  }
-
-  public void AsyncSendAbort() {
-    chilkatJNI.CkSocket_AsyncSendAbort(swigCPtr, this);
-  }
-
-  public boolean AsyncSendByteData(CkByteData data) {
-    return chilkatJNI.CkSocket_AsyncSendByteData(swigCPtr, this, CkByteData.getCPtr(data), data);
-  }
-
-  public boolean AsyncSendBytes(CkByteData byteData) {
-    return chilkatJNI.CkSocket_AsyncSendBytes(swigCPtr, this, CkByteData.getCPtr(byteData), byteData);
-  }
-
-  public boolean AsyncSendString(String stringToSend) {
-    return chilkatJNI.CkSocket_AsyncSendString(swigCPtr, this, stringToSend);
   }
 
   public boolean BindAndListen(int port, int backLog) {
@@ -968,6 +827,15 @@ public class CkSocket {
 
   public boolean IsUnlocked() {
     return chilkatJNI.CkSocket_IsUnlocked(swigCPtr, this);
+  }
+
+  public CkJsonObject LastJsonData() {
+    long cPtr = chilkatJNI.CkSocket_LastJsonData(swigCPtr, this);
+    return (cPtr == 0) ? null : new CkJsonObject(cPtr, true);
+  }
+
+  public boolean LoadTaskCaller(CkTask task) {
+    return chilkatJNI.CkSocket_LoadTaskCaller(swigCPtr, this, CkTask.getCPtr(task), task);
   }
 
   public boolean LoadTaskResult(CkTask task) {
@@ -1160,6 +1028,15 @@ public class CkSocket {
     return (cPtr == 0) ? null : new CkTask(cPtr, true);
   }
 
+  public boolean ReceiveUntilByteBd(int lookForByte, CkBinData bd) {
+    return chilkatJNI.CkSocket_ReceiveUntilByteBd(swigCPtr, this, lookForByte, CkBinData.getCPtr(bd), bd);
+  }
+
+  public CkTask ReceiveUntilByteBdAsync(int lookForByte, CkBinData bd) {
+    long cPtr = chilkatJNI.CkSocket_ReceiveUntilByteBdAsync(swigCPtr, this, lookForByte, CkBinData.getCPtr(bd), bd);
+    return (cPtr == 0) ? null : new CkTask(cPtr, true);
+  }
+
   public boolean ReceiveUntilMatch(String matchStr, CkString outStr) {
     return chilkatJNI.CkSocket_ReceiveUntilMatch(swigCPtr, this, matchStr, CkString.getCPtr(outStr), outStr);
   }
@@ -1171,6 +1048,10 @@ public class CkSocket {
   public CkTask ReceiveUntilMatchAsync(String matchStr) {
     long cPtr = chilkatJNI.CkSocket_ReceiveUntilMatchAsync(swigCPtr, this, matchStr);
     return (cPtr == 0) ? null : new CkTask(cPtr, true);
+  }
+
+  public void ResetPerf(boolean rcvPerf) {
+    chilkatJNI.CkSocket_ResetPerf(swigCPtr, this, rcvPerf);
   }
 
   public boolean SaveLastError(String path) {
@@ -1280,6 +1161,10 @@ public class CkSocket {
     return chilkatJNI.CkSocket_SendWakeOnLan(swigCPtr, this, macAddress, port, ipBroadcastAddr);
   }
 
+  public boolean SendWakeOnLan2(String macAddress, int port, String ipBroadcastAddr, String password) {
+    return chilkatJNI.CkSocket_SendWakeOnLan2(swigCPtr, this, macAddress, port, ipBroadcastAddr, password);
+  }
+
   public boolean SetSslClientCert(CkCert cert) {
     return chilkatJNI.CkSocket_SetSslClientCert(swigCPtr, this, CkCert.getCPtr(cert), cert);
   }
@@ -1344,6 +1229,10 @@ public class CkSocket {
 
   public void StartTiming() {
     chilkatJNI.CkSocket_StartTiming(swigCPtr, this);
+  }
+
+  public boolean TakeConnection(CkSocket sock) {
+    return chilkatJNI.CkSocket_TakeConnection(swigCPtr, this, CkSocket.getCPtr(sock), sock);
   }
 
   public boolean TakeSocket(CkSocket sock) {

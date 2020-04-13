@@ -718,6 +718,23 @@ public class CkSsh {
     chilkatJNI.CkSsh_Disconnect(swigCPtr, this);
   }
 
+  public boolean GetAuthMethods(CkString outStr) {
+    return chilkatJNI.CkSsh_GetAuthMethods(swigCPtr, this, CkString.getCPtr(outStr), outStr);
+  }
+
+  public String getAuthMethods() {
+    return chilkatJNI.CkSsh_getAuthMethods(swigCPtr, this);
+  }
+
+  public String authMethods() {
+    return chilkatJNI.CkSsh_authMethods(swigCPtr, this);
+  }
+
+  public CkTask GetAuthMethodsAsync() {
+    long cPtr = chilkatJNI.CkSsh_GetAuthMethodsAsync(swigCPtr, this);
+    return (cPtr == 0) ? null : new CkTask(cPtr, true);
+  }
+
   public int GetChannelExitStatus(int channelNum) {
     return chilkatJNI.CkSsh_GetChannelExitStatus(swigCPtr, this, channelNum);
   }
@@ -788,6 +805,15 @@ public class CkSsh {
 
   public String receivedTextS(int channelNum, String substr, String charset) {
     return chilkatJNI.CkSsh_receivedTextS(swigCPtr, this, channelNum, substr, charset);
+  }
+
+  public CkJsonObject LastJsonData() {
+    long cPtr = chilkatJNI.CkSsh_LastJsonData(swigCPtr, this);
+    return (cPtr == 0) ? null : new CkJsonObject(cPtr, true);
+  }
+
+  public boolean LoadTaskCaller(CkTask task) {
+    return chilkatJNI.CkSsh_LoadTaskCaller(swigCPtr, this, CkTask.getCPtr(task), task);
   }
 
   public int OpenCustomChannel(String channelType) {

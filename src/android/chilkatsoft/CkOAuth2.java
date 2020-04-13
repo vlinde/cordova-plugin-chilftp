@@ -167,6 +167,14 @@ public class CkOAuth2 {
     return chilkatJNI.CkOAuth2_failureInfo(swigCPtr, this);
   }
 
+  public boolean get_IncludeNonce() {
+    return chilkatJNI.CkOAuth2_get_IncludeNonce(swigCPtr, this);
+  }
+
+  public void put_IncludeNonce(boolean newVal) {
+    chilkatJNI.CkOAuth2_put_IncludeNonce(swigCPtr, this, newVal);
+  }
+
   public void get_LastErrorHtml(CkString str) {
     chilkatJNI.CkOAuth2_get_LastErrorHtml(swigCPtr, this, CkString.getCPtr(str), str);
   }
@@ -227,6 +235,14 @@ public class CkOAuth2 {
     chilkatJNI.CkOAuth2_put_LocalHost(swigCPtr, this, newVal);
   }
 
+  public int get_NonceLength() {
+    return chilkatJNI.CkOAuth2_get_NonceLength(swigCPtr, this);
+  }
+
+  public void put_NonceLength(int newVal) {
+    chilkatJNI.CkOAuth2_put_NonceLength(swigCPtr, this, newVal);
+  }
+
   public void get_RedirectAllowHtml(CkString str) {
     chilkatJNI.CkOAuth2_get_RedirectAllowHtml(swigCPtr, this, CkString.getCPtr(str), str);
   }
@@ -273,6 +289,30 @@ public class CkOAuth2 {
 
   public void put_Resource(String newVal) {
     chilkatJNI.CkOAuth2_put_Resource(swigCPtr, this, newVal);
+  }
+
+  public void get_ResponseMode(CkString str) {
+    chilkatJNI.CkOAuth2_get_ResponseMode(swigCPtr, this, CkString.getCPtr(str), str);
+  }
+
+  public String responseMode() {
+    return chilkatJNI.CkOAuth2_responseMode(swigCPtr, this);
+  }
+
+  public void put_ResponseMode(String newVal) {
+    chilkatJNI.CkOAuth2_put_ResponseMode(swigCPtr, this, newVal);
+  }
+
+  public void get_ResponseType(CkString str) {
+    chilkatJNI.CkOAuth2_get_ResponseType(swigCPtr, this, CkString.getCPtr(str), str);
+  }
+
+  public String responseType() {
+    return chilkatJNI.CkOAuth2_responseType(swigCPtr, this);
+  }
+
+  public void put_ResponseType(String newVal) {
+    chilkatJNI.CkOAuth2_put_ResponseType(swigCPtr, this, newVal);
   }
 
   public void get_Scope(CkString str) {
@@ -351,6 +391,10 @@ public class CkOAuth2 {
     return chilkatJNI.CkOAuth2_redirectRequestParam(swigCPtr, this, paramName);
   }
 
+  public boolean LoadTaskCaller(CkTask task) {
+    return chilkatJNI.CkOAuth2_LoadTaskCaller(swigCPtr, this, CkTask.getCPtr(task), task);
+  }
+
   public boolean Monitor() {
     return chilkatJNI.CkOAuth2_Monitor(swigCPtr, this);
   }
@@ -371,6 +415,15 @@ public class CkOAuth2 {
 
   public boolean SaveLastError(String path) {
     return chilkatJNI.CkOAuth2_SaveLastError(swigCPtr, this, path);
+  }
+
+  public boolean SetRefreshHeader(String name, String value) {
+    return chilkatJNI.CkOAuth2_SetRefreshHeader(swigCPtr, this, name, value);
+  }
+
+  public CkTask SetRefreshHeaderAsync(String name, String value) {
+    long cPtr = chilkatJNI.CkOAuth2_SetRefreshHeaderAsync(swigCPtr, this, name, value);
+    return (cPtr == 0) ? null : new CkTask(cPtr, true);
   }
 
   public void SleepMs(int millisec) {

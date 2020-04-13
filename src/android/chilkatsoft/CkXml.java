@@ -147,6 +147,10 @@ public class CkXml {
     chilkatJNI.CkXml_put_I(swigCPtr, this, newVal);
   }
 
+  public boolean get_IsBase64() {
+    return chilkatJNI.CkXml_get_IsBase64(swigCPtr, this);
+  }
+
   public int get_J() {
     return chilkatJNI.CkXml_get_J(swigCPtr, this);
   }
@@ -229,6 +233,38 @@ public class CkXml {
 
   public void put_Tag(String newVal) {
     chilkatJNI.CkXml_put_Tag(swigCPtr, this, newVal);
+  }
+
+  public void get_TagNsPrefix(CkString str) {
+    chilkatJNI.CkXml_get_TagNsPrefix(swigCPtr, this, CkString.getCPtr(str), str);
+  }
+
+  public String tagNsPrefix() {
+    return chilkatJNI.CkXml_tagNsPrefix(swigCPtr, this);
+  }
+
+  public void put_TagNsPrefix(String newVal) {
+    chilkatJNI.CkXml_put_TagNsPrefix(swigCPtr, this, newVal);
+  }
+
+  public void get_TagPath(CkString str) {
+    chilkatJNI.CkXml_get_TagPath(swigCPtr, this, CkString.getCPtr(str), str);
+  }
+
+  public String tagPath() {
+    return chilkatJNI.CkXml_tagPath(swigCPtr, this);
+  }
+
+  public void get_TagUnprefixed(CkString str) {
+    chilkatJNI.CkXml_get_TagUnprefixed(swigCPtr, this, CkString.getCPtr(str), str);
+  }
+
+  public String tagUnprefixed() {
+    return chilkatJNI.CkXml_tagUnprefixed(swigCPtr, this);
+  }
+
+  public void put_TagUnprefixed(String newVal) {
+    chilkatJNI.CkXml_put_TagUnprefixed(swigCPtr, this, newVal);
   }
 
   public int get_TreeId() {
@@ -446,6 +482,18 @@ public class CkXml {
     return chilkatJNI.CkXml_GetChild2(swigCPtr, this, index);
   }
 
+  public boolean GetChildAttrValue(String tagPath, String attrName, CkString outStr) {
+    return chilkatJNI.CkXml_GetChildAttrValue(swigCPtr, this, tagPath, attrName, CkString.getCPtr(outStr), outStr);
+  }
+
+  public String getChildAttrValue(String tagPath, String attrName) {
+    return chilkatJNI.CkXml_getChildAttrValue(swigCPtr, this, tagPath, attrName);
+  }
+
+  public String childAttrValue(String tagPath, String attrName) {
+    return chilkatJNI.CkXml_childAttrValue(swigCPtr, this, tagPath, attrName);
+  }
+
   public boolean GetChildBoolValue(String tagPath) {
     return chilkatJNI.CkXml_GetChildBoolValue(swigCPtr, this, tagPath);
   }
@@ -472,6 +520,10 @@ public class CkXml {
 
   public String childContentByIndex(int index) {
     return chilkatJNI.CkXml_childContentByIndex(swigCPtr, this, index);
+  }
+
+  public boolean GetChildContentSb(String tagPath, CkStringBuilder sb) {
+    return chilkatJNI.CkXml_GetChildContentSb(swigCPtr, this, tagPath, CkStringBuilder.getCPtr(sb), sb);
   }
 
   public CkXml GetChildExact(String tag, String content) {
@@ -566,6 +618,10 @@ public class CkXml {
     return chilkatJNI.CkXml_xml(swigCPtr, this);
   }
 
+  public boolean GetXmlBd(CkBinData bd) {
+    return chilkatJNI.CkXml_GetXmlBd(swigCPtr, this, CkBinData.getCPtr(bd), bd);
+  }
+
   public boolean GetXmlSb(CkStringBuilder sb) {
     return chilkatJNI.CkXml_GetXmlSb(swigCPtr, this, CkStringBuilder.getCPtr(sb), sb);
   }
@@ -605,6 +661,10 @@ public class CkXml {
 
   public boolean LastChild2() {
     return chilkatJNI.CkXml_LastChild2(swigCPtr, this);
+  }
+
+  public boolean LoadBd(CkBinData bd, boolean autoTrim) {
+    return chilkatJNI.CkXml_LoadBd(swigCPtr, this, CkBinData.getCPtr(bd), bd, autoTrim);
   }
 
   public boolean LoadSb(CkStringBuilder sb, boolean autoTrim) {
@@ -650,6 +710,10 @@ public class CkXml {
     chilkatJNI.CkXml_NewChildInt2(swigCPtr, this, tagPath, value);
   }
 
+  public boolean NextInTraversal2(CkStringBuilder sbState) {
+    return chilkatJNI.CkXml_NextInTraversal2(swigCPtr, this, CkStringBuilder.getCPtr(sbState), sbState);
+  }
+
   public CkXml NextSibling() {
     long cPtr = chilkatJNI.CkXml_NextSibling(swigCPtr, this);
     return (cPtr == 0) ? null : new CkXml(cPtr, true);
@@ -674,6 +738,14 @@ public class CkXml {
 
   public boolean PreviousSibling2() {
     return chilkatJNI.CkXml_PreviousSibling2(swigCPtr, this);
+  }
+
+  public int PruneAttribute(String attrName) {
+    return chilkatJNI.CkXml_PruneAttribute(swigCPtr, this, attrName);
+  }
+
+  public int PruneTag(String tag) {
+    return chilkatJNI.CkXml_PruneTag(swigCPtr, this, tag);
   }
 
   public boolean QEncodeContent(String charset, CkByteData inData) {
@@ -708,6 +780,10 @@ public class CkXml {
     chilkatJNI.CkXml_RemoveFromTree(swigCPtr, this);
   }
 
+  public int RemoveStyleSheet(String attrName, String attrValue) {
+    return chilkatJNI.CkXml_RemoveStyleSheet(swigCPtr, this, attrName, attrValue);
+  }
+
   public boolean SaveBinaryContent(String filename, boolean unzipFlag, boolean decryptFlag, String password) {
     return chilkatJNI.CkXml_SaveBinaryContent(swigCPtr, this, filename, unzipFlag, decryptFlag, password);
   }
@@ -718,6 +794,10 @@ public class CkXml {
 
   public boolean SaveXml(String fileName) {
     return chilkatJNI.CkXml_SaveXml(swigCPtr, this, fileName);
+  }
+
+  public void Scrub(String directives) {
+    chilkatJNI.CkXml_Scrub(swigCPtr, this, directives);
   }
 
   public CkXml SearchAllForContent(CkXml afterPtr, String contentPattern) {
@@ -810,6 +890,18 @@ public class CkXml {
 
   public boolean TagEquals(String tag) {
     return chilkatJNI.CkXml_TagEquals(swigCPtr, this, tag);
+  }
+
+  public int TagIndex(String tagPath) {
+    return chilkatJNI.CkXml_TagIndex(swigCPtr, this, tagPath);
+  }
+
+  public boolean TagNsEquals(String ns) {
+    return chilkatJNI.CkXml_TagNsEquals(swigCPtr, this, ns);
+  }
+
+  public boolean TagUnpEquals(String unprefixedTag) {
+    return chilkatJNI.CkXml_TagUnpEquals(swigCPtr, this, unprefixedTag);
   }
 
   public boolean UnzipContent() {

@@ -1,11 +1,12 @@
 // Chilkat Objective-C header.
-// This is a generated header file for Chilkat version 9.5.0.75
+// This is a generated header file for Chilkat version 9.5.0.82
 
 // Generic/internal class name =  Csr
 // Wrapped Chilkat C++ class name =  CkCsr
 
 @class CkoPrivateKey;
 @class CkoBinData;
+@class CkoPublicKey;
 
 
 @interface CkoCsr : NSObject {
@@ -30,6 +31,7 @@
 @property (nonatomic, copy) NSString *Country;
 @property (nonatomic, copy) NSString *DebugLogFilePath;
 @property (nonatomic, copy) NSString *EmailAddress;
+@property (nonatomic, copy) NSString *HashAlgorithm;
 @property (nonatomic, readonly, copy) NSString *LastErrorHtml;
 @property (nonatomic, readonly, copy) NSString *LastErrorText;
 @property (nonatomic, readonly, copy) NSString *LastErrorXml;
@@ -43,6 +45,8 @@
 	csrData: (CkoBinData *)csrData;
 // method: GenCsrPem
 - (NSString *)GenCsrPem: (CkoPrivateKey *)privKey;
+// method: GetPublicKey
+- (BOOL)GetPublicKey: (CkoPublicKey *)pubkey;
 // method: GetSubjectField
 - (NSString *)GetSubjectField: (NSString *)oid;
 // method: LoadCsrPem

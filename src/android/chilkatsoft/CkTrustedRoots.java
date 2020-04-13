@@ -103,6 +103,14 @@ public class CkTrustedRoots {
     return chilkatJNI.CkTrustedRoots_get_NumCerts(swigCPtr, this);
   }
 
+  public boolean get_RejectSelfSignedCerts() {
+    return chilkatJNI.CkTrustedRoots_get_RejectSelfSignedCerts(swigCPtr, this);
+  }
+
+  public void put_RejectSelfSignedCerts(boolean newVal) {
+    chilkatJNI.CkTrustedRoots_put_RejectSelfSignedCerts(swigCPtr, this, newVal);
+  }
+
   public boolean get_TrustSystemCaRoots() {
     return chilkatJNI.CkTrustedRoots_get_TrustSystemCaRoots(swigCPtr, this);
   }
@@ -160,6 +168,10 @@ public class CkTrustedRoots {
   public CkTask LoadCaCertsPemAsync(String path) {
     long cPtr = chilkatJNI.CkTrustedRoots_LoadCaCertsPemAsync(swigCPtr, this, path);
     return (cPtr == 0) ? null : new CkTask(cPtr, true);
+  }
+
+  public boolean LoadTaskCaller(CkTask task) {
+    return chilkatJNI.CkTrustedRoots_LoadTaskCaller(swigCPtr, this, CkTask.getCPtr(task), task);
   }
 
   public boolean SaveLastError(String path) {

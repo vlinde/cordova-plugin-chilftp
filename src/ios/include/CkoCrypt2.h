@@ -1,5 +1,5 @@
 // Chilkat Objective-C header.
-// This is a generated header file for Chilkat version 9.5.0.75
+// This is a generated header file for Chilkat version 9.5.0.82
 
 // Generic/internal class name =  Crypt2
 // Wrapped Chilkat C++ class name =  CkCrypt2
@@ -13,6 +13,7 @@
 @class CkoCertChain;
 @class CkoJsonObject;
 @class CkoPrivateKey;
+@class CkoHttp;
 @class CkoXmlCertVault;
 
 
@@ -47,6 +48,7 @@
 @property (nonatomic, copy) NSString *CadesSigPolicyUri;
 @property (nonatomic, copy) NSString *Charset;
 @property (nonatomic, copy) NSString *CipherMode;
+@property (nonatomic, copy) NSString *CmsOptions;
 @property (nonatomic, copy) NSString *CompressionAlgorithm;
 @property (nonatomic, copy) NSString *CryptAlgorithm;
 @property (nonatomic, copy) NSString *DebugLogFilePath;
@@ -146,8 +148,14 @@
 // method: CreateP7M
 - (BOOL)CreateP7M: (NSString *)inPath 
 	p7mPath: (NSString *)p7mPath;
+// method: CreateP7MAsync
+- (CkoTask *)CreateP7MAsync: (NSString *)inPath 
+	p7mPath: (NSString *)p7mPath;
 // method: CreateP7S
 - (BOOL)CreateP7S: (NSString *)inPath 
+	p7sPath: (NSString *)p7sPath;
+// method: CreateP7SAsync
+- (CkoTask *)CreateP7SAsync: (NSString *)inPath 
 	p7sPath: (NSString *)p7sPath;
 // method: Decode
 - (NSData *)Decode: (NSString *)str 
@@ -160,6 +168,9 @@
 - (BOOL)DecryptBd: (CkoBinData *)bd;
 // method: DecryptBytes
 - (NSData *)DecryptBytes: (NSData *)bData;
+// method: DecryptBytes2
+- (NSData *)DecryptBytes2: (NSData *)pByteData 
+	szByteData: (NSNumber *)szByteData;
 // method: DecryptBytesENC
 - (NSData *)DecryptBytesENC: (NSString *)str;
 // method: DecryptEncoded
@@ -185,6 +196,11 @@
 - (NSString *)EncodeBytes: (NSData *)pByteData 
 	szByteData: (NSNumber *)szByteData 
 	encoding: (NSString *)encoding;
+// method: EncodeInt
+- (NSString *)EncodeInt: (NSNumber *)value 
+	numBytes: (NSNumber *)numBytes 
+	littleEndian: (BOOL)littleEndian 
+	encoding: (NSString *)encoding;
 // method: EncodeString
 - (NSString *)EncodeString: (NSString *)inStr 
 	charset: (NSString *)charset 
@@ -193,6 +209,9 @@
 - (BOOL)EncryptBd: (CkoBinData *)bd;
 // method: EncryptBytes
 - (NSData *)EncryptBytes: (NSData *)bData;
+// method: EncryptBytes2
+- (NSData *)EncryptBytes2: (NSData *)pByteData 
+	szByteData: (NSNumber *)szByteData;
 // method: EncryptBytesENC
 - (NSString *)EncryptBytesENC: (NSData *)bData;
 // method: EncryptEncoded
@@ -249,10 +268,16 @@
 - (NSString *)HashBdENC: (CkoBinData *)bd;
 // method: HashBeginBytes
 - (BOOL)HashBeginBytes: (NSData *)data;
+// method: HashBeginBytes2
+- (BOOL)HashBeginBytes2: (NSData *)pByteData 
+	szByteData: (NSNumber *)szByteData;
 // method: HashBeginString
 - (BOOL)HashBeginString: (NSString *)strData;
 // method: HashBytes
 - (NSData *)HashBytes: (NSData *)bData;
+// method: HashBytes2
+- (NSData *)HashBytes2: (NSData *)pByteData 
+	szByteData: (NSNumber *)szByteData;
 // method: HashBytesENC
 - (NSString *)HashBytesENC: (NSData *)bData;
 // method: HashFile
@@ -269,6 +294,9 @@
 - (NSString *)HashFinalENC;
 // method: HashMoreBytes
 - (BOOL)HashMoreBytes: (NSData *)data;
+// method: HashMoreBytes2
+- (BOOL)HashMoreBytes2: (NSData *)pByteData 
+	szByteData: (NSNumber *)szByteData;
 // method: HashMoreString
 - (BOOL)HashMoreString: (NSString *)strData;
 // method: HashString
@@ -285,6 +313,13 @@
 - (NSData *)HmacString: (NSString *)inText;
 // method: HmacStringENC
 - (NSString *)HmacStringENC: (NSString *)inText;
+// method: Hotp
+- (NSString *)Hotp: (NSString *)secret 
+	secretEnc: (NSString *)secretEnc 
+	counterHex: (NSString *)counterHex 
+	numDigits: (NSNumber *)numDigits 
+	truncOffset: (NSNumber *)truncOffset 
+	hashAlg: (NSString *)hashAlg;
 // method: InflateBytes
 - (NSData *)InflateBytes: (NSData *)bData;
 // method: InflateBytesENC
@@ -297,10 +332,15 @@
 - (BOOL)IsUnlocked;
 // method: LastJsonData
 - (CkoJsonObject *)LastJsonData;
+// method: LoadTaskCaller
+- (BOOL)LoadTaskCaller: (CkoTask *)task;
 // method: MacBdENC
 - (NSString *)MacBdENC: (CkoBinData *)bd;
 // method: MacBytes
 - (NSData *)MacBytes: (NSData *)inBytes;
+// method: MacBytes2
+- (NSData *)MacBytes2: (NSData *)pByteData 
+	szByteData: (NSNumber *)szByteData;
 // method: MacBytesENC
 - (NSString *)MacBytesENC: (NSData *)inBytes;
 // method: MacString
@@ -315,18 +355,34 @@
 	strKey: (NSString *)strKey;
 // method: OpaqueSignBd
 - (BOOL)OpaqueSignBd: (CkoBinData *)bd;
+// method: OpaqueSignBdAsync
+- (CkoTask *)OpaqueSignBdAsync: (CkoBinData *)bd;
 // method: OpaqueSignBytes
 - (NSData *)OpaqueSignBytes: (NSData *)bData;
+// method: OpaqueSignBytesAsync
+- (CkoTask *)OpaqueSignBytesAsync: (NSData *)bData;
+// method: OpaqueSignBytes2
+- (NSData *)OpaqueSignBytes2: (NSData *)pByteData 
+	szByteData: (NSNumber *)szByteData;
 // method: OpaqueSignBytesENC
 - (NSString *)OpaqueSignBytesENC: (NSData *)bData;
+// method: OpaqueSignBytesENCAsync
+- (CkoTask *)OpaqueSignBytesENCAsync: (NSData *)bData;
 // method: OpaqueSignString
 - (NSData *)OpaqueSignString: (NSString *)str;
+// method: OpaqueSignStringAsync
+- (CkoTask *)OpaqueSignStringAsync: (NSString *)str;
 // method: OpaqueSignStringENC
 - (NSString *)OpaqueSignStringENC: (NSString *)str;
+// method: OpaqueSignStringENCAsync
+- (CkoTask *)OpaqueSignStringENCAsync: (NSString *)str;
 // method: OpaqueVerifyBd
 - (BOOL)OpaqueVerifyBd: (CkoBinData *)bd;
 // method: OpaqueVerifyBytes
 - (NSData *)OpaqueVerifyBytes: (NSData *)p7s;
+// method: OpaqueVerifyBytes2
+- (NSData *)OpaqueVerifyBytes2: (NSData *)pByteData 
+	szByteData: (NSNumber *)szByteData;
 // method: OpaqueVerifyBytesENC
 - (NSData *)OpaqueVerifyBytesENC: (NSString *)p7s;
 // method: OpaqueVerifyString
@@ -407,23 +463,49 @@
 // method: SetSigningCert2
 - (BOOL)SetSigningCert2: (CkoCert *)cert 
 	key: (CkoPrivateKey *)key;
+// method: SetTsaHttpObj
+- (void)SetTsaHttpObj: (CkoHttp *)http;
 // method: SetVerifyCert
 - (BOOL)SetVerifyCert: (CkoCert *)cert;
 // method: SignBdENC
 - (NSString *)SignBdENC: (CkoBinData *)dataToSign;
+// method: SignBdENCAsync
+- (CkoTask *)SignBdENCAsync: (CkoBinData *)dataToSign;
 // method: SignBytes
 - (NSData *)SignBytes: (NSData *)bData;
+// method: SignBytesAsync
+- (CkoTask *)SignBytesAsync: (NSData *)bData;
+// method: SignBytes2
+- (NSData *)SignBytes2: (NSData *)pByteData 
+	szByteData: (NSNumber *)szByteData;
 // method: SignBytesENC
 - (NSString *)SignBytesENC: (NSData *)bData;
+// method: SignBytesENCAsync
+- (CkoTask *)SignBytesENCAsync: (NSData *)bData;
 // method: SignSbENC
 - (NSString *)SignSbENC: (CkoStringBuilder *)sb;
+// method: SignSbENCAsync
+- (CkoTask *)SignSbENCAsync: (CkoStringBuilder *)sb;
 // method: SignString
 - (NSData *)SignString: (NSString *)str;
+// method: SignStringAsync
+- (CkoTask *)SignStringAsync: (NSString *)str;
 // method: SignStringENC
 - (NSString *)SignStringENC: (NSString *)str;
+// method: SignStringENCAsync
+- (CkoTask *)SignStringENCAsync: (NSString *)str;
 // method: StringToBytes
 - (NSData *)StringToBytes: (NSString *)inStr 
 	charset: (NSString *)charset;
+// method: Totp
+- (NSString *)Totp: (NSString *)secret 
+	secretEnc: (NSString *)secretEnc 
+	t0: (NSString *)t0 
+	tNow: (NSString *)tNow 
+	tStep: (NSNumber *)tStep 
+	numDigits: (NSNumber *)numDigits 
+	truncOffset: (NSNumber *)truncOffset 
+	hashAlg: (NSString *)hashAlg;
 // method: TrimEndingWith
 - (NSString *)TrimEndingWith: (NSString *)inStr 
 	ending: (NSString *)ending;

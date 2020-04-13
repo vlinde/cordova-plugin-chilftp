@@ -123,6 +123,18 @@ public class CkCsr {
     chilkatJNI.CkCsr_put_EmailAddress(swigCPtr, this, newVal);
   }
 
+  public void get_HashAlgorithm(CkString str) {
+    chilkatJNI.CkCsr_get_HashAlgorithm(swigCPtr, this, CkString.getCPtr(str), str);
+  }
+
+  public String hashAlgorithm() {
+    return chilkatJNI.CkCsr_hashAlgorithm(swigCPtr, this);
+  }
+
+  public void put_HashAlgorithm(String newVal) {
+    chilkatJNI.CkCsr_put_HashAlgorithm(swigCPtr, this, newVal);
+  }
+
   public void get_LastErrorHtml(CkString str) {
     chilkatJNI.CkCsr_get_LastErrorHtml(swigCPtr, this, CkString.getCPtr(str), str);
   }
@@ -205,6 +217,10 @@ public class CkCsr {
 
   public String genCsrPem(CkPrivateKey privKey) {
     return chilkatJNI.CkCsr_genCsrPem(swigCPtr, this, CkPrivateKey.getCPtr(privKey), privKey);
+  }
+
+  public boolean GetPublicKey(CkPublicKey pubkey) {
+    return chilkatJNI.CkCsr_GetPublicKey(swigCPtr, this, CkPublicKey.getCPtr(pubkey), pubkey);
   }
 
   public boolean GetSubjectField(String oid, CkString outStr) {

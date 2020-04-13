@@ -1,5 +1,5 @@
 // Chilkat Objective-C header.
-// This is a generated header file for Chilkat version 9.5.0.75
+// This is a generated header file for Chilkat version 9.5.0.82
 
 // Generic/internal class name =  StringTable
 // Wrapped Chilkat C++ class name =  CkStringTable
@@ -41,6 +41,10 @@
 - (BOOL)AppendFromSb: (CkoStringBuilder *)sb;
 // method: Clear
 - (void)Clear;
+// method: FindSubstring
+- (NSNumber *)FindSubstring: (NSNumber *)startIndex 
+	substr: (NSString *)substr 
+	caseSensitive: (BOOL)caseSensitive;
 // method: IntAt
 - (NSNumber *)IntAt: (NSNumber *)index;
 // method: SaveLastError

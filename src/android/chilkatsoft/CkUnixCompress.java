@@ -169,6 +169,10 @@ public class CkUnixCompress {
     return chilkatJNI.CkUnixCompress_IsUnlocked(swigCPtr, this);
   }
 
+  public boolean LoadTaskCaller(CkTask task) {
+    return chilkatJNI.CkUnixCompress_LoadTaskCaller(swigCPtr, this, CkTask.getCPtr(task), task);
+  }
+
   public boolean SaveLastError(String path) {
     return chilkatJNI.CkUnixCompress_SaveLastError(swigCPtr, this, path);
   }

@@ -1,5 +1,5 @@
 // Chilkat Objective-C header.
-// This is a generated header file for Chilkat version 9.5.0.75
+// This is a generated header file for Chilkat version 9.5.0.82
 
 // Generic/internal class name =  Ssh
 // Wrapped Chilkat C++ class name =  CkSsh
@@ -8,6 +8,7 @@
 @class CkoTask;
 @class CkoSecureString;
 @class CkoStringArray;
+@class CkoJsonObject;
 
 
 @class CkoBaseProgress;
@@ -222,6 +223,10 @@
 - (CkoTask *)ContinueKeyboardAuthAsync: (NSString *)response;
 // method: Disconnect
 - (void)Disconnect;
+// method: GetAuthMethods
+- (NSString *)GetAuthMethods;
+// method: GetAuthMethodsAsync
+- (CkoTask *)GetAuthMethodsAsync;
 // method: GetChannelExitStatus
 - (NSNumber *)GetChannelExitStatus: (NSNumber *)channelNum;
 // method: GetChannelNumber
@@ -247,6 +252,10 @@
 - (NSString *)GetReceivedTextS: (NSNumber *)channelNum 
 	substr: (NSString *)substr 
 	charset: (NSString *)charset;
+// method: LastJsonData
+- (CkoJsonObject *)LastJsonData;
+// method: LoadTaskCaller
+- (BOOL)LoadTaskCaller: (CkoTask *)task;
 // method: OpenCustomChannel
 - (NSNumber *)OpenCustomChannel: (NSString *)channelType;
 // method: OpenCustomChannelAsync

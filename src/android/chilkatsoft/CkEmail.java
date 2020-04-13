@@ -503,6 +503,18 @@ public class CkEmail {
     return chilkatJNI.CkEmail_uidl(swigCPtr, this);
   }
 
+  public void get_UncommonOptions(CkString str) {
+    chilkatJNI.CkEmail_get_UncommonOptions(swigCPtr, this, CkString.getCPtr(str), str);
+  }
+
+  public String uncommonOptions() {
+    return chilkatJNI.CkEmail_uncommonOptions(swigCPtr, this);
+  }
+
+  public void put_UncommonOptions(String newVal) {
+    chilkatJNI.CkEmail_put_UncommonOptions(swigCPtr, this, newVal);
+  }
+
   public boolean get_UnpackUseRelPaths() {
     return chilkatJNI.CkEmail_get_UnpackUseRelPaths(swigCPtr, this);
   }
@@ -715,6 +727,10 @@ public class CkEmail {
     return chilkatJNI.CkEmail_bEncodeString(swigCPtr, this, str, charset);
   }
 
+  public void Clear() {
+    chilkatJNI.CkEmail_Clear(swigCPtr, this);
+  }
+
   public void ClearBcc() {
     chilkatJNI.CkEmail_ClearBcc(swigCPtr, this);
   }
@@ -750,6 +766,10 @@ public class CkEmail {
 
   public String computeGlobalKey2(String encoding, boolean bFold) {
     return chilkatJNI.CkEmail_computeGlobalKey2(swigCPtr, this, encoding, bFold);
+  }
+
+  public boolean ConvertInlineImages() {
+    return chilkatJNI.CkEmail_ConvertInlineImages(swigCPtr, this);
   }
 
   public CkEmail CreateDsn(String humanReadableMessage, String xmlStatusFields, boolean bHeaderOnly) {

@@ -1,5 +1,5 @@
 // Chilkat Objective-C header.
-// This is a generated header file for Chilkat version 9.5.0.75
+// This is a generated header file for Chilkat version 9.5.0.82
 
 // Generic/internal class name =  Bz2
 // Wrapped Chilkat C++ class name =  CkBz2
@@ -58,6 +58,8 @@
 // method: CompressMemToFileAsync
 - (CkoTask *)CompressMemToFileAsync: (NSData *)inData 
 	toPath: (NSString *)toPath;
+// method: LoadTaskCaller
+- (BOOL)LoadTaskCaller: (CkoTask *)task;
 // method: SaveLastError
 - (BOOL)SaveLastError: (NSString *)path;
 // method: UncompressFile

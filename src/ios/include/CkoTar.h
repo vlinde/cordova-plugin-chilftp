@@ -1,10 +1,11 @@
 // Chilkat Objective-C header.
-// This is a generated header file for Chilkat version 9.5.0.75
+// This is a generated header file for Chilkat version 9.5.0.82
 
 // Generic/internal class name =  Tar
 // Wrapped Chilkat C++ class name =  CkTar
 
 @class CkoTask;
+@class CkoBinData;
 
 
 @class CkoTarProgress;
@@ -82,6 +83,8 @@
 - (NSString *)ListXml: (NSString *)tarPath;
 // method: ListXmlAsync
 - (CkoTask *)ListXmlAsync: (NSString *)tarPath;
+// method: LoadTaskCaller
+- (BOOL)LoadTaskCaller: (CkoTask *)task;
 // method: SaveLastError
 - (BOOL)SaveLastError: (NSString *)path;
 // method: UnlockComponent
@@ -94,6 +97,10 @@
 - (BOOL)UntarBz2: (NSString *)tarPath;
 // method: UntarBz2Async
 - (CkoTask *)UntarBz2Async: (NSString *)tarPath;
+// method: UntarFirstMatchingToBd
+- (BOOL)UntarFirstMatchingToBd: (NSString *)tarPath 
+	matchPattern: (NSString *)matchPattern 
+	bd: (CkoBinData *)bd;
 // method: UntarFirstMatchingToMemory
 - (NSData *)UntarFirstMatchingToMemory: (NSData *)tarFileBytes 
 	matchPattern: (NSString *)matchPattern;

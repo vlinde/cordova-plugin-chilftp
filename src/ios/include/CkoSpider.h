@@ -1,5 +1,5 @@
 // Chilkat Objective-C header.
-// This is a generated header file for Chilkat version 9.5.0.75
+// This is a generated header file for Chilkat version 9.5.0.82
 
 // Generic/internal class name =  Spider
 // Wrapped Chilkat C++ class name =  CkSpider
@@ -108,6 +108,8 @@
 - (NSString *)GetUrlDomain: (NSString *)url;
 // method: Initialize
 - (void)Initialize: (NSString *)domain;
+// method: LoadTaskCaller
+- (BOOL)LoadTaskCaller: (CkoTask *)task;
 // method: RecrawlLast
 - (BOOL)RecrawlLast;
 // method: RecrawlLastAsync

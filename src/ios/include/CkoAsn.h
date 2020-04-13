@@ -1,9 +1,10 @@
 // Chilkat Objective-C header.
-// This is a generated header file for Chilkat version 9.5.0.75
+// This is a generated header file for Chilkat version 9.5.0.82
 
 // Generic/internal class name =  Asn
 // Wrapped Chilkat C++ class name =  CkAsn
 
+@class CkoBinData;
 
 
 @interface CkoAsn : NSObject {
@@ -93,6 +94,8 @@
 - (CkoAsn *)GetSubItem: (NSNumber *)index;
 // method: LoadAsnXml
 - (BOOL)LoadAsnXml: (NSString *)xmlStr;
+// method: LoadBd
+- (BOOL)LoadBd: (CkoBinData *)bd;
 // method: LoadBinary
 - (BOOL)LoadBinary: (NSData *)derBytes;
 // method: LoadBinaryFile
@@ -105,6 +108,8 @@
 // method: SetEncodedContent
 - (BOOL)SetEncodedContent: (NSString *)encodedBytes 
 	encoding: (NSString *)encoding;
+// method: WriteBd
+- (BOOL)WriteBd: (CkoBinData *)bd;
 // method: WriteBinaryDer
 - (BOOL)WriteBinaryDer: (NSString *)path;
 

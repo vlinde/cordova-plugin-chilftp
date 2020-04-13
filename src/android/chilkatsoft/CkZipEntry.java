@@ -317,6 +317,10 @@ public class CkZipEntry {
     return (cPtr == 0) ? null : new CkTask(cPtr, true);
   }
 
+  public boolean LoadTaskCaller(CkTask task) {
+    return chilkatJNI.CkZipEntry_LoadTaskCaller(swigCPtr, this, CkTask.getCPtr(task), task);
+  }
+
   public CkZipEntry NextEntry() {
     long cPtr = chilkatJNI.CkZipEntry_NextEntry(swigCPtr, this);
     return (cPtr == 0) ? null : new CkZipEntry(cPtr, true);

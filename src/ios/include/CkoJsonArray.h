@@ -1,13 +1,13 @@
 // Chilkat Objective-C header.
-// This is a generated header file for Chilkat version 9.5.0.75
+// This is a generated header file for Chilkat version 9.5.0.82
 
 // Generic/internal class name =  JsonArray
 // Wrapped Chilkat C++ class name =  CkJsonArray
 
+@class CkoJsonObject;
 @class CkoDateTime;
 @class CkoDtObj;
 @class CkoStringBuilder;
-@class CkoJsonObject;
 
 
 @interface CkoJsonArray : NSObject {
@@ -51,13 +51,20 @@
 	numericStr: (NSString *)numericStr;
 // method: AddObjectAt
 - (BOOL)AddObjectAt: (NSNumber *)index;
+// method: AddObjectCopyAt
+- (BOOL)AddObjectCopyAt: (NSNumber *)index 
+	jsonObj: (CkoJsonObject *)jsonObj;
 // method: AddStringAt
 - (BOOL)AddStringAt: (NSNumber *)index 
 	value: (NSString *)value;
+// method: AppendArrayItems
+- (BOOL)AppendArrayItems: (CkoJsonArray *)jarr;
 // method: ArrayAt
 - (CkoJsonArray *)ArrayAt: (NSNumber *)index;
 // method: BoolAt
 - (BOOL)BoolAt: (NSNumber *)index;
+// method: Clear
+- (void)Clear;
 // method: DateAt
 - (BOOL)DateAt: (NSNumber *)index 
 	dateTime: (CkoDateTime *)dateTime;
@@ -106,6 +113,9 @@
 	value: (NSString *)value;
 // method: StringAt
 - (NSString *)StringAt: (NSNumber *)index;
+// method: Swap
+- (BOOL)Swap: (NSNumber *)index1 
+	index2: (NSNumber *)index2;
 // method: TypeAt
 - (NSNumber *)TypeAt: (NSNumber *)index;
 

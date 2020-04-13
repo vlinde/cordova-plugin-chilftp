@@ -1,5 +1,5 @@
 // Chilkat Objective-C header.
-// This is a generated header file for Chilkat version 9.5.0.75
+// This is a generated header file for Chilkat version 9.5.0.82
 
 // Generic/internal class name =  TrustedRoots
 // Wrapped Chilkat C++ class name =  CkTrustedRoots
@@ -37,6 +37,7 @@
 @property (nonatomic, readonly, copy) NSString *LastErrorXml;
 @property (nonatomic) BOOL LastMethodSuccess;
 @property (nonatomic, readonly, copy) NSNumber *NumCerts;
+@property (nonatomic) BOOL RejectSelfSignedCerts;
 @property (nonatomic) BOOL TrustSystemCaRoots;
 @property (nonatomic) BOOL VerboseLogging;
 @property (nonatomic, readonly, copy) NSString *Version;
@@ -56,6 +57,8 @@
 - (BOOL)LoadCaCertsPem: (NSString *)path;
 // method: LoadCaCertsPemAsync
 - (CkoTask *)LoadCaCertsPemAsync: (NSString *)path;
+// method: LoadTaskCaller
+- (BOOL)LoadTaskCaller: (CkoTask *)task;
 // method: SaveLastError
 - (BOOL)SaveLastError: (NSString *)path;
 

@@ -63,6 +63,26 @@ public class CkXmlDSig {
     chilkatJNI.CkXmlDSig_put_DebugLogFilePath(swigCPtr, this, newVal);
   }
 
+  public void get_ExternalRefDirs(CkString str) {
+    chilkatJNI.CkXmlDSig_get_ExternalRefDirs(swigCPtr, this, CkString.getCPtr(str), str);
+  }
+
+  public String externalRefDirs() {
+    return chilkatJNI.CkXmlDSig_externalRefDirs(swigCPtr, this);
+  }
+
+  public void put_ExternalRefDirs(String newVal) {
+    chilkatJNI.CkXmlDSig_put_ExternalRefDirs(swigCPtr, this, newVal);
+  }
+
+  public boolean get_IgnoreExternalRefs() {
+    return chilkatJNI.CkXmlDSig_get_IgnoreExternalRefs(swigCPtr, this);
+  }
+
+  public void put_IgnoreExternalRefs(boolean newVal) {
+    chilkatJNI.CkXmlDSig_put_IgnoreExternalRefs(swigCPtr, this, newVal);
+  }
+
   public void get_LastErrorHtml(CkString str) {
     chilkatJNI.CkXmlDSig_get_LastErrorHtml(swigCPtr, this, CkString.getCPtr(str), str);
   }
@@ -101,6 +121,10 @@ public class CkXmlDSig {
 
   public int get_NumSignatures() {
     return chilkatJNI.CkXmlDSig_get_NumSignatures(swigCPtr, this);
+  }
+
+  public int get_RefFailReason() {
+    return chilkatJNI.CkXmlDSig_get_RefFailReason(swigCPtr, this);
   }
 
   public int get_Selector() {
@@ -149,6 +173,10 @@ public class CkXmlDSig {
 
   public String canonicalizeXml(String xml, String version, boolean withComments) {
     return chilkatJNI.CkXmlDSig_canonicalizeXml(swigCPtr, this, xml, version, withComments);
+  }
+
+  public boolean GetCerts(CkStringArray sa) {
+    return chilkatJNI.CkXmlDSig_GetCerts(swigCPtr, this, CkStringArray.getCPtr(sa), sa);
   }
 
   public CkXml GetKeyInfo() {

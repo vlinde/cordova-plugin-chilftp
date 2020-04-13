@@ -243,6 +243,10 @@ public class CkStream {
     chilkatJNI.CkStream_put_WriteTimeoutMs(swigCPtr, this, newVal);
   }
 
+  public boolean LoadTaskCaller(CkTask task) {
+    return chilkatJNI.CkStream_LoadTaskCaller(swigCPtr, this, CkTask.getCPtr(task), task);
+  }
+
   public boolean ReadBd(CkBinData binData) {
     return chilkatJNI.CkStream_ReadBd(swigCPtr, this, CkBinData.getCPtr(binData), binData);
   }

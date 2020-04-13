@@ -1,11 +1,11 @@
 // Chilkat Objective-C header.
-// This is a generated header file for Chilkat version 9.5.0.75
+// This is a generated header file for Chilkat version 9.5.0.82
 
 // Generic/internal class name =  Stream
 // Wrapped Chilkat C++ class name =  CkStream
 
-@class CkoBinData;
 @class CkoTask;
+@class CkoBinData;
 @class CkoStringBuilder;
 
 
@@ -59,6 +59,8 @@
 @property (nonatomic, readonly, copy) NSString *Version;
 @property (nonatomic, readonly, copy) NSNumber *WriteFailReason;
 @property (nonatomic, copy) NSNumber *WriteTimeoutMs;
+// method: LoadTaskCaller
+- (BOOL)LoadTaskCaller: (CkoTask *)task;
 // method: ReadBd
 - (BOOL)ReadBd: (CkoBinData *)binData;
 // method: ReadBdAsync
@@ -126,6 +128,9 @@
 - (BOOL)WriteBytes: (NSData *)byteData;
 // method: WriteBytesAsync
 - (CkoTask *)WriteBytesAsync: (NSData *)byteData;
+// method: WriteBytes2
+- (BOOL)WriteBytes2: (NSData *)pByteData 
+	szByteData: (NSNumber *)szByteData;
 // method: WriteBytesENC
 - (BOOL)WriteBytesENC: (NSString *)byteData 
 	encoding: (NSString *)encoding;

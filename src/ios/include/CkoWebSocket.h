@@ -1,5 +1,5 @@
 // Chilkat Objective-C header.
-// This is a generated header file for Chilkat version 9.5.0.75
+// This is a generated header file for Chilkat version 9.5.0.82
 
 // Generic/internal class name =  WebSocket
 // Wrapped Chilkat C++ class name =  CkWebSocket
@@ -52,6 +52,7 @@
 @property (nonatomic) BOOL PongAutoConsume;
 @property (nonatomic, readonly) BOOL PongConsumed;
 @property (nonatomic, readonly, copy) NSNumber *ReadFrameFailReason;
+@property (nonatomic, readonly, copy) NSString *UncommonOptions;
 @property (nonatomic) BOOL VerboseLogging;
 @property (nonatomic, readonly, copy) NSString *Version;
 // method: AddClientHeaders
@@ -64,6 +65,8 @@
 - (BOOL)GetFrameDataBd: (CkoBinData *)binData;
 // method: GetFrameDataSb
 - (BOOL)GetFrameDataSb: (CkoStringBuilder *)sb;
+// method: LoadTaskCaller
+- (BOOL)LoadTaskCaller: (CkoTask *)task;
 // method: PollDataAvailable
 - (BOOL)PollDataAvailable;
 // method: ReadFrame

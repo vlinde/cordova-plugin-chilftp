@@ -80,4 +80,8 @@ public class CkSFtpDir {
     return chilkatJNI.CkSFtpDir_LoadTaskResult(swigCPtr, this, CkTask.getCPtr(task), task);
   }
 
+  public void Sort(String field, boolean ascending) {
+    chilkatJNI.CkSFtpDir_Sort(swigCPtr, this, field, ascending);
+  }
+
 }

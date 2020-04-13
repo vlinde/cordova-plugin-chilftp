@@ -1,5 +1,5 @@
 // Chilkat Objective-C header.
-// This is a generated header file for Chilkat version 9.5.0.75
+// This is a generated header file for Chilkat version 9.5.0.82
 
 // Generic/internal class name =  Xmp
 // Wrapped Chilkat C++ class name =  CkXmp
@@ -31,6 +31,7 @@
 @property (nonatomic) BOOL LastMethodSuccess;
 @property (nonatomic, readonly, copy) NSNumber *NumEmbedded;
 @property (nonatomic) BOOL StructInnerDescrip;
+@property (nonatomic, copy) NSString *UncommonOptions;
 @property (nonatomic) BOOL VerboseLogging;
 @property (nonatomic, readonly, copy) NSString *Version;
 // method: AddArray

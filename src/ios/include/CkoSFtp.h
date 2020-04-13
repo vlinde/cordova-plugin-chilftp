@@ -1,5 +1,5 @@
 // Chilkat Objective-C header.
-// This is a generated header file for Chilkat version 9.5.0.75
+// This is a generated header file for Chilkat version 9.5.0.82
 
 // Generic/internal class name =  SFtp
 // Wrapped Chilkat C++ class name =  CkSFtp
@@ -11,6 +11,7 @@
 @class CkoBinData;
 @class CkoStringBuilder;
 @class CkoDateTime;
+@class CkoJsonObject;
 @class CkoSFtpDir;
 
 
@@ -88,10 +89,13 @@
 @property (nonatomic, copy) NSNumber *SocksVersion;
 @property (nonatomic, copy) NSNumber *SoRcvBuf;
 @property (nonatomic, copy) NSNumber *SoSndBuf;
+@property (nonatomic) BOOL SyncCreateAllLocalDirs;
 @property (nonatomic, copy) NSString *SyncDirectives;
 @property (nonatomic, copy) NSString *SyncedFiles;
 @property (nonatomic, copy) NSString *SyncMustMatch;
+@property (nonatomic, copy) NSString *SyncMustMatchDir;
 @property (nonatomic, copy) NSString *SyncMustNotMatch;
+@property (nonatomic, copy) NSString *SyncMustNotMatchDir;
 @property (nonatomic) BOOL TcpNoDelay;
 @property (nonatomic, copy) NSString *UncommonOptions;
 @property (nonatomic, copy) NSNumber *UploadChunkSize;
@@ -317,10 +321,14 @@
 - (BOOL)InitializeSftp;
 // method: InitializeSftpAsync
 - (CkoTask *)InitializeSftpAsync;
+// method: LastJsonData
+- (CkoJsonObject *)LastJsonData;
 // method: LastReadFailed
 - (BOOL)LastReadFailed: (NSString *)sftpHandle;
 // method: LastReadNumBytes
 - (NSNumber *)LastReadNumBytes: (NSString *)sftpHandle;
+// method: LoadTaskCaller
+- (BOOL)LoadTaskCaller: (CkoTask *)task;
 // method: OpenDir
 - (NSString *)OpenDir: (NSString *)path;
 // method: OpenDirAsync
@@ -337,6 +345,14 @@
 - (CkoSFtpDir *)ReadDir: (NSString *)sftpHandle;
 // method: ReadDirAsync
 - (CkoTask *)ReadDirAsync: (NSString *)sftpHandle;
+// method: ReadFileBd
+- (BOOL)ReadFileBd: (NSString *)handle 
+	numBytes: (NSNumber *)numBytes 
+	bd: (CkoBinData *)bd;
+// method: ReadFileBdAsync
+- (CkoTask *)ReadFileBdAsync: (NSString *)handle 
+	numBytes: (NSNumber *)numBytes 
+	bd: (CkoBinData *)bd;
 // method: ReadFileBytes
 - (NSData *)ReadFileBytes: (NSString *)sftpHandle 
 	numBytes: (NSNumber *)numBytes;
@@ -536,6 +552,12 @@
 	remoteFilePath: (NSString *)remoteFilePath 
 	charset: (NSString *)charset 
 	includeBom: (BOOL)includeBom;
+// method: WriteFileBd
+- (BOOL)WriteFileBd: (NSString *)handle 
+	bd: (CkoBinData *)bd;
+// method: WriteFileBdAsync
+- (CkoTask *)WriteFileBdAsync: (NSString *)handle 
+	bd: (CkoBinData *)bd;
 // method: WriteFileBytes
 - (BOOL)WriteFileBytes: (NSString *)sftpHandle 
 	data: (NSData *)data;

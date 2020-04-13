@@ -1,9 +1,10 @@
 // Chilkat Objective-C header.
-// This is a generated header file for Chilkat version 9.5.0.75
+// This is a generated header file for Chilkat version 9.5.0.82
 
 // Generic/internal class name =  XmlDSig
 // Wrapped Chilkat C++ class name =  CkXmlDSig
 
+@class CkoStringArray;
 @class CkoXml;
 @class CkoPublicKey;
 @class CkoBinData;
@@ -28,12 +29,15 @@
 - (void)clearCppImplObj;
 
 @property (nonatomic, copy) NSString *DebugLogFilePath;
+@property (nonatomic, copy) NSString *ExternalRefDirs;
+@property (nonatomic) BOOL IgnoreExternalRefs;
 @property (nonatomic, readonly, copy) NSString *LastErrorHtml;
 @property (nonatomic, readonly, copy) NSString *LastErrorText;
 @property (nonatomic, readonly, copy) NSString *LastErrorXml;
 @property (nonatomic) BOOL LastMethodSuccess;
 @property (nonatomic, readonly, copy) NSNumber *NumReferences;
 @property (nonatomic, readonly, copy) NSNumber *NumSignatures;
+@property (nonatomic, readonly, copy) NSNumber *RefFailReason;
 @property (nonatomic, copy) NSNumber *Selector;
 @property (nonatomic) BOOL VerboseLogging;
 @property (nonatomic, readonly, copy) NSString *Version;
@@ -48,6 +52,8 @@
 - (NSString *)CanonicalizeXml: (NSString *)xml 
 	version: (NSString *)version 
 	withComments: (BOOL)withComments;
+// method: GetCerts
+- (BOOL)GetCerts: (CkoStringArray *)sa;
 // method: GetKeyInfo
 - (CkoXml *)GetKeyInfo;
 // method: GetPublicKey

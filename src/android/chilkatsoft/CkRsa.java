@@ -171,6 +171,14 @@ public class CkRsa {
     chilkatJNI.CkRsa_put_OaepPadding(swigCPtr, this, newVal);
   }
 
+  public int get_PssSaltLen() {
+    return chilkatJNI.CkRsa_get_PssSaltLen(swigCPtr, this);
+  }
+
+  public void put_PssSaltLen(int newVal) {
+    chilkatJNI.CkRsa_put_PssSaltLen(swigCPtr, this, newVal);
+  }
+
   public boolean get_VerboseLogging() {
     return chilkatJNI.CkRsa_get_VerboseLogging(swigCPtr, this);
   }
@@ -185,6 +193,10 @@ public class CkRsa {
 
   public String version() {
     return chilkatJNI.CkRsa_version(swigCPtr, this);
+  }
+
+  public boolean DecryptBd(CkBinData bd, boolean usePrivateKey) {
+    return chilkatJNI.CkRsa_DecryptBd(swigCPtr, this, CkBinData.getCPtr(bd), bd, usePrivateKey);
   }
 
   public boolean DecryptBytes(CkByteData inData, boolean usePrivateKey, CkByteData outData) {
@@ -209,6 +221,10 @@ public class CkRsa {
 
   public String decryptStringENC(String encodedSig, boolean usePrivateKey) {
     return chilkatJNI.CkRsa_decryptStringENC(swigCPtr, this, encodedSig, usePrivateKey);
+  }
+
+  public boolean EncryptBd(CkBinData bd, boolean usePrivateKey) {
+    return chilkatJNI.CkRsa_EncryptBd(swigCPtr, this, CkBinData.getCPtr(bd), bd, usePrivateKey);
   }
 
   public boolean EncryptBytes(CkByteData binaryData, boolean usePrivateKey, CkByteData outData) {
@@ -281,6 +297,10 @@ public class CkRsa {
     return chilkatJNI.CkRsa_ImportPublicKeyObj(swigCPtr, this, CkPublicKey.getCPtr(key), key);
   }
 
+  public boolean OpenSslSignBd(CkBinData bd) {
+    return chilkatJNI.CkRsa_OpenSslSignBd(swigCPtr, this, CkBinData.getCPtr(bd), bd);
+  }
+
   public boolean OpenSslSignBytes(CkByteData data, CkByteData outBytes) {
     return chilkatJNI.CkRsa_OpenSslSignBytes(swigCPtr, this, CkByteData.getCPtr(data), data, CkByteData.getCPtr(outBytes), outBytes);
   }
@@ -303,6 +323,10 @@ public class CkRsa {
 
   public String openSslSignStringENC(String str) {
     return chilkatJNI.CkRsa_openSslSignStringENC(swigCPtr, this, str);
+  }
+
+  public boolean OpenSslVerifyBd(CkBinData bd) {
+    return chilkatJNI.CkRsa_OpenSslVerifyBd(swigCPtr, this, CkBinData.getCPtr(bd), bd);
   }
 
   public boolean OpenSslVerifyBytes(CkByteData signature, CkByteData outBytes) {
@@ -335,6 +359,10 @@ public class CkRsa {
 
   public boolean SetX509Cert(CkCert cert, boolean usePrivateKey) {
     return chilkatJNI.CkRsa_SetX509Cert(swigCPtr, this, CkCert.getCPtr(cert), cert, usePrivateKey);
+  }
+
+  public boolean SignBd(CkBinData bdData, String hashAlgorithm, CkBinData bdSig) {
+    return chilkatJNI.CkRsa_SignBd(swigCPtr, this, CkBinData.getCPtr(bdData), bdData, hashAlgorithm, CkBinData.getCPtr(bdSig), bdSig);
   }
 
   public boolean SignBytes(CkByteData binaryData, String hashAlgorithm, CkByteData outData) {
@@ -383,6 +411,10 @@ public class CkRsa {
 
   public boolean UnlockComponent(String unlockCode) {
     return chilkatJNI.CkRsa_UnlockComponent(swigCPtr, this, unlockCode);
+  }
+
+  public boolean VerifyBd(CkBinData bdData, String hashAlgorithm, CkBinData bdSig) {
+    return chilkatJNI.CkRsa_VerifyBd(swigCPtr, this, CkBinData.getCPtr(bdData), bdData, hashAlgorithm, CkBinData.getCPtr(bdSig), bdSig);
   }
 
   public boolean VerifyBytes(CkByteData originalData, String hashAlgorithm, CkByteData signatureBytes) {

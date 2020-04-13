@@ -1,12 +1,12 @@
 // Chilkat Objective-C header.
-// This is a generated header file for Chilkat version 9.5.0.75
+// This is a generated header file for Chilkat version 9.5.0.82
 
 // Generic/internal class name =  AuthGoogle
 // Wrapped Chilkat C++ class name =  CkAuthGoogle
 
 @class CkoPfx;
-@class CkoSocket;
 @class CkoTask;
+@class CkoSocket;
 
 
 @class CkoBaseProgress;
@@ -35,6 +35,7 @@
 @property (nonatomic, copy) NSString *DebugLogFilePath;
 @property (nonatomic, copy) NSString *EmailAddress;
 @property (nonatomic, copy) NSNumber *ExpireNumSeconds;
+@property (nonatomic, copy) NSNumber *Iat;
 @property (nonatomic, copy) NSString *JsonKey;
 @property (nonatomic, readonly, copy) NSString *LastErrorHtml;
 @property (nonatomic, readonly, copy) NSString *LastErrorText;
@@ -48,6 +49,8 @@
 @property (nonatomic, readonly, copy) NSString *Version;
 // method: GetP12
 - (CkoPfx *)GetP12;
+// method: LoadTaskCaller
+- (BOOL)LoadTaskCaller: (CkoTask *)task;
 // method: ObtainAccessToken
 - (BOOL)ObtainAccessToken: (CkoSocket *)connection;
 // method: ObtainAccessTokenAsync

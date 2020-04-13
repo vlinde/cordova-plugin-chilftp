@@ -1,5 +1,5 @@
 // Chilkat Objective-C header.
-// This is a generated header file for Chilkat version 9.5.0.75
+// This is a generated header file for Chilkat version 9.5.0.82
 
 // Generic/internal class name =  StringBuilder
 // Wrapped Chilkat C++ class name =  CkStringBuilder
@@ -24,6 +24,7 @@
 - (void)clearCppImplObj;
 
 @property (nonatomic, copy) NSNumber *IntValue;
+@property (nonatomic, readonly) BOOL IsBase64;
 @property (nonatomic) BOOL LastMethodSuccess;
 @property (nonatomic, readonly, copy) NSNumber *Length;
 // method: Append
@@ -74,8 +75,14 @@
 - (NSString *)GetAfterBetween: (NSString *)searchAfter 
 	beginMark: (NSString *)beginMark 
 	endMark: (NSString *)endMark;
+// method: GetAfterFinal
+- (NSString *)GetAfterFinal: (NSString *)marker 
+	removeFlag: (BOOL)removeFlag;
 // method: GetAsString
 - (NSString *)GetAsString;
+// method: GetBefore
+- (NSString *)GetBefore: (NSString *)marker 
+	removeFlag: (BOOL)removeFlag;
 // method: GetBetween
 - (NSString *)GetBetween: (NSString *)beginMark 
 	endMark: (NSString *)endMark;
@@ -95,12 +102,18 @@
 // method: LoadFile
 - (BOOL)LoadFile: (NSString *)path 
 	charset: (NSString *)charset;
+// method: Obfuscate
+- (void)Obfuscate;
 // method: Prepend
 - (BOOL)Prepend: (NSString *)value;
 // method: PunyDecode
 - (BOOL)PunyDecode;
 // method: PunyEncode
 - (BOOL)PunyEncode;
+// method: RemoveAfterFinal
+- (BOOL)RemoveAfterFinal: (NSString *)marker;
+// method: RemoveBefore
+- (BOOL)RemoveBefore: (NSString *)marker;
 // method: Replace
 - (NSNumber *)Replace: (NSString *)value 
 	replacement: (NSString *)replacement;
@@ -117,9 +130,15 @@
 	endMark: (NSString *)endMark 
 	value: (NSString *)value 
 	replacement: (NSString *)replacement;
+// method: ReplaceFirst
+- (BOOL)ReplaceFirst: (NSString *)value 
+	replacement: (NSString *)replacement;
 // method: ReplaceI
 - (NSNumber *)ReplaceI: (NSString *)value 
 	replacement: (NSNumber *)replacement;
+// method: ReplaceNoCase
+- (NSNumber *)ReplaceNoCase: (NSString *)value 
+	replacement: (NSString *)replacement;
 // method: ReplaceWord
 - (NSNumber *)ReplaceWord: (NSString *)value 
 	replacement: (NSString *)replacement;
@@ -148,6 +167,8 @@
 - (BOOL)Trim;
 // method: TrimInsideSpaces
 - (BOOL)TrimInsideSpaces;
+// method: Unobfuscate
+- (void)Unobfuscate;
 // method: WriteFile
 - (BOOL)WriteFile: (NSString *)path 
 	charset: (NSString *)charset 

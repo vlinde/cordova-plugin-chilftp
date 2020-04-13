@@ -1,5 +1,5 @@
 // Chilkat Objective-C header.
-// This is a generated header file for Chilkat version 9.5.0.75
+// This is a generated header file for Chilkat version 9.5.0.82
 
 // Generic/internal class name =  Mht
 // Wrapped Chilkat C++ class name =  CkMht
@@ -145,6 +145,8 @@
 	mhtPath: (NSString *)mhtPath;
 // method: IsUnlocked
 - (BOOL)IsUnlocked;
+// method: LoadTaskCaller
+- (BOOL)LoadTaskCaller: (CkoTask *)task;
 // method: RemoveCustomHeader
 - (void)RemoveCustomHeader: (NSString *)name;
 // method: RestoreDefaults
@@ -155,11 +157,6 @@
 - (BOOL)UnlockComponent: (NSString *)unlockCode;
 // method: UnpackMHT
 - (BOOL)UnpackMHT: (NSString *)mhtPath 
-	unpackDir: (NSString *)unpackDir 
-	htmlFilename: (NSString *)htmlFilename 
-	partsSubDir: (NSString *)partsSubDir;
-// method: UnpackMHTString
-- (BOOL)UnpackMHTString: (NSString *)mhtContents 
 	unpackDir: (NSString *)unpackDir 
 	htmlFilename: (NSString *)htmlFilename 
 	partsSubDir: (NSString *)partsSubDir;

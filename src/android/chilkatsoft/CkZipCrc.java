@@ -148,6 +148,10 @@ public class CkZipCrc {
     return (cPtr == 0) ? null : new CkTask(cPtr, true);
   }
 
+  public boolean LoadTaskCaller(CkTask task) {
+    return chilkatJNI.CkZipCrc_LoadTaskCaller(swigCPtr, this, CkTask.getCPtr(task), task);
+  }
+
   public void MoreData(CkByteData data) {
     chilkatJNI.CkZipCrc_MoreData(swigCPtr, this, CkByteData.getCPtr(data), data);
   }

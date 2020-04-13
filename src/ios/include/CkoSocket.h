@@ -1,11 +1,12 @@
 // Chilkat Objective-C header.
-// This is a generated header file for Chilkat version 9.5.0.75
+// This is a generated header file for Chilkat version 9.5.0.82
 
 // Generic/internal class name =  Socket
 // Wrapped Chilkat C++ class name =  CkSocket
 
 @class CkoTask;
 @class CkoCert;
+@class CkoJsonObject;
 @class CkoBinData;
 @class CkoStringBuilder;
 @class CkoSshKey;
@@ -36,32 +37,13 @@
 
 @property (nonatomic) BOOL AbortCurrent;
 @property (nonatomic, readonly, copy) NSNumber *AcceptFailReason;
-@property (nonatomic, readonly) BOOL AsyncAcceptFinished;
-@property (nonatomic, readonly, copy) NSString *AsyncAcceptLog;
-@property (nonatomic, readonly) BOOL AsyncAcceptSuccess;
-@property (nonatomic, readonly) BOOL AsyncConnectFinished;
-@property (nonatomic, readonly, copy) NSString *AsyncConnectLog;
-@property (nonatomic, readonly) BOOL AsyncConnectSuccess;
-@property (nonatomic, readonly) BOOL AsyncDnsFinished;
-@property (nonatomic, readonly, copy) NSString *AsyncDnsLog;
-@property (nonatomic, readonly, copy) NSString *AsyncDnsResult;
-@property (nonatomic, readonly) BOOL AsyncDnsSuccess;
-@property (nonatomic, readonly, copy) NSData *AsyncReceivedBytes;
-@property (nonatomic, readonly, copy) NSString *AsyncReceivedString;
-@property (nonatomic, readonly) BOOL AsyncReceiveFinished;
-@property (nonatomic, readonly, copy) NSString *AsyncReceiveLog;
-@property (nonatomic, readonly) BOOL AsyncReceiveSuccess;
-@property (nonatomic, readonly) BOOL AsyncSendFinished;
-@property (nonatomic, readonly, copy) NSString *AsyncSendLog;
-@property (nonatomic, readonly) BOOL AsyncSendSuccess;
+@property (nonatomic, copy) NSString *AlpnProtocol;
 @property (nonatomic, copy) NSNumber *BandwidthThrottleDown;
 @property (nonatomic, copy) NSNumber *BandwidthThrottleUp;
 @property (nonatomic) BOOL BigEndian;
 @property (nonatomic, copy) NSString *ClientIpAddress;
 @property (nonatomic, copy) NSNumber *ClientPort;
 @property (nonatomic, readonly, copy) NSNumber *ConnectFailReason;
-@property (nonatomic, copy) NSNumber *DebugConnectDelayMs;
-@property (nonatomic, copy) NSNumber *DebugDnsDelayMs;
 @property (nonatomic, copy) NSString *DebugLogFilePath;
 @property (nonatomic, readonly, copy) NSNumber *ElapsedSeconds;
 @property (nonatomic, copy) NSNumber *HeartbeatMs;
@@ -93,6 +75,7 @@
 @property (nonatomic, readonly, copy) NSNumber *ObjectId;
 @property (nonatomic, copy) NSNumber *PercentDoneScale;
 @property (nonatomic) BOOL PreferIpv6;
+@property (nonatomic, readonly, copy) NSNumber *RcvBytesPerSec;
 @property (nonatomic, copy) NSNumber *ReceivedCount;
 @property (nonatomic, copy) NSNumber *ReceivedInt;
 @property (nonatomic, readonly, copy) NSNumber *ReceiveFailReason;
@@ -103,10 +86,12 @@
 @property (nonatomic, copy) NSNumber *SelectorIndex;
 @property (nonatomic, copy) NSNumber *SelectorReadIndex;
 @property (nonatomic, copy) NSNumber *SelectorWriteIndex;
+@property (nonatomic, readonly, copy) NSNumber *SendBytesPerSec;
 @property (nonatomic, readonly, copy) NSNumber *SendFailReason;
 @property (nonatomic, copy) NSNumber *SendPacketSize;
 @property (nonatomic, readonly, copy) NSString *SessionLog;
 @property (nonatomic, copy) NSString *SessionLogEncoding;
+@property (nonatomic, copy) NSString *SniHostname;
 @property (nonatomic, copy) NSString *SocksHostname;
 @property (nonatomic, copy) NSString *SocksPassword;
 @property (nonatomic, copy) NSNumber *SocksPort;
@@ -123,6 +108,7 @@
 @property (nonatomic, readonly, copy) NSString *TlsCipherSuite;
 @property (nonatomic, copy) NSString *TlsPinSet;
 @property (nonatomic, readonly, copy) NSString *TlsVersion;
+@property (nonatomic, copy) NSString *UncommonOptions;
 @property (nonatomic, copy) NSString *UserData;
 @property (nonatomic) BOOL VerboseLogging;
 @property (nonatomic, readonly, copy) NSString *Version;
@@ -132,44 +118,6 @@
 - (CkoTask *)AcceptNextConnectionAsync: (NSNumber *)maxWaitMs;
 // method: AddSslAcceptableClientCaDn
 - (BOOL)AddSslAcceptableClientCaDn: (NSString *)certAuthDN;
-// method: AsyncAcceptAbort
-- (void)AsyncAcceptAbort;
-// method: AsyncAcceptSocket
-- (CkoSocket *)AsyncAcceptSocket;
-// method: AsyncAcceptStart
-- (BOOL)AsyncAcceptStart: (NSNumber *)maxWaitMs;
-// method: AsyncConnectAbort
-- (void)AsyncConnectAbort;
-// method: AsyncConnectStart
-- (BOOL)AsyncConnectStart: (NSString *)hostname 
-	port: (NSNumber *)port 
-	ssl: (BOOL)ssl 
-	maxWaitMs: (NSNumber *)maxWaitMs;
-// method: AsyncDnsAbort
-- (void)AsyncDnsAbort;
-// method: AsyncDnsStart
-- (BOOL)AsyncDnsStart: (NSString *)hostname 
-	maxWaitMs: (NSNumber *)maxWaitMs;
-// method: AsyncReceiveAbort
-- (void)AsyncReceiveAbort;
-// method: AsyncReceiveBytes
-- (BOOL)AsyncReceiveBytes;
-// method: AsyncReceiveBytesN
-- (BOOL)AsyncReceiveBytesN: (NSNumber *)numBytes;
-// method: AsyncReceiveString
-- (BOOL)AsyncReceiveString;
-// method: AsyncReceiveToCRLF
-- (BOOL)AsyncReceiveToCRLF;
-// method: AsyncReceiveUntilMatch
-- (BOOL)AsyncReceiveUntilMatch: (NSString *)matchStr;
-// method: AsyncSendAbort
-- (void)AsyncSendAbort;
-// method: AsyncSendByteData
-- (BOOL)AsyncSendByteData: (NSData *)data;
-// method: AsyncSendBytes
-- (BOOL)AsyncSendBytes: (NSData *)data;
-// method: AsyncSendString
-- (BOOL)AsyncSendString: (NSString *)str;
 // method: BindAndListen
 - (BOOL)BindAndListen: (NSNumber *)port 
 	backlog: (NSNumber *)backlog;
@@ -236,6 +184,10 @@
 - (BOOL)InitSslServer: (CkoCert *)cert;
 // method: IsUnlocked
 - (BOOL)IsUnlocked;
+// method: LastJsonData
+- (CkoJsonObject *)LastJsonData;
+// method: LoadTaskCaller
+- (BOOL)LoadTaskCaller: (CkoTask *)task;
 // method: LoadTaskResult
 - (BOOL)LoadTaskResult: (CkoTask *)task;
 // method: PollDataAvailable
@@ -316,10 +268,18 @@
 - (NSData *)ReceiveUntilByte: (NSNumber *)byteValue;
 // method: ReceiveUntilByteAsync
 - (CkoTask *)ReceiveUntilByteAsync: (NSNumber *)byteValue;
+// method: ReceiveUntilByteBd
+- (BOOL)ReceiveUntilByteBd: (NSNumber *)lookForByte 
+	bd: (CkoBinData *)bd;
+// method: ReceiveUntilByteBdAsync
+- (CkoTask *)ReceiveUntilByteBdAsync: (NSNumber *)lookForByte 
+	bd: (CkoBinData *)bd;
 // method: ReceiveUntilMatch
 - (NSString *)ReceiveUntilMatch: (NSString *)matchStr;
 // method: ReceiveUntilMatchAsync
 - (CkoTask *)ReceiveUntilMatchAsync: (NSString *)matchStr;
+// method: ResetPerf
+- (void)ResetPerf: (BOOL)rcvPerf;
 // method: SaveLastError
 - (BOOL)SaveLastError: (NSString *)path;
 // method: SelectForReading
@@ -346,6 +306,9 @@
 - (BOOL)SendBytes: (NSData *)data;
 // method: SendBytesAsync
 - (CkoTask *)SendBytesAsync: (NSData *)data;
+// method: SendBytes2
+- (BOOL)SendBytes2: (NSData *)pByteData 
+	szByteData: (NSNumber *)szByteData;
 // method: SendBytesENC
 - (BOOL)SendBytesENC: (NSString *)encodedBytes 
 	encodingAlg: (NSString *)encodingAlg;
@@ -380,6 +343,11 @@
 - (BOOL)SendWakeOnLan: (NSString *)macAddress 
 	port: (NSNumber *)port 
 	ipBroadcastAddr: (NSString *)ipBroadcastAddr;
+// method: SendWakeOnLan2
+- (BOOL)SendWakeOnLan2: (NSString *)macAddress 
+	port: (NSNumber *)port 
+	ipBroadcastAddr: (NSString *)ipBroadcastAddr 
+	password: (NSString *)password;
 // method: SetSslClientCert
 - (BOOL)SetSslClientCert: (CkoCert *)cert;
 // method: SetSslClientCertPem
@@ -424,6 +392,8 @@
 	sshPort: (NSNumber *)sshPort;
 // method: StartTiming
 - (void)StartTiming;
+// method: TakeConnection
+- (BOOL)TakeConnection: (CkoSocket *)sock;
 // method: TakeSocket
 - (BOOL)TakeSocket: (CkoSocket *)sock;
 // method: TlsRenegotiate

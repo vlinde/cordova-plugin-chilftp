@@ -131,6 +131,10 @@ public class CkStringTable {
     chilkatJNI.CkStringTable_Clear(swigCPtr, this);
   }
 
+  public int FindSubstring(int startIndex, String substr, boolean caseSensitive) {
+    return chilkatJNI.CkStringTable_FindSubstring(swigCPtr, this, startIndex, substr, caseSensitive);
+  }
+
   public int IntAt(int index) {
     return chilkatJNI.CkStringTable_IntAt(swigCPtr, this, index);
   }

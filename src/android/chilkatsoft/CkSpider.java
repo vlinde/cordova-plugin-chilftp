@@ -509,6 +509,10 @@ public class CkSpider {
     chilkatJNI.CkSpider_Initialize(swigCPtr, this, domain);
   }
 
+  public boolean LoadTaskCaller(CkTask task) {
+    return chilkatJNI.CkSpider_LoadTaskCaller(swigCPtr, this, CkTask.getCPtr(task), task);
+  }
+
   public boolean RecrawlLast() {
     return chilkatJNI.CkSpider_RecrawlLast(swigCPtr, this);
   }

@@ -251,6 +251,14 @@ public class CkDkim {
     chilkatJNI.CkDkim_put_VerboseLogging(swigCPtr, this, newVal);
   }
 
+  public void get_VerifyInfo(CkString str) {
+    chilkatJNI.CkDkim_get_VerifyInfo(swigCPtr, this, CkString.getCPtr(str), str);
+  }
+
+  public String verifyInfo() {
+    return chilkatJNI.CkDkim_verifyInfo(swigCPtr, this);
+  }
+
   public void get_Version(CkString str) {
     chilkatJNI.CkDkim_get_Version(swigCPtr, this, CkString.getCPtr(str), str);
   }
@@ -315,12 +323,24 @@ public class CkDkim {
     return chilkatJNI.CkDkim_LoadPublicKeyFile(swigCPtr, this, selector, domain, publicKeyFilepath);
   }
 
+  public boolean LoadTaskCaller(CkTask task) {
+    return chilkatJNI.CkDkim_LoadTaskCaller(swigCPtr, this, CkTask.getCPtr(task), task);
+  }
+
   public int NumDkimSignatures(CkByteData mimeData) {
     return chilkatJNI.CkDkim_NumDkimSignatures(swigCPtr, this, CkByteData.getCPtr(mimeData), mimeData);
   }
 
+  public int NumDkimSigs(CkBinData mimeData) {
+    return chilkatJNI.CkDkim_NumDkimSigs(swigCPtr, this, CkBinData.getCPtr(mimeData), mimeData);
+  }
+
   public int NumDomainKeySignatures(CkByteData mimeData) {
     return chilkatJNI.CkDkim_NumDomainKeySignatures(swigCPtr, this, CkByteData.getCPtr(mimeData), mimeData);
+  }
+
+  public int NumDomainKeySigs(CkBinData mimeData) {
+    return chilkatJNI.CkDkim_NumDomainKeySigs(swigCPtr, this, CkBinData.getCPtr(mimeData), mimeData);
   }
 
   public boolean PrefetchPublicKey(String selector, String domain) {

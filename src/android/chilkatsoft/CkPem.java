@@ -119,6 +119,10 @@ public class CkPem {
     return chilkatJNI.CkPem_get_NumCerts(swigCPtr, this);
   }
 
+  public int get_NumCrls() {
+    return chilkatJNI.CkPem_get_NumCrls(swigCPtr, this);
+  }
+
   public int get_NumCsrs() {
     return chilkatJNI.CkPem_get_NumCsrs(swigCPtr, this);
   }
@@ -256,6 +260,10 @@ public class CkPem {
   public CkTask LoadPemFileAsync(String path, String password) {
     long cPtr = chilkatJNI.CkPem_LoadPemFileAsync(swigCPtr, this, path, password);
     return (cPtr == 0) ? null : new CkTask(cPtr, true);
+  }
+
+  public boolean LoadTaskCaller(CkTask task) {
+    return chilkatJNI.CkPem_LoadTaskCaller(swigCPtr, this, CkTask.getCPtr(task), task);
   }
 
   public boolean RemoveCert(int index) {

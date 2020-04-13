@@ -1,5 +1,5 @@
 // Chilkat Objective-C header.
-// This is a generated header file for Chilkat version 9.5.0.75
+// This is a generated header file for Chilkat version 9.5.0.82
 
 // Generic/internal class name =  Imap
 // Wrapped Chilkat C++ class name =  CkImap
@@ -16,6 +16,7 @@
 @class CkoSecureString;
 @class CkoPrivateKey;
 @class CkoSshKey;
+@class CkoJsonObject;
 @class CkoXmlCertVault;
 @class CkoSsh;
 @class CkoSocket;
@@ -102,6 +103,7 @@
 @property (nonatomic, readonly, copy) NSString *TlsVersion;
 @property (nonatomic, readonly, copy) NSNumber *UidNext;
 @property (nonatomic, readonly, copy) NSNumber *UidValidity;
+@property (nonatomic, copy) NSString *UncommonOptions;
 @property (nonatomic) BOOL VerboseLogging;
 @property (nonatomic, readonly, copy) NSString *Version;
 // method: AddPfxSourceData
@@ -334,6 +336,14 @@
 - (CkoTask *)FetchSingleAsMimeSbAsync: (NSNumber *)msgId 
 	bUid: (BOOL)bUid 
 	sbMime: (CkoStringBuilder *)sbMime;
+// method: FetchSingleBd
+- (BOOL)FetchSingleBd: (NSNumber *)msgId 
+	bUid: (BOOL)bUid 
+	mimeData: (CkoBinData *)mimeData;
+// method: FetchSingleBdAsync
+- (CkoTask *)FetchSingleBdAsync: (NSNumber *)msgId 
+	bUid: (BOOL)bUid 
+	mimeData: (CkoBinData *)mimeData;
 // method: FetchSingleHeader
 - (CkoEmail *)FetchSingleHeader: (NSNumber *)msgId 
 	bUid: (BOOL)bUid;
@@ -410,6 +420,8 @@
 // method: ListSubscribedAsync
 - (CkoTask *)ListSubscribedAsync: (NSString *)reference 
 	wildcardedMailbox: (NSString *)wildcardedMailbox;
+// method: LoadTaskCaller
+- (BOOL)LoadTaskCaller: (CkoTask *)task;
 // method: Login
 - (BOOL)Login: (NSString *)login 
 	password: (NSString *)password;
@@ -517,6 +529,16 @@
 // method: SetSslClientCertPfx
 - (BOOL)SetSslClientCertPfx: (NSString *)pfxPath 
 	pfxPassword: (NSString *)pfxPassword;
+// method: Sort
+- (CkoMessageSet *)Sort: (NSString *)sortCriteria 
+	charset: (NSString *)charset 
+	searchCriteria: (NSString *)searchCriteria 
+	bUid: (BOOL)bUid;
+// method: SortAsync
+- (CkoTask *)SortAsync: (NSString *)sortCriteria 
+	charset: (NSString *)charset 
+	searchCriteria: (NSString *)searchCriteria 
+	bUid: (BOOL)bUid;
 // method: SshAuthenticatePk
 - (BOOL)SshAuthenticatePk: (NSString *)sshLogin 
 	privateKey: (CkoSshKey *)privateKey;
@@ -553,6 +575,16 @@
 - (BOOL)Subscribe: (NSString *)mailbox;
 // method: SubscribeAsync
 - (CkoTask *)SubscribeAsync: (NSString *)mailbox;
+// method: ThreadCmd
+- (CkoJsonObject *)ThreadCmd: (NSString *)threadAlg 
+	charset: (NSString *)charset 
+	searchCriteria: (NSString *)searchCriteria 
+	bUid: (BOOL)bUid;
+// method: ThreadCmdAsync
+- (CkoTask *)ThreadCmdAsync: (NSString *)threadAlg 
+	charset: (NSString *)charset 
+	searchCriteria: (NSString *)searchCriteria 
+	bUid: (BOOL)bUid;
 // method: UnlockComponent
 - (BOOL)UnlockComponent: (NSString *)unlockCode;
 // method: Unsubscribe

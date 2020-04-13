@@ -1,5 +1,5 @@
 // Chilkat Objective-C header.
-// This is a generated header file for Chilkat version 9.5.0.75
+// This is a generated header file for Chilkat version 9.5.0.82
 
 // Generic/internal class name =  Log
 // Wrapped Chilkat C++ class name =  CkLog
@@ -41,9 +41,17 @@
 // method: LogDataBase64
 - (void)LogDataBase64: (NSString *)tag 
 	data: (NSData *)data;
+// method: LogDataBase64_2
+- (void)LogDataBase64_2: (NSString *)tag 
+	pByteData: (NSData *)pByteData 
+	szByteData: (NSNumber *)szByteData;
 // method: LogDataHex
 - (void)LogDataHex: (NSString *)tag 
 	data: (NSData *)data;
+// method: LogDataHex2
+- (void)LogDataHex2: (NSString *)tag 
+	pByteData: (NSData *)pByteData 
+	szByteData: (NSNumber *)szByteData;
 // method: LogDataMax
 - (void)LogDataMax: (NSString *)tag 
 	message: (NSString *)message 
@@ -53,6 +61,11 @@
 	gmt: (BOOL)gmt;
 // method: LogError
 - (void)LogError: (NSString *)message;
+// method: LogHash2
+- (void)LogHash2: (NSString *)tag 
+	hashAlg: (NSString *)hashAlg 
+	pByteData: (NSData *)pByteData 
+	szByteData: (NSNumber *)szByteData;
 // method: LogInfo
 - (void)LogInfo: (NSString *)message;
 // method: LogInt

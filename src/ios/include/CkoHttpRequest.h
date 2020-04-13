@@ -1,5 +1,5 @@
 // Chilkat Objective-C header.
-// This is a generated header file for Chilkat version 9.5.0.75
+// This is a generated header file for Chilkat version 9.5.0.82
 
 // Generic/internal class name =  HttpRequest
 // Wrapped Chilkat C++ class name =  CkHttpRequest
@@ -41,6 +41,11 @@
 @property (nonatomic) BOOL SendCharset;
 @property (nonatomic) BOOL VerboseLogging;
 @property (nonatomic, readonly, copy) NSString *Version;
+// method: AddBdForUpload
+- (BOOL)AddBdForUpload: (NSString *)name 
+	remoteFilename: (NSString *)remoteFilename 
+	byteData: (CkoBinData *)byteData 
+	contentType: (NSString *)contentType;
 // method: AddBytesForUpload
 - (BOOL)AddBytesForUpload: (NSString *)name 
 	filename: (NSString *)filename 

@@ -1,5 +1,5 @@
 // Chilkat Objective-C header.
-// This is a generated header file for Chilkat version 9.5.0.75
+// This is a generated header file for Chilkat version 9.5.0.82
 
 // Generic/internal class name =  Gzip
 // Wrapped Chilkat C++ class name =  CkGzip
@@ -119,6 +119,8 @@
 	encoding: (NSString *)encoding;
 // method: IsUnlocked
 - (BOOL)IsUnlocked;
+// method: LoadTaskCaller
+- (BOOL)LoadTaskCaller: (CkoTask *)task;
 // method: ReadFile
 - (NSData *)ReadFile: (NSString *)path;
 // method: SaveLastError

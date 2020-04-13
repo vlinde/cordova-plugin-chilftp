@@ -1,11 +1,11 @@
 // Chilkat Objective-C header.
-// This is a generated header file for Chilkat version 9.5.0.75
+// This is a generated header file for Chilkat version 9.5.0.82
 
 // Generic/internal class name =  AuthAzureAD
 // Wrapped Chilkat C++ class name =  CkAuthAzureAD
 
-@class CkoSocket;
 @class CkoTask;
+@class CkoSocket;
 
 
 @class CkoBaseProgress;
@@ -44,6 +44,8 @@
 @property (nonatomic, readonly) BOOL Valid;
 @property (nonatomic) BOOL VerboseLogging;
 @property (nonatomic, readonly, copy) NSString *Version;
+// method: LoadTaskCaller
+- (BOOL)LoadTaskCaller: (CkoTask *)task;
 // method: ObtainAccessToken
 - (BOOL)ObtainAccessToken: (CkoSocket *)connection;
 // method: ObtainAccessTokenAsync

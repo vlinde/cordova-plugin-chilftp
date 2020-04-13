@@ -1,5 +1,5 @@
 // Chilkat Objective-C header.
-// This is a generated header file for Chilkat version 9.5.0.75
+// This is a generated header file for Chilkat version 9.5.0.82
 
 // Generic/internal class name =  Dkim
 // Wrapped Chilkat C++ class name =  CkDkim
@@ -50,6 +50,7 @@
 @property (nonatomic, readonly, copy) NSString *LastErrorXml;
 @property (nonatomic) BOOL LastMethodSuccess;
 @property (nonatomic) BOOL VerboseLogging;
+@property (nonatomic, readonly, copy) NSString *VerifyInfo;
 @property (nonatomic, readonly, copy) NSString *Version;
 // method: AddDkimSignature
 - (NSData *)AddDkimSignature: (NSData *)mimeIn;
@@ -91,10 +92,16 @@
 - (BOOL)LoadPublicKeyFile: (NSString *)selector 
 	domain: (NSString *)domain 
 	publicKeyFilepath: (NSString *)publicKeyFilepath;
+// method: LoadTaskCaller
+- (BOOL)LoadTaskCaller: (CkoTask *)task;
 // method: NumDkimSignatures
 - (NSNumber *)NumDkimSignatures: (NSData *)mimeData;
+// method: NumDkimSigs
+- (NSNumber *)NumDkimSigs: (CkoBinData *)mimeData;
 // method: NumDomainKeySignatures
 - (NSNumber *)NumDomainKeySignatures: (NSData *)mimeData;
+// method: NumDomainKeySigs
+- (NSNumber *)NumDomainKeySigs: (CkoBinData *)mimeData;
 // method: PrefetchPublicKey
 - (BOOL)PrefetchPublicKey: (NSString *)selector 
 	domain: (NSString *)domain;

@@ -283,6 +283,10 @@ public class CkAsn {
     return chilkatJNI.CkAsn_LoadAsnXml(swigCPtr, this, xmlStr);
   }
 
+  public boolean LoadBd(CkBinData bd) {
+    return chilkatJNI.CkAsn_LoadBd(swigCPtr, this, CkBinData.getCPtr(bd), bd);
+  }
+
   public boolean LoadBinary(CkByteData derBytes) {
     return chilkatJNI.CkAsn_LoadBinary(swigCPtr, this, CkByteData.getCPtr(derBytes), derBytes);
   }
@@ -301,6 +305,10 @@ public class CkAsn {
 
   public boolean SetEncodedContent(String encodedBytes, String encoding) {
     return chilkatJNI.CkAsn_SetEncodedContent(swigCPtr, this, encodedBytes, encoding);
+  }
+
+  public boolean WriteBd(CkBinData bd) {
+    return chilkatJNI.CkAsn_WriteBd(swigCPtr, this, CkBinData.getCPtr(bd), bd);
   }
 
   public boolean WriteBinaryDer(String path) {

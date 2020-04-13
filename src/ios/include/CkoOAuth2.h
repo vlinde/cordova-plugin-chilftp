@@ -1,5 +1,5 @@
 // Chilkat Objective-C header.
-// This is a generated header file for Chilkat version 9.5.0.75
+// This is a generated header file for Chilkat version 9.5.0.82
 
 // Generic/internal class name =  OAuth2
 // Wrapped Chilkat C++ class name =  CkOAuth2
@@ -41,6 +41,7 @@
 @property (nonatomic, copy) NSString *CodeChallengeMethod;
 @property (nonatomic, copy) NSString *DebugLogFilePath;
 @property (nonatomic, readonly, copy) NSString *FailureInfo;
+@property (nonatomic) BOOL IncludeNonce;
 @property (nonatomic, readonly, copy) NSString *LastErrorHtml;
 @property (nonatomic, readonly, copy) NSString *LastErrorText;
 @property (nonatomic, readonly, copy) NSString *LastErrorXml;
@@ -48,10 +49,13 @@
 @property (nonatomic, copy) NSNumber *ListenPort;
 @property (nonatomic, copy) NSNumber *ListenPortRangeEnd;
 @property (nonatomic, copy) NSString *LocalHost;
+@property (nonatomic, copy) NSNumber *NonceLength;
 @property (nonatomic, copy) NSString *RedirectAllowHtml;
 @property (nonatomic, copy) NSString *RedirectDenyHtml;
 @property (nonatomic, copy) NSString *RefreshToken;
 @property (nonatomic, copy) NSString *Resource;
+@property (nonatomic, copy) NSString *ResponseMode;
+@property (nonatomic, copy) NSString *ResponseType;
 @property (nonatomic, copy) NSString *Scope;
 @property (nonatomic, copy) NSString *TokenEndpoint;
 @property (nonatomic, copy) NSString *TokenType;
@@ -62,6 +66,8 @@
 - (BOOL)Cancel;
 // method: GetRedirectRequestParam
 - (NSString *)GetRedirectRequestParam: (NSString *)paramName;
+// method: LoadTaskCaller
+- (BOOL)LoadTaskCaller: (CkoTask *)task;
 // method: Monitor
 - (BOOL)Monitor;
 // method: MonitorAsync
@@ -72,6 +78,12 @@
 - (CkoTask *)RefreshAccessTokenAsync;
 // method: SaveLastError
 - (BOOL)SaveLastError: (NSString *)path;
+// method: SetRefreshHeader
+- (BOOL)SetRefreshHeader: (NSString *)name 
+	value: (NSString *)value;
+// method: SetRefreshHeaderAsync
+- (CkoTask *)SetRefreshHeaderAsync: (NSString *)name 
+	value: (NSString *)value;
 // method: SleepMs
 - (void)SleepMs: (NSNumber *)millisec;
 // method: StartAuth

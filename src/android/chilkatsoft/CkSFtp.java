@@ -507,6 +507,14 @@ public class CkSFtp {
     chilkatJNI.CkSFtp_put_SoSndBuf(swigCPtr, this, newVal);
   }
 
+  public boolean get_SyncCreateAllLocalDirs() {
+    return chilkatJNI.CkSFtp_get_SyncCreateAllLocalDirs(swigCPtr, this);
+  }
+
+  public void put_SyncCreateAllLocalDirs(boolean newVal) {
+    chilkatJNI.CkSFtp_put_SyncCreateAllLocalDirs(swigCPtr, this, newVal);
+  }
+
   public void get_SyncDirectives(CkString str) {
     chilkatJNI.CkSFtp_get_SyncDirectives(swigCPtr, this, CkString.getCPtr(str), str);
   }
@@ -543,6 +551,18 @@ public class CkSFtp {
     chilkatJNI.CkSFtp_put_SyncMustMatch(swigCPtr, this, newVal);
   }
 
+  public void get_SyncMustMatchDir(CkString str) {
+    chilkatJNI.CkSFtp_get_SyncMustMatchDir(swigCPtr, this, CkString.getCPtr(str), str);
+  }
+
+  public String syncMustMatchDir() {
+    return chilkatJNI.CkSFtp_syncMustMatchDir(swigCPtr, this);
+  }
+
+  public void put_SyncMustMatchDir(String newVal) {
+    chilkatJNI.CkSFtp_put_SyncMustMatchDir(swigCPtr, this, newVal);
+  }
+
   public void get_SyncMustNotMatch(CkString str) {
     chilkatJNI.CkSFtp_get_SyncMustNotMatch(swigCPtr, this, CkString.getCPtr(str), str);
   }
@@ -553,6 +573,18 @@ public class CkSFtp {
 
   public void put_SyncMustNotMatch(String newVal) {
     chilkatJNI.CkSFtp_put_SyncMustNotMatch(swigCPtr, this, newVal);
+  }
+
+  public void get_SyncMustNotMatchDir(CkString str) {
+    chilkatJNI.CkSFtp_get_SyncMustNotMatchDir(swigCPtr, this, CkString.getCPtr(str), str);
+  }
+
+  public String syncMustNotMatchDir() {
+    return chilkatJNI.CkSFtp_syncMustNotMatchDir(swigCPtr, this);
+  }
+
+  public void put_SyncMustNotMatchDir(String newVal) {
+    chilkatJNI.CkSFtp_put_SyncMustNotMatchDir(swigCPtr, this, newVal);
   }
 
   public boolean get_TcpNoDelay() {
@@ -966,12 +998,21 @@ public class CkSFtp {
     return (cPtr == 0) ? null : new CkTask(cPtr, true);
   }
 
+  public CkJsonObject LastJsonData() {
+    long cPtr = chilkatJNI.CkSFtp_LastJsonData(swigCPtr, this);
+    return (cPtr == 0) ? null : new CkJsonObject(cPtr, true);
+  }
+
   public boolean LastReadFailed(String handle) {
     return chilkatJNI.CkSFtp_LastReadFailed(swigCPtr, this, handle);
   }
 
   public int LastReadNumBytes(String handle) {
     return chilkatJNI.CkSFtp_LastReadNumBytes(swigCPtr, this, handle);
+  }
+
+  public boolean LoadTaskCaller(CkTask task) {
+    return chilkatJNI.CkSFtp_LoadTaskCaller(swigCPtr, this, CkTask.getCPtr(task), task);
   }
 
   public boolean OpenDir(String path, CkString outStr) {
@@ -1007,6 +1048,15 @@ public class CkSFtp {
 
   public CkTask ReadDirAsync(String handle) {
     long cPtr = chilkatJNI.CkSFtp_ReadDirAsync(swigCPtr, this, handle);
+    return (cPtr == 0) ? null : new CkTask(cPtr, true);
+  }
+
+  public boolean ReadFileBd(String handle, int numBytes, CkBinData bd) {
+    return chilkatJNI.CkSFtp_ReadFileBd(swigCPtr, this, handle, numBytes, CkBinData.getCPtr(bd), bd);
+  }
+
+  public CkTask ReadFileBdAsync(String handle, int numBytes, CkBinData bd) {
+    long cPtr = chilkatJNI.CkSFtp_ReadFileBdAsync(swigCPtr, this, handle, numBytes, CkBinData.getCPtr(bd), bd);
     return (cPtr == 0) ? null : new CkTask(cPtr, true);
   }
 
@@ -1276,12 +1326,12 @@ public class CkSFtp {
     return (cPtr == 0) ? null : new CkTask(cPtr, true);
   }
 
-  public boolean UploadFile(String handle, String fromFilename) {
-    return chilkatJNI.CkSFtp_UploadFile(swigCPtr, this, handle, fromFilename);
+  public boolean UploadFile(String handle, String fromLocalFilePath) {
+    return chilkatJNI.CkSFtp_UploadFile(swigCPtr, this, handle, fromLocalFilePath);
   }
 
-  public CkTask UploadFileAsync(String handle, String fromFilename) {
-    long cPtr = chilkatJNI.CkSFtp_UploadFileAsync(swigCPtr, this, handle, fromFilename);
+  public CkTask UploadFileAsync(String handle, String fromLocalFilePath) {
+    long cPtr = chilkatJNI.CkSFtp_UploadFileAsync(swigCPtr, this, handle, fromLocalFilePath);
     return (cPtr == 0) ? null : new CkTask(cPtr, true);
   }
 
@@ -1300,6 +1350,15 @@ public class CkSFtp {
 
   public CkTask UploadSbAsync(CkStringBuilder sb, String remoteFilePath, String charset, boolean includeBom) {
     long cPtr = chilkatJNI.CkSFtp_UploadSbAsync(swigCPtr, this, CkStringBuilder.getCPtr(sb), sb, remoteFilePath, charset, includeBom);
+    return (cPtr == 0) ? null : new CkTask(cPtr, true);
+  }
+
+  public boolean WriteFileBd(String handle, CkBinData bd) {
+    return chilkatJNI.CkSFtp_WriteFileBd(swigCPtr, this, handle, CkBinData.getCPtr(bd), bd);
+  }
+
+  public CkTask WriteFileBdAsync(String handle, CkBinData bd) {
+    long cPtr = chilkatJNI.CkSFtp_WriteFileBdAsync(swigCPtr, this, handle, CkBinData.getCPtr(bd), bd);
     return (cPtr == 0) ? null : new CkTask(cPtr, true);
   }
 

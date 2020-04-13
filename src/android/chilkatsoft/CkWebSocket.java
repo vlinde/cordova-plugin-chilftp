@@ -183,6 +183,14 @@ public class CkWebSocket {
     return chilkatJNI.CkWebSocket_get_ReadFrameFailReason(swigCPtr, this);
   }
 
+  public void get_UncommonOptions(CkString str) {
+    chilkatJNI.CkWebSocket_get_UncommonOptions(swigCPtr, this, CkString.getCPtr(str), str);
+  }
+
+  public String uncommonOptions() {
+    return chilkatJNI.CkWebSocket_uncommonOptions(swigCPtr, this);
+  }
+
   public boolean get_VerboseLogging() {
     return chilkatJNI.CkWebSocket_get_VerboseLogging(swigCPtr, this);
   }
@@ -225,6 +233,10 @@ public class CkWebSocket {
 
   public boolean GetFrameDataSb(CkStringBuilder sb) {
     return chilkatJNI.CkWebSocket_GetFrameDataSb(swigCPtr, this, CkStringBuilder.getCPtr(sb), sb);
+  }
+
+  public boolean LoadTaskCaller(CkTask task) {
+    return chilkatJNI.CkWebSocket_LoadTaskCaller(swigCPtr, this, CkTask.getCPtr(task), task);
   }
 
   public boolean PollDataAvailable() {

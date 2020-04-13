@@ -1,5 +1,5 @@
 // Chilkat Objective-C header.
-// This is a generated header file for Chilkat version 9.5.0.75
+// This is a generated header file for Chilkat version 9.5.0.82
 
 // Generic/internal class name =  Rss
 // Wrapped Chilkat C++ class name =  CkRss
@@ -71,6 +71,8 @@
 - (BOOL)LoadRssFile: (NSString *)path;
 // method: LoadRssString
 - (BOOL)LoadRssString: (NSString *)rssString;
+// method: LoadTaskCaller
+- (BOOL)LoadTaskCaller: (CkoTask *)task;
 // method: MGetAttr
 - (NSString *)MGetAttr: (NSString *)tag 
 	index: (NSNumber *)index 

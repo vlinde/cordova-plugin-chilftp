@@ -503,6 +503,10 @@ public class CkCompression {
     return (cPtr == 0) ? null : new CkTask(cPtr, true);
   }
 
+  public boolean LoadTaskCaller(CkTask task) {
+    return chilkatJNI.CkCompression_LoadTaskCaller(swigCPtr, this, CkTask.getCPtr(task), task);
+  }
+
   public boolean MoreCompressBytes(CkByteData data, CkByteData outData) {
     return chilkatJNI.CkCompression_MoreCompressBytes(swigCPtr, this, CkByteData.getCPtr(data), data, CkByteData.getCPtr(outData), outData);
   }

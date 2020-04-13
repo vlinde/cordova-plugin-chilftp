@@ -99,6 +99,14 @@ public class CkAuthGoogle {
     chilkatJNI.CkAuthGoogle_put_ExpireNumSeconds(swigCPtr, this, newVal);
   }
 
+  public int get_Iat() {
+    return chilkatJNI.CkAuthGoogle_get_Iat(swigCPtr, this);
+  }
+
+  public void put_Iat(int newVal) {
+    chilkatJNI.CkAuthGoogle_put_Iat(swigCPtr, this, newVal);
+  }
+
   public void get_JsonKey(CkString str) {
     chilkatJNI.CkAuthGoogle_get_JsonKey(swigCPtr, this, CkString.getCPtr(str), str);
   }
@@ -194,6 +202,10 @@ public class CkAuthGoogle {
   public CkPfx GetP12() {
     long cPtr = chilkatJNI.CkAuthGoogle_GetP12(swigCPtr, this);
     return (cPtr == 0) ? null : new CkPfx(cPtr, true);
+  }
+
+  public boolean LoadTaskCaller(CkTask task) {
+    return chilkatJNI.CkAuthGoogle_LoadTaskCaller(swigCPtr, this, CkTask.getCPtr(task), task);
   }
 
   public boolean ObtainAccessToken(CkSocket connection) {

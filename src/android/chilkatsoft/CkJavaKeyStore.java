@@ -237,6 +237,10 @@ public class CkJavaKeyStore {
     return chilkatJNI.CkJavaKeyStore_trustedCertAlias(swigCPtr, this, index);
   }
 
+  public boolean LoadBd(String password, CkBinData bd) {
+    return chilkatJNI.CkJavaKeyStore_LoadBd(swigCPtr, this, password, CkBinData.getCPtr(bd), bd);
+  }
+
   public boolean LoadBinary(String password, CkByteData jksData) {
     return chilkatJNI.CkJavaKeyStore_LoadBinary(swigCPtr, this, password, CkByteData.getCPtr(jksData), jksData);
   }

@@ -1,10 +1,11 @@
 // Chilkat Objective-C header.
-// This is a generated header file for Chilkat version 9.5.0.75
+// This is a generated header file for Chilkat version 9.5.0.82
 
 // Generic/internal class name =  FileAccess
 // Wrapped Chilkat C++ class name =  CkFileAccess
 
 @class CkoBinData;
+@class CkoStringBuilder;
 @class CkoDateTime;
 
 
@@ -37,6 +38,11 @@
 @property (nonatomic, readonly, copy) NSString *Version;
 // method: AppendAnsi
 - (BOOL)AppendAnsi: (NSString *)text;
+// method: AppendBd
+- (BOOL)AppendBd: (CkoBinData *)bd;
+// method: AppendSb
+- (BOOL)AppendSb: (CkoStringBuilder *)sb 
+	charset: (NSString *)charset;
 // method: AppendText
 - (BOOL)AppendText: (NSString *)text 
 	charset: (NSString *)charset;
@@ -86,8 +92,15 @@
 	origin: (NSNumber *)origin;
 // method: FileSize
 - (NSNumber *)FileSize: (NSString *)path;
+// method: FileSizeStr
+- (NSString *)FileSizeStr: (NSString *)filePath;
+// method: FileType
+- (NSNumber *)FileType: (NSString *)path;
 // method: FileWrite
 - (BOOL)FileWrite: (NSData *)data;
+// method: FileWrite2
+- (BOOL)FileWrite2: (NSData *)pByteData 
+	szByteData: (NSNumber *)szByteData;
 // method: FileWriteBd
 - (BOOL)FileWriteBd: (CkoBinData *)binData 
 	offset: (NSNumber *)offset 
@@ -128,11 +141,21 @@
 // method: ReadBlock
 - (NSData *)ReadBlock: (NSNumber *)blockIndex 
 	blockSize: (NSNumber *)blockSize;
+// method: ReadBlockBd
+- (BOOL)ReadBlockBd: (NSNumber *)blockIndex 
+	blockSize: (NSNumber *)blockSize 
+	bd: (CkoBinData *)bd;
 // method: ReadEntireFile
 - (NSData *)ReadEntireFile: (NSString *)path;
 // method: ReadEntireTextFile
 - (NSString *)ReadEntireTextFile: (NSString *)path 
 	charset: (NSString *)charset;
+// method: ReadNextFragment
+- (NSNumber *)ReadNextFragment: (BOOL)startAtBeginning 
+	beginMarker: (NSString *)beginMarker 
+	endMarker: (NSString *)endMarker 
+	charset: (NSString *)charset 
+	sb: (CkoStringBuilder *)sb;
 // method: ReassembleFile
 - (BOOL)ReassembleFile: (NSString *)partsDirPath 
 	partPrefix: (NSString *)partPrefix 
@@ -141,7 +164,7 @@
 // method: ReplaceStrings
 - (NSNumber *)ReplaceStrings: (NSString *)path 
 	charset: (NSString *)charset 
-	existingString: (NSString *)existingString 
+	existing: (NSString *)existing 
 	replacementString: (NSString *)replacementString;
 // method: SaveLastError
 - (BOOL)SaveLastError: (NSString *)path;
@@ -161,8 +184,15 @@
 	partExtension: (NSString *)partExtension 
 	partSize: (NSNumber *)partSize 
 	destDir: (NSString *)destDir;
+// method: SymlinkCreate
+- (BOOL)SymlinkCreate: (NSString *)targetPath 
+	linkPath: (NSString *)linkPath;
+// method: SymlinkTarget
+- (NSString *)SymlinkTarget: (NSString *)linkPath;
 // method: TreeDelete
 - (BOOL)TreeDelete: (NSString *)path;
+// method: Truncate
+- (BOOL)Truncate;
 // method: WriteEntireFile
 - (BOOL)WriteEntireFile: (NSString *)path 
 	fileData: (NSData *)fileData;

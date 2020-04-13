@@ -203,6 +203,14 @@ public class CkXmlDSigGen {
     chilkatJNI.CkXmlDSigGen_put_SigLocation(swigCPtr, this, newVal);
   }
 
+  public int get_SigLocationMod() {
+    return chilkatJNI.CkXmlDSigGen_get_SigLocationMod(swigCPtr, this);
+  }
+
+  public void put_SigLocationMod(int newVal) {
+    chilkatJNI.CkXmlDSigGen_put_SigLocationMod(swigCPtr, this, newVal);
+  }
+
   public void get_SigNamespacePrefix(CkString str) {
     chilkatJNI.CkXmlDSigGen_get_SigNamespacePrefix(swigCPtr, this, CkString.getCPtr(str), str);
   }
