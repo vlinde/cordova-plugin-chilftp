@@ -48,7 +48,7 @@ CkoFtp2 *ftp = nil;
             NSString *pw = [[command arguments] objectAtIndex:3];
             NSString *restartNext = [[command arguments] objectAtIndex:4];
             NSString *ssl = [[command arguments] objectAtIndex:5];
-            NSNumber *timeout = [NSNumber numberWithInt:6];
+            NSNumber *timeout = [NSNumber numberWithInt:10];
 
             ftp.Hostname = host;
             ftp.Port = port;
